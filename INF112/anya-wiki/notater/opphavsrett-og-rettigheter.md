@@ -1,0 +1,64 @@
+# Se video
+* På norsk: **https://www.youtube.com/watch?v=10dRiwxkWZs** (tiltenkt lærere, men generelt nyttig info)
+* [**Free software and open source licenses**](https://www.youtube.com/watch?v=UMIG4KnM8xw)
+* [**Copyright vs Trademark vs Patent**](https://www.youtube.com/watch?v=J3PVGmJtlYo)
+
+# Opphavsrett og åndsverk
+Kilder:
+
+* [Åndsverkloven](https://lovdata.no/dokument/NL/lov/2018-06-15-40) – beskytter *åndsverk* i dét de blir laget og i veldig lang tid fremover (konkret kreativt arbeid; tekst, programmer, musikk, video, kunst, foto, bilder, osv – men ikke tanker, ideer, osv) – dette er noe du (eller arbeidsgiver) får når du programmerer, og noe du må følge når du bruker andres arbeid
+   * er litt forskjellig i Europa vs USA – i Europa har du som opphavsperson som regel en del [ideelle rettigheter](https://snl.no/ideell_rett) (i tillegg til økonomiske rettighter), som rett til å bli navngitt, vern mot krenkende bruk osv
+   * vi har en del rettigheter til privat bruk, bruk i undervisning, kringkasting osv – dette er til dels regulert ved [avtale](https://snl.no/avtalelisens) med rettighetsorganisasjoner ([Kopinor](https://snl.no/Kopinor), [TONO](http://www.tono.no/) (for musikk)). Innsamlede penger deles ut igjen i form av forfatterstipend osv. (for bøker kan det gjerne være relativt mye penger i forhold til hva man faktisk får fra salg av bøker). Hvis du har måttet betale *kopiavgift* som student, så er dette pga Kopinor-avtalen.
+* [Personopplysningsloven](https://lovdata.no/dokument/NL/lov/2018-06-15-38) – beskytter en persons rett til opplysninger om seg selv – noe du må følge når du lager programvare, og rettigheter du har i samfunnet
+* [Varemerkeloven](https://lovdata.no/dokument/NL/lov/2010-03-26-8) – beskytter *navn*, *logo*, *grafisk uttrykk* osv, beskytter forbruker mot «forvirring»; kan/bør registreres, må følges opp
+* [Patentloven](https://lovdata.no/dokument/NL/lov/1967-12-15-9) – beskytter ideer og oppfinnelser, må registreres og tidsbegrenset (i hvor stor grad dette faktisk kan anvendes på programvare i forskjellige land er usikkert)
+* [Offentleglova](https://lovdata.no/dokument/NL/lov/2006-05-19-16) – retten til å vite hva myndighetene driver med
+* Internasjonalt: [**Bern-konvensjonen**](https://en.wikipedia.org/wiki/Berne_Convention), [**GDPR**](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation)
+* Perspektiver på opphavsrett: Fri programvare – [**GNU manifesto**](https://www.gnu.org/gnu/manifesto.html), [**Open Source Definition**](https://opensource.org/osd/);  Bill Gates' [**Open Letter to Hobbyists**](https://en.wikipedia.org/wiki/An_Open_Letter_to_Hobbyists), 
+
+# Viktige ting å huske på åpen kildekode/fri programvare med Git-prosjekter (i GitLab, på GitHub, osv)
+* Les oversikt i [**A dev's guide to open source licensing**](https://github.com/readme/guides/open-source-licensing)
+* Putt opphavsrettslisens i `LICENSE` filen – [**GitHub Licensing a Repository**](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
+* skriv hvordan andre utviklere kan bidra i `CONTRIBUTING` / `CONTRIBUTING.md` – [**Setting guidelines for repository contributors**](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)
+* lag en *code of conduct* for prosjektet – [**Adding a code of conduct to your project**](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)
+* GitLab og GitHub gjør det enkelt å legge til slike ting, f.eks. i GitLab, trykk *Add License* på forsiden, velg ønsket lisens fra *apply a template*.
+
+# Bearbeidelser / *derivative work* – gjenbruk, videreutvikling, redigering
+
+Den store forskjellen mellom [fri og åpen-kildekode](https://en.wikipedia.org/wiki/Free_and_open-source_software), og [proprietær programvare](https://en.wikipedia.org/wiki/Proprietary_software) ligger i retten og muligheten til bearbeidede verk.
+
+* «**Den som oversetter eller på annen måte bearbeider** et åndsverk eller overfører det til en annen litterær eller kunstnerisk form, har **opphavsrett til verket i denne skikkelse**, men **kan ikke råde over det i strid med opphavsretten til originalverket**.» (§6)
+* I utgangspunktet kan man ikke lage bearbeidede kopier av åndsverk uten tillatelse (med mindre opphavsretten har utløpt). F.eks. når man oversetter bøker har opprinnelig forfatter fremdeles rettigheter til verket, må samtykke til oversettelse og vil typisk få en andel av salget.
+* En del lisenser gir likevel rett til slik bearbeidelse:
+   * Såkalte [**permissive** lisenser](https://en.wikipedia.org/wiki/Permissive_software_license) – MIT/BSD-style, Apache, [CC BY](https://creativecommons.org/licenses/by/4.0/), f.eks. – lar deg gjøre endringer og distribuere resultatet under en annen lisens (inkludert i [proprietær programvare](https://en.wikipedia.org/wiki/Proprietary_software)). For eksempel, [libGDX](https://github.com/libgdx/libgdx) bruker Apache 2.0 lisensen – så du kan bruke det til å utvikle og selge et spill kommersielt, og du trenger ikke (men er oppfordret til å) dele evt. forbedringer du gjør i libGDX. Python bruker også en [slik lisens](https://docs.python.org/3/license.html)
+   * Såkalte [**copyleft** lisenser](https://en.wikipedia.org/wiki/Copyleft) – [GNU GPL](https://www.gnu.org/licenses/gpl-3.0.html), [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/ – krever at du gjør den endrede kildekoden tilgjengelig (på samme vilkår) hvis du endrer og distribuerer programvaren. Dvs. når noe først er offentliggjort under f.eks. GPL eller CC BY-SA, så kan ingen «stjele» det og gjemme vekk sine forbedringer.  For eksempel: [OpenJDK](https://github.com/openjdk/jdk) bruker GPL 2.0, men med et [lite unntak for bruk av biblioteker](https://en.wikipedia.org/wiki/GPL_linking_exception#The_Classpath_exception). Dvs. forbedringer du f.eks. gjør i Java-kompilatoren må deles på samme (GPL2.0) vilkår.
+   * [GNU AGPL](https://www.gnu.org/licenses/agpl-3.0.html) er en variant for **skytjenester** – hvis endrer programvaren og deployer til brukere på en server, må du likevel gjøre endringene tilgjengelig (dvs. selv om du ikke distribuerer programvaren til brukerne)
+   * Såkalte «**svak copyleft**» lar deg bruke programvare som et bibliotek uten at samleverket (dvs. din applikasjon sammen med biblioteket) må distribueres under samme lisens – men evt. endringer du gjør i biblioteket må offentliggjøres. [GNU LGPL](https://www.gnu.org/licenses/lgpl-3.0.en.html) («lesser» (tidl. «library») General Public License) er en slik lisens. For eksempel, libGDX inkluderer [JLayer](https://github.com/umjammer/jlayer) for å spille MP3-filer. JLayer har LGPL-lisens.
+* Andre har det ikke:
+   * Det er også mulig å ha fri redistribusjon *uten* rett til å bearbeidelse – ofte kalt «[**freeware**](https://en.wikipedia.org/wiki/Freeware)» (*ikke* det samme som «free software»/«fri programvare»). F.eks. [CC BY-ND](https://creativecommons.org/licenses/by-nd/4.0/) og varianter. En god del små verktøy for Windows er freeware (såkalt «[**shareware**](https://en.wikipedia.org/wiki/Shareware)» er ikke freeware – det er kommersiell programvare som man kan redistribuere, men man må (i prinsippet) betale for bruk)
+   * En annen variant er å begrense til ikke-kommersiell bruk – f.eks. [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) og varianter
+   * Vanlige proprietære lisenser lar deg *bruke* én eller et begrenset antall kopier av programvaren, og forbyr redistribusjon, endringer, og (ofte) til og med reverse engineering (plukke fra hverandre for å se hvordan det virker). En del (ofte veldig dyr) programvare krever abonnement og tilkobling til en [lisensserver](https://en.wikipedia.org/wiki/License_manager) eller en fysisk «[dongle](https://en.wikipedia.org/wiki/Software_protection_dongle)», eller er bundet til og aktiveres for én enkelt maskin (Windows) – eller er kun tilgjengelig som skytjeneste på leverandøres server.
+
+# Kriterier / ting å vurdere ved valg av lisens
+##
+* Motivasjon:
+   * Ønsker vi å tjene penger på programvaren? Det letteste er å selge den, og salg er lettest når programvaren ikke er fritt tilgjengelig.
+   * Det går fint an å tjene penger på open source programvare – f.eks. ved selge en mer avansert «premium» utgave av programvare og la basis-utgaven være fri…:
+      * [GitLab er slik ](https://about.gitlab.com/install/ce-or-ee/)– UiB bruker *community*-utgaven, men det er en del features som bare er tilgjengelig i Premium ($29/bruker/måned) eller Ultimate ($99/bruker/måned) utgavene.
+      * [nginx](https://nginx.org/en/) (web/proxy server) har BSD-lisens, mens [nginx plus](https://www.nginx.com/products/nginx/) selges som abonnement, med support og «enterprise features»
+   * …eller ved å selge support-avtaler (dette er gjerne uansett lukrativt også for kommersiell programvare):
+      * [RedHat Enterprise Linux (RHEL)](https://www.redhat.com/en/store/linux-platforms) er et kommersielt produkt basert på [Fedora Linux](https://fedoraproject.org/) – forskjellen ligger i varemerket, sertifiseringer og muligheten for support. [CentOS er RHEL](https://www.openlogic.com/blog/centos-vs-redhat) uten merkevaren og prislappen. (Linux-kjernen og mye av den [standard medfølgende programvaren](https://en.wikipedia.org/wiki/GNU_Project) har GPL-lisens, så RedHat må publisere all kildekoden til RHEL – men de kan likevel sette restriksjoner på bruk av merkevaren (helt annet lovverk enn opphavsrett) og supportavtaler)
+      * Selv om [Java SE](https://en.wikipedia.org/wiki/Java_Platform%2C_Standard_Edition) (dvs., referanseimplementasjonen OpenJDK) er open source, kan du kjøpe [Oracle Java SE](https://www.oracle.com/java/) fra Oracle og få kommersiell brukerstøtte. Java ble opprinnelig utviklet av Sun Microsystems, og var proprietær programvare (gratis å laste ned, bruke og bundle med egne programmer, men ikke mulig å endre), frem til [Sun gjorde mesteparten open source i 2006/2007](https://en.wikipedia.org/wiki/Java_(software_platform)#Licensing). Sun ble kjøpt opp av Oracle i 2010, og Oracle har fortsatt Java-utviklingen og fortsatt å selge sin egen utgave (med supportavtaler og noen få komponenter som ikke var open source). OpenJDK-miljøet overtok ansvaret for videreutvikling av Java SE f.o.m. Java 10 (2018), med mye raskere utviklingsprosess (to nye utgaver i året). Men – varemerket «Java» er separat og eies av Oracle. Når Eclipse foundation [overtok utviklingen av Java Enterprise Edition (J2EE)](https://www.zdnet.com/article/good-bye-jee-hello-jakarta-ee/) i 2017, måtte de bytte navn til «Jakarta EE» – og [alle pakkene måtte flyttes](https://eclipse-foundation.blog/2019/05/03/jakarta-ee-java-trademarks/) fra `javax.*` til `jakarta.*`.
+   * Ønsker vi at flest mulig skal kunne bruke og ha nytte programvaren? Da er det gjerne greit med en «permissive» åpen kildekode lisens, slik som BSD, MIT, Apache, CC BY, osv.
+   * Ønsker vi å sikre at menneskeheten har [åpen og fri tilgang til programvare](https://en.wikipedia.org/wiki/GNU_Manifesto) – eller å hindre at noen utnytter ens eget arbeid? Da passer det gjerne med «copyleft», slik som GPL, AGPL, CC BY-SA
+   * Ønsker vi at andre skal kunne bidra i utviklingsarbeidet eller evt. overta utviklingen om vi selv faller fra? Både permissive og copyleft egner seg. I prinsippet kan man prøve å gjøre dette uten åpen kildekode, men andre utviklere er gjerne ikke like interessert i å gjøre gratisarbeid og overføre rettighetene til oss.
+
+### Behovet for tilpasning av programvare oppstår *veldig ofte*:
+   * Bugs som forfatter ikke har tid eller mulighet til å fikse
+   * Porting av programvare til en ny eller oppdatert plattform
+   * Features som forfatter ikke har interesse av eller kapasitet til, men som «scratches an itch» for noen andre
+   * Programmer som må tilpasses for å funke sammen med noe annet
+   * Oversetting til andre språk (ofte vanskelig eller umulig å håndere for en enkelt utvikler(gruppe)
+   * Tilrettelegging av programvare for brukere med spesielle behov (døve, blinde, fargeblinde, svaksynte, dårlig motorikk osv)
+   * Vedlikehold eller videreutvikling av [programvare som utvikler ikke lenger vil støtte](https://en.wikipedia.org/wiki/Abandonware) eller når utvikler ikke lenger eksisterer
+      * Hva gjør vi f.eks. med historiske offentlige dokumenter, rapporter, regnark osv. skrevet i [NOTIS](https://en.wikipedia.org/wiki/ND-NOTIS) på en [Norsk Data](https://en.wikipedia.org/wiki/Sintran_III)-minidatamaskin? *(Akkurat dette er faktisk neppe noe problem – NOTIS brukte et nemlig tag-basert markup format (liknende til XML og HTML))*
