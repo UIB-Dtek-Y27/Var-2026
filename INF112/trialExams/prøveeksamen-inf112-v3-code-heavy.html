@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Prøveeksamen INF112 – Versjon 3</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+  </style>
+  <style>
+body.lang-nbnn section.oppgave {
+grid: auto-flow / 1fr 1fr;
+display: grid;
+}
+h1.oppgave,
+h2.oppgave,
+h3.oppgave,
+section[lang=no] {
+grid-column: span 2;
+}
+section p {
+padding: 0 .25em;
+}
+section pre.sourceCode {
+border: 1px dashed #8888;
+padding: .5em;
+margin: 1em;
+background: #fff8;
+}
+@media screen {
+section:not(.unnumbered) {
+background-color: #ccf1;
+border: 1px solid #88f1;
+margin: 1em -1px;
+}
+section.level2.unused {
+padding: .25em;
+}
+.svar, label[for=med-svar] {
+background-color: #dfd;
+}
+.vurdering {
+background-color: #fdf;
+}
+.vurdering {
+color: #000a;
+}
+}
+section {
+position: relative;
+}
+section.svar, section.vurdering, section[lang] {
+padding: .25em;
+padding-top: 1.5rem;
+margin-top: .5em;
+}
+section.svar::before, section.vurdering::before, section[lang]::before {
+position: absolute;
+top: .5rem;
+left: 0%; font-variant: small-caps;
+color: #1118;
+width: 100%;
+border-bottom: 1px solid #1118;
+font-size: .9rem;
+}
+section.svar::before {
+content: "Løsningsforslag";
+}
+section.vurdering::before {
+content: "Vurdering";
+}
+section[lang=nb]::before {
+content: "Bokmål";
+} section[lang=nn]::before {
+content: "Nynorsk";
+}
+.uten-svar .svar, .uten-svar .vurdering {
+display: none;
+}
+@media screen {
+.lang-nbnn section[lang=nn],
+label[for=lang-nn] {
+background-color: #dff8;
+}
+.lang-nbnn section[lang=nb],
+label[for=lang-nb] {
+background-color: #ffc8;
+}
+.lang-nb div[lang=nb],
+.lang-nb section[lang=nb] {
+background-color: #ffe1;
+}
+.lang-nnonly div[lang=nn],
+.lang-nnonly section[lang=nn] {
+background-color: #ffe8;
+}
+.vedlegg {
+background-color: #fff;
+}
+}
+.lang-nb div[lang=nn],
+.lang-nb section[lang=nn] {
+display: none;
+}
+.lang-nn div[lang=nb],
+.lang-nn section[lang=nb] {
+display: none;
+}
+figcaption {
+display: none;
+}
+body {
+max-width: 72em;
+}
+@media print {
+h2[data-poeng]::after {
+content: " [" attr(data-poeng) " poeng]";
+font-weight: normal;
+font-style: italic;
+}
+pre>code.sourceCode {
+white-space: pre-wrap;
+text-indent: 0;
+}
+pre>code.sourceCode>span {
+text-indent: 0;
+padding-left: 1em;
+}
+section.vurdering {
+background-color: #fdf;
+}
+section.svar {
+background-color: #dfd;
+}
+div[lang=nn],
+section[lang=nn] {
+display: none !important;
+}
+}
+h1,
+.vedlegg,
+.break {
+page-break-before: always;
+}
+.allow-break * {
+page-break-inside: auto;
+}
+img,
+pre {
+page-break-before: auto;
+page-break-after: auto;
+page-break-inside: avoid;
+}
+span.points {
+font-weight: normal;
+font-style: italic;
+}
+p {
+margin: 1em 0;
+}
+  </style>
+  <script>
+      addEventListener("DOMContentLoaded", () => {
+          const update = b => document.body.classList.toggle(b.id, b.checked);
+          const onChange = ev => {
+              console.log(ev.currentTarget);
+              ev.currentTarget.parentElement.querySelectorAll('input').forEach(elt => update(elt));
+          };
+          document.querySelectorAll('input').forEach(elt => {
+              console.log(elt);
+              update(elt);
+              elt.addEventListener('change', onChange);
+          });
+          const addPointsToHeader = (elt, pts) => {
+              if (!elt.querySelector(':scope > span.points')) {
+                  const pointsElt = document.createElement('span');
+                  pointsElt.innerText = ` [${pts} poeng]`;
+                  pointsElt.classList.add("points");
+                  elt.appendChild(pointsElt);
+              }
+          };
+          const computePoints = elt => {
+              let points = 0;
+              if (elt.tagName.match(/h[1-6]/i) && elt.dataset.poeng > 0) {
+                  points = parseInt(elt.dataset.poeng) || 0;
+                  addPointsToHeader(elt, points);
+              } else if (elt.childElementCount > 0) {
+                  for (let child of elt.children) {
+                      points = points + computePoints(child);
+                  }
+                  const header = elt.querySelector(':scope > header:first-child h1, :scope > h1:first-child, :scope > h2:first-child, :scope > h3:first-child, :scope > h4:first-child, :scope > h5:first-child, :scope > h6:first-child');
+                  if (header && points) {
+                      header.dataset.cumulativePoints = points;
+                      elt.dataset.cumulativePoints = points;
+                      addPointsToHeader(header, 'totalt ' + points);
+                  }
+              }
+              return points;
+          };
+          console.log(computePoints(document.body));
+      });
+  </script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Prøveeksamen INF112 – Versjon 3 (Code-Heavy)</h1>
+</header>
+<p><strong>Universitetet i Bergen, Institutt for informatikk</strong></p>
+<p><strong>Prøveeksamen – Våren 2026</strong></p>
+<fieldset>
+<legend>Variant</legend>
+<input type="radio" name="variant" id="uten-svar"></input>
+<label for="uten-svar">Kun oppgave</label>
+<input type="radio" name="variant" id="med-svar" checked="true"></input>
+<label for="med-svar">Med løsningsforslag</label>
+</fieldset>
+<section id="generell-info-om-eksamen" class="level2 unnumbered">
+<h2 class="unnumbered">Generell info om eksamen</h2>
+<section id="section" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong><em>Oppgaver:</em></strong> Oppgavesettet består av 4 oppgaver med til sammen 60 poeng. Oppgave 2–4 fokuserer på kodeanalyse og design.</p>
+<p><strong><em>Lese oppgaver:</em></strong> <strong>Uthevet skrift</strong> markerer konkrete ting du skal gjøre eller svare på. Les hver oppgave nøye!</p>
+<p><strong><em>Besvare oppgaver:</em></strong> Formatér svaret så det blir lett å lese. Bruk gjerne kodesnippets, tegninger og forklaringer der det passer.</p>
+<p><strong><em>Hjelpemidler:</em></strong> Alle skrevne og trykte hjelpemidler er tillatt.</p>
+<p><strong><em>Tid:</em></strong> Bruk tid i begynnelsen på å få oversikt. Pass på ikke å bruke for mye tid på noen oppgaver.</p>
+<p><strong><em>Lykke til!</em></strong></p>
+</section>
+<section id="section-1" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Løsningsforslag er markert på denne måten. Løsningsforslaget er bare ett forslag – ditt svar kan være like bra eller bedre!</p>
+</section>
+</section>
+
+<section id="oppgave-1-teamarbeid-og-refleksjon" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Teamarbeid og refleksjon</h1>
+
+<section id="oppgave-1-1-retrospektiv" class="level2" data-number="1.1" data-poeng="8">
+<h2 data-number="1.1" data-poeng="8"><span class="header-section-number">1.1</span> Retrospektiv</h2>
+<section id="section-2" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<ul>
+<li><strong>Tenk på et større teknisk problem du møtte på prosjektet ditt. Hva lærte du av det, og hva ville du gjort annerledes neste gang?</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-2b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Eksempel:</strong></p>
+<p>Vi designet først modellen helt separat fra grafikk, men det gjorde at input-håndtering ble komplisert senere. Kontrolleren måtte oversette fra `keyDown`-events til modell-kommandoer, og det ble kødete. Neste gang ville jeg involvere alle lag (modell, view, kontroller) tidlig i design-diskusjonene, slik at vi vet hvordan dataene skal flyte. Vi ville også brukt observatør-pattern fra start istedenfor hardkodet avhengigheter.</p>
+</section>
+<section id="section-2c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 8 poeng. Søker konkrete læringspunkter og refleksjon over design-valg.</p>
+</section>
+</section>
+
+<section id="oppgave-1-2-team-og-prosess" class="level2" data-number="1.2" data-poeng="7">
+<h2 data-number="1.2" data-poeng="7"><span class="header-section-section-number">1.2</span> Team og prosess</h2>
+<section id="section-3" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<ul>
+<li><strong>Nevn to ting dere gjorde bra under prosjektet, og forklar kort hvorfor det hjalp teamet.</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-3b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Eksempel:</strong></p>
+<p>1. Vi hadde ukentlige møter der vi viste frem det som fungerte – en "demo" også for oss selv. Det gjorde at folk holdt momentum og at vi raskt oppdaget når ting ikke stemte.</p>
+<p>2. Vi brukte GitLab issues til å dele små oppgaver. Det gjorde at ingen ble usikker på hva de skulle gjøre, og det var lett å se fremdrift.</p>
+</section>
+<section id="section-3c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 7 poeng. Søker konkrete prosess-valg som bidro til teamets suksess.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-2-api-design" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> API-design</h1>
+
+<section id="oppgave-2-1-design-et-api" class="level2" data-number="2.1" data-poeng="8">
+<h2 data-number="2.1" data-poeng="8"><span class="header-section-number">2.1</span> Design et API</h2>
+<section id="section-4" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Du skal designe et grensesnitt for en <code>PathFinder</code> som finner korteste vei mellom to punkter på et kart med hindringer.</p>
+<ul>
+<li><strong>a)</strong> <strong>Skissér grensesnittet (interface) med de metodene du mener er nødvendige.</strong> Tenk på: hva trenger klienten? Hva kan endres senere uten å ødelegge API-et?</li>
+<li><strong>b)</strong> <strong>Forklar dine designvalg</strong> – hvorfor valgte du akkurat disse metodene?</li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-4b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Grensesnitt:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> PathFinder {
+    <span class="co">/**</span>
+<span class="co">     * Finner korteste vei fra start til slutt.</span>
+<span class="co">     * @return en liste med posisjoner (start til slutt), eller tom liste hvis ingen vei finnes.</span>
+<span class="co">     */</span>
+    List&lt;Position&gt; <span class="fu">findPath</span>(Position start, Position goal);
+    
+    <span class="co">/**</span>
+<span class="co">     * Sjekker om en posisjon er gjennomsiktig (ikke hindring).</span>
+<span class="co">     */</span>
+    <span class="dt">boolean</span> <span class="fu">isWalkable</span>(Position pos);
+}</code></pre>
+<p><strong>b) Designvalg:</strong></p>
+<p>Jeg valgte å bare eksponere to metoder: <code>findPath</code> som er kjernefunksjonen, og <code>isWalkable</code> som er nyttig for validering. Jeg lot <code>Position</code> være et lite, uforanderlig objekt. Jeg returnerer en liste istedenfor en neste-node-iterator, fordi lista er enklere å bruke og teste. Jeg lar grensesnittet ikke vite om A*, Dijkstra eller andre algoritmer – det er implementasjonsdetalj.</p>
+</section>
+<section id="section-4c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 8 poeng. <strong>a)</strong> 4 poeng – grensesnitt skal være smalt og logisk. <strong>b)</strong> 4 poeng – skal begrunne valg (abstraksjon, uforanderlighet, enkelthet).</p>
+</section>
+</section>
+
+<section id="oppgave-2-2-fluent-interface-og-builder" class="level2" data-number="2.2" data-poeng="7">
+<h2 data-number="2.2" data-poeng="7"><span class="header-section-number">2.2</span> Fluent interface og builder</h2>
+<section id="section-5" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p>En <code>QueryBuilder</code> for å hente data fra en database skal kunne settes opp sånn:</p>
+<pre class="sourceCode java"><code class="sourceCode java">List&lt;User&gt; result = <span class="kw">new</span> <span class="fu">QueryBuilder</span>(db)
+    .<span class="fu">from</span>(<span class="st">"users"</span>)
+    .<span class="fu">where</span>(<span class="st">"age &gt; ?"</span>, <span class="dv">18</span>)
+    .<span class="fu">where</span>(<span class="st">"country = ?"</span>, <span class="st">"Norway"</span>)
+    .<span class="fu">orderBy</span>(<span class="st">"name"</span>)
+    .<span class="fu">limit</span>(<span class="dv">10</span>)
+    .<span class="fu">execute</span>();</code></pre>
+<ul>
+<li><strong>Skissér koden for <code>QueryBuilder</code> med minst <code>from()</code>, <code>where()</code>, og <code>execute()</code> metodene. Du trenger ikke implementere SQL-generering, bare skallet.</strong></li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-5b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> QueryBuilder {
+    <span class="kw">private</span> Database db;
+    <span class="kw">private</span> String table;
+    <span class="kw">private</span> List&lt;String&gt; whereClause = <span class="kw">new</span> ArrayList&lt;&gt;();
+    <span class="kw">private</span> List&lt;Object&gt; parameters = <span class="kw">new</span> ArrayList&lt;&gt;();
+    <span class="kw">private</span> String orderByClause = <span class="st">""</span>;
+    <span class="kw">private</span> <span class="dt">int</span> limitCount = -<span class="dv">1</span>;
+    
+    <span class="kw">public</span> <span class="fu">QueryBuilder</span>(Database db) {
+        <span class="kw">this</span>.db = db;
+    }
+    
+    <span class="kw">public</span> QueryBuilder <span class="fu">from</span>(String tableName) {
+        <span class="kw">this</span>.table = tableName;
+        <span class="kw">return</span> <span class="kw">this</span>;
+    }
+    
+    <span class="kw">public</span> QueryBuilder <span class="fu">where</span>(String condition, Object... params) {
+        whereClause.<span class="fu">add</span>(condition);
+        <span class="kw">for</span> (Object p : params) {
+            parameters.<span class="fu">add</span>(p);
+        }
+        <span class="kw">return</span> <span class="kw">this</span>;
+    }
+    
+    <span class="kw">public</span> QueryBuilder <span class="fu">orderBy</span>(String column) {
+        <span class="kw">this</span>.orderByClause = column;
+        <span class="kw">return</span> <span class="kw">this</span>;
+    }
+    
+    <span class="kw">public</span> QueryBuilder <span class="fu">limit</span>(<span class="dt">int</span> count) {
+        <span class="kw">this</span>.limitCount = count;
+        <span class="kw">return</span> <span class="kw">this</span>;
+    }
+    
+    <span class="kw">public</span> &lt;T&gt; List&lt;T&gt; <span class="fu">execute</span>() {
+        String sql = <span class="fu">buildSQL</span>();
+        <span class="kw">return</span> db.<span class="fu">query</span>(sql, parameters);
+    }
+    
+    <span class="kw">private</span> String <span class="fu">buildSQL</span>() {
+        <span class="co">// implementasjon av SQL-generering</span>
+        <span class="kw">return</span> <span class="st">""</span>;
+    }
+}</code></pre>
+<p>Nøkkelen er at hver metode returnerer <code>this</code>, slik at du kan kjede metodekall. Det gjør API-et lesbart og intuitivt.</p>
+</section>
+<section id="section-5c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 7 poeng. Skal vise fluent-prinsippet (hver metode returnerer this), og minst 3–4 metoder.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-3-kodeanalyse-og-designproblemer" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Kodeanalyse og designproblemer</h1>
+
+<section id="oppgave-3-1-tight-coupling" class="level2" data-number="3.1" data-poeng="8">
+<h2 data-number="3.1" data-poeng="8"><span class="header-section-number">3.1</span> Tight coupling</h2>
+<section id="section-6" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p>Se på denne koden:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> PlayerController {
+    <span class="kw">private</span> GameModel model;
+    <span class="kw">private</span> SoundManager sounds;
+    <span class="kw">private</span> ParticleSystem particles;
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">handleAttack</span>() {
+        model.<span class="fu">playerAttack</span>();
+        sounds.<span class="fu">playSound</span>(<span class="st">"attack.wav"</span>);
+        particles.<span class="fu">createExplosion</span>(model.<span class="fu">getPlayerPos</span>());
+    }
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">handleMove</span>(<span class="dt">int</span> dx, <span class="dt">int</span> dy) {
+        <span class="kw">if</span> (model.<span class="fu">canMove</span>(dx, dy)) {
+            model.<span class="fu">movePlayer</span>(dx, dy);
+        } <span class="kw">else</span> {
+            sounds.<span class="fu">playSound</span>(<span class="st">"blocked.wav"</span>);
+        }
+    }
+}
+</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Identifiser designproblemene</strong> i denne koden. Hva gjør den vanskelig å teste og å endre?</li>
+<li><strong>b)</strong> <strong>Foreslå en refaktorering.</strong> Skissér en bedre arkitektur.</li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-6b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Designproblemer:</strong></p>
+<ul>
+<li><code>PlayerController</code> er tett koblet til `SoundManager` og `ParticleSystem`. Hvis du vil teste `handleAttack`, må du mock alle tre.</li>
+<li>Hvis du senere vil bytte lyd-implementasjon eller legge til vibrasjon, må du endre `PlayerController`.</li>
+<li>Kontrolleren vet for mye – det er ikke bare input-håndtering, men også lyd- og effekt-logikk.</li>
+</ul>
+<p><strong>b) Bedre løsning – bruk Observer/Event-pattern:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> ActionListener {
+    <span class="dt">void</span> <span class="fu">onPlayerAttacked</span>(Position pos);
+    <span class="dt">void</span> <span class="fu">onPlayerMoved</span>(Position pos);
+    <span class="dt">void</span> <span class="fu">onMovementBlocked</span>(Position pos);
+}
+
+<span class="kw">public</span> <span class="kw">class</span> PlayerController {
+    <span class="kw">private</span> GameModel model;
+    <span class="kw">private</span> List&lt;ActionListener&gt; listeners = <span class="kw">new</span> ArrayList&lt;&gt;();
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">addListener</span>(ActionListener listener) {
+        listeners.<span class="fu">add</span>(listener);
+    }
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">handleAttack</span>() {
+        model.<span class="fu">playerAttack</span>();
+        <span class="co">// notifiser alle lyttere</span>
+        <span class="kw">for</span> (ActionListener l : listeners) {
+            l.<span class="fu">onPlayerAttacked</span>(model.<span class="fu">getPlayerPos</span>());
+        }
+    }
+}</code></pre>
+<p>Nå kan SoundManager og ParticleSystem registrere seg som lyttere, uten at kontrolleren trenger å kjenne dem.</p>
+</section>
+<section id="section-6c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 8 poeng. <strong>a)</strong> 3 poeng – identifiser tight coupling og testability-problemer. <strong>b)</strong> 5 poeng – foreslå Observer eller lignende mønster.</p>
+</section>
+</section>
+
+<section id="oppgave-3-2-kodekvalitet" class="level2" data-number="3.2" data-poeng="7">
+<h2 data-number="3.2" data-poeng="7"><span class="header-section-number">3.2</span> Kodekvalitet</h2>
+<section id="section-7" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p>Se på denne metoden fra et `InventoryManager`:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">addItem</span>(String itemName, <span class="dt">int</span> quantity) {
+    <span class="dt">int</span> max = <span class="dv">100</span>;
+    <span class="dt">int</span> current = <span class="dv">0</span>;
+    <span class="kw">if</span> (items.<span class="fu">containsKey</span>(itemName)) {
+        current = items.<span class="fu">get</span>(itemName);
+    }
+    <span class="dt">int</span> newAmount = current + quantity;
+    <span class="kw">if</span> (newAmount &gt; max) {
+        newAmount = max;
+    }
+    items.<span class="fu">put</span>(itemName, newAmount);
+    System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Added "</span> + quantity + <span class="st">" of "</span> + itemName);
+}
+</code></pre>
+<ul>
+<li><strong>Identifiser minst tre kodelukter eller problemer i denne metoden, og foreslå forbedringer.</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-7b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Problemer:</strong></p>
+<ul>
+<li><strong>Magic number:</strong> `max = 100` er hardkodet. Det burde vært en konstant eller parameter.</li>
+<li><strong>Duplisert logikk:</strong> `items.get()` med sjekk kan erstattes med `getOrDefault()`.</li>
+<li><strong>Debug-utskrift:</strong> `System.out.println()` skal ikke være der. Bruk logging eller events.</li>
+<li><strong>Dårlig navn:</strong> `newAmount` er uklart – er det grunnmengden eller justert mengde?</li>
+</ul>
+<p><strong>Forbedret versjon:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">private</span> <span class="kw">static</span> <span class="kw">final</span> <span class="dt">int</span> MAX_STACK_SIZE = <span class="dv">100</span>;
+
+<span class="kw">public</span> <span class="dt">void</span> <span class="fu">addItem</span>(String itemName, <span class="dt">int</span> quantity) {
+    <span class="dt">int</span> currentAmount = items.<span class="fu">getOrDefault</span>(itemName, <span class="dv">0</span>);
+    <span class="dt">int</span> cappedAmount = Math.<span class="fu">min</span>(currentAmount + quantity, MAX_STACK_SIZE);
+    items.<span class="fu">put</span>(itemName, cappedAmount);
+}</code></pre>
+</section>
+<section id="section-7c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 7 poeng. Må identifisere minst 3 problemer og foreslå konkrete forbedringer.</p>
+</section>
+</section>
+
+<section id="oppgave-3-3-testability" class="level2" data-number="3.3" data-poeng="7">
+<h2 data-number="3.3" data-poeng="7"><span class="header-section-number">3.3</span> Testability</h2>
+<section id="section-8" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>Tenk på denne klassen – hvordan ville du testet `calculateDamage()` uten å starte et GUI-vindu?</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> CombatSystem {
+    <span class="kw">private</span> Texture weaponTexture;
+    <span class="kw">private</span> SpriteBatch batch;
+    
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">calculateDamage</span>(Character attacker, Character defender) {
+        <span class="dt">int</span> baseDamage = attacker.<span class="fu">getAttackPower</span>();
+        <span class="dt">int</span> defense = defender.<span class="fu">getDefense</span>();
+        <span class="dt">int</span> damage = Math.<span class="fu">max</span>(<span class="dv">1</span>, baseDamage - defense);
+        batch.<span class="fu">draw</span>(weaponTexture, <span class="dv">0</span>, <span class="dv">0</span>); <span class="co">// tegn animasjon</span>
+        <span class="kw">return</span> damage;
+    }
+}</code></pre>
+<ul>
+<li><strong>Identifiser testability-problemet og foreslå en løsning.</strong></li>
+</ul>
+<p><em>(1 avsnitt + kode-skisse)</em></p>
+</section>
+<section id="section-8b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Problem:</strong> `calculateDamage()` blander beregning med tegning. Du kan ikke teste den uten å starte et libGDX-vindu, fordi `batch.draw()` krever en aktiv GL-kontekst.</p>
+<p><strong>Løsning – separasjon av concerns:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> CombatSystem {
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">calculateDamage</span>(Character attacker, Character defender) {
+        <span class="dt">int</span> baseDamage = attacker.<span class="fu">getAttackPower</span>();
+        <span class="dt">int</span> defense = defender.<span class="fu">getDefense</span>();
+        <span class="kw">return</span> Math.<span class="fu">max</span>(<span class="dv">1</span>, baseDamage - defense);
+    }
+}
+
+<span class="co">// En separat klasse for rendering</span>
+<span class="kw">public</span> <span class="kw">class</span> CombatRenderer {
+    <span class="kw">private</span> SpriteBatch batch;
+    <span class="kw">private</span> Texture weaponTexture;
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">renderAttackAnimation</span>() {
+        batch.<span class="fu">draw</span>(weaponTexture, <span class="dv">0</span>, <span class="dv">0</span>);
+    }
+}</code></pre>
+<p>Nå kan du teste `calculateDamage()` som en ren enhetstests uten avhengigheter til grafikk.</p>
+</section>
+<section id="section-8c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 7 poeng. Må identifisere at grafikk og logikk er blandet, og foreslå separasjon.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-4-refaktorering-og-testing" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Refaktorering og testing</h1>
+
+<section id="oppgave-4-1-refaktorering" class="level2" data-number="4.1" data-poeng="10">
+<h2 data-number="4.1" data-poeng="10"><span class="header-section-number">4.1</span> Refaktorering</h2>
+<section id="section-9" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p>Her er en klasse som håndterer brukere:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> UserManager {
+    <span class="kw">private</span> List&lt;User&gt; users;
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">addUser</span>(String name, String email, <span class="dt">int</span> age, 
+                        String country, String phone) {
+        <span class="kw">if</span> (name == <span class="kw">null</span> || name.<span class="fu">trim</span>().<span class="fu">isEmpty</span>()) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Error: name required"</span>);
+            <span class="kw">return</span>;
+        }
+        <span class="kw">if</span> (!email.<span class="fu">contains</span>(<span class="st">"@"</span>)) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Error: invalid email"</span>);
+            <span class="kw">return</span>;
+        }
+        <span class="kw">if</span> (age &lt; <span class="dv">18</span> || age &gt; <span class="dv">120</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Error: age out of range"</span>);
+            <span class="kw">return</span>;
+        }
+        User u = <span class="kw">new</span> <span class="fu">User</span>(name, email, age, country, phone);
+        users.<span class="fu">add</span>(u);
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"User added"</span>);
+    }
+}
+</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Identifiser designproblemer</strong> og foreslå refaktorering.</li>
+<li><strong>b)</strong> <strong>Skissér den refaktorerte koden.</strong></li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-9b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Problemer:</strong></p>
+<ul>
+<li>Validering er blandet med oppretting og lagring.</li>
+<li>System.out-utskrifter i logikk-kode.</li>
+<li>Mange parametere – kunne brukt en builder eller config-objekt.</li>
+<li>Ingen exception-håndtering – feil bare skrives ut.</li>
+</ul>
+<p><strong>b) Refaktorering:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> UserValidator {
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">validate</span>(UserData data) <span class="kw">throws</span> ValidationException {
+        <span class="kw">if</span> (data.<span class="fu">getName</span>() == <span class="kw">null</span> || data.<span class="fu">getName</span>().<span class="fu">trim</span>().<span class="fu">isEmpty</span>()) {
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ValidationException</span>(<span class="st">"name required"</span>);
+        }
+        <span class="kw">if</span> (!isValidEmail(data.<span class="fu">getEmail</span>())) {
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ValidationException</span>(<span class="st">"invalid email"</span>);
+        }
+        <span class="kw">if</span> (data.<span class="fu">getAge</span>() &lt; <span class="dv">18</span> || data.<span class="fu">getAge</span>() &gt; <span class="dv">120</span>) {
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ValidationException</span>(<span class="st">"age out of range"</span>);
+        }
+    }
+    
+    <span class="kw">private</span> <span class="dt">boolean</span> <span class="fu">isValidEmail</span>(String email) {
+        <span class="kw">return</span> email != <span class="kw">null</span> &amp;&amp; email.<span class="fu">matches</span>(<span class="st">"[^@]+@[^@]+"</span>);
+    }
+}
+
+<span class="kw">public</span> <span class="kw">class</span> UserManager {
+    <span class="kw">private</span> List&lt;User&gt; users;
+    <span class="kw">private</span> UserValidator validator;
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">addUser</span>(UserData data) <span class="kw">throws</span> ValidationException {
+        validator.<span class="fu">validate</span>(data);
+        User u = <span class="kw">new</span> <span class="fu">User</span>(data);
+        users.<span class="fu">add</span>(u);
+    }
+}</code></pre>
+</section>
+<section id="section-9c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 10 poeng. <strong>a)</strong> 4 poeng – identifiser 3+ problemer. <strong>b)</strong> 6 poeng – skal vise separasjon av concerns (validator, manager, data-objekt) og bruk av exceptions.</p>
+</section>
+</section>
+
+<section id="oppgave-4-2-testing-strategi" class="level2" data-number="4.2" data-poeng="10">
+<h2 data-number="4.2" data-poeng="10"><span class="header-section-number">4.2</span> Testing-strategi</h2>
+<section id="section-10" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>Skriv JUnit-tester for den refaktorerte `UserValidator` fra oppgave 4.1.</strong> Fokuser på:</p>
+<ul>
+<li>Gyldige data</li>
+<li>Manglende navn</li>
+<li>Ugyldig e-post</li>
+<li>Ugyldig alder (for ung/for gammel)</li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-10b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> UserValidatorTest {
+    <span class="kw">private</span> UserValidator validator = <span class="kw">new</span> <span class="fu">UserValidator</span>();
+    
+    <span class="at">@Test</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testValidUser</span>() <span class="kw">throws</span> ValidationException {
+        UserData data = <span class="kw">new</span> <span class="fu">UserData</span>(<span class="st">"John"</span>, <span class="st">"john@example.com"</span>, <span class="dv">30</span>, <span class="st">""</span>, <span class="st">""</span>);
+        <span class="co">// Skal ikke kaste exception</span>
+        validator.<span class="fu">validate</span>(data);
+    }
+    
+    <span class="at">@Test</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testMissingName</span>() {
+        UserData data = <span class="kw">new</span> <span class="fu">UserData</span>(<span class="st">""</span>, <span class="st">"john@example.com"</span>, <span class="dv">30</span>, <span class="st">""</span>, <span class="st">""</span>);
+        assertThrows(ValidationException.<span class="kw">class</span>, () -&gt; validator.<span class="fu">validate</span>(data));
+    }
+    
+    <span class="at">@Test</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testInvalidEmail</span>() {
+        UserData data = <span class="kw">new</span> <span class="fu">UserData</span>(<span class="st">"John"</span>, <span class="st">"notanemail"</span>, <span class="dv">30</span>, <span class="st">""</span>, <span class="st">""</span>);
+        assertThrows(ValidationException.<span class="kw">class</span>, () -&gt; validator.<span class="fu">validate</span>(data));
+    }
+    
+    <span class="at">@Test</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testAgeOutOfRange_TooYoung</span>() {
+        UserData data = <span class="kw">new</span> <span class="fu">UserData</span>(<span class="st">"John"</span>, <span class="st">"john@example.com"</span>, <span class="dv">15</span>, <span class="st">""</span>, <span class="st">""</span>);
+        assertThrows(ValidationException.<span class="kw">class</span>, () -&gt; validator.<span class="fu">validate</span>(data));
+    }
+    
+    <span class="at">@Test</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testAgeOutOfRange_TooOld</span>() {
+        UserData data = <span class="kw">new</span> <span class="fu">UserData</span>(<span class="st">"John"</span>, <span class="st">"john@example.com"</span>, <span class="dv">130</span>, <span class="st">""</span>, <span class="st">""</span>);
+        assertThrows(ValidationException.<span class="kw">class</span>, () -&gt; validator.<span class="fu">validate</span>(data));
+    }
+}</code></pre>
+<p>Jeg testet både gyldige og ugyldige tilfeller, med fokus på grensekasser (18, 120) som ofte er kilder til bugs.</p>
+</section>
+<section id="section-10c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 10 poeng. Skal dekke alle fire kravene med meningsfulle asserts. Bonus for grensekasse-testing.</p>
+</section>
+</section>
+
+</section>
+
+<hr />
+<p><strong>Totalt: 60 poeng</strong></p>
+
+</body>
+</html>

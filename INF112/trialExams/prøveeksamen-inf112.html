@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Prøveeksamen INF112</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+  </style>
+  <style>
+body.lang-nbnn section.oppgave {
+grid: auto-flow / 1fr 1fr;
+display: grid;
+}
+h1.oppgave,
+h2.oppgave,
+h3.oppgave,
+section[lang=no] {
+grid-column: span 2;
+}
+section p {
+padding: 0 .25em;
+}
+section pre.sourceCode {
+border: 1px dashed #8888;
+padding: .5em;
+margin: 1em;
+background: #fff8;
+}
+@media screen {
+section:not(.unnumbered) {
+background-color: #ccf1;
+border: 1px solid #88f1;
+margin: 1em -1px;
+}
+section.level2.unused {
+padding: .25em;
+}
+.svar, label[for=med-svar] {
+background-color: #dfd;
+}
+.vurdering {
+background-color: #fdf;
+}
+.vurdering {
+color: #000a;
+}
+}
+section {
+position: relative;
+}
+section.svar, section.vurdering, section[lang] {
+padding: .25em;
+padding-top: 1.5rem;
+margin-top: .5em;
+}
+section.svar::before, section.vurdering::before, section[lang]::before {
+position: absolute;
+top: .5rem;
+left: 0%; font-variant: small-caps;
+color: #1118;
+width: 100%;
+border-bottom: 1px solid #1118;
+font-size: .9rem;
+}
+section.svar::before {
+content: "Løsningsforslag";
+}
+section.vurdering::before {
+content: "Vurdering";
+}
+section[lang=nb]::before {
+content: "Bokmål";
+} section[lang=nn]::before {
+content: "Nynorsk";
+}
+.uten-svar .svar, .uten-svar .vurdering {
+display: none;
+}
+@media screen {
+.lang-nbnn section[lang=nn],
+label[for=lang-nn] {
+background-color: #dff8;
+}
+.lang-nbnn section[lang=nb],
+label[for=lang-nb] {
+background-color: #ffc8;
+}
+.lang-nb div[lang=nb],
+.lang-nb section[lang=nb] {
+background-color: #ffe1;
+}
+.lang-nnonly div[lang=nn],
+.lang-nnonly section[lang=nn] {
+background-color: #ffe8;
+}
+.vedlegg {
+background-color: #fff;
+}
+}
+.lang-nb div[lang=nn],
+.lang-nb section[lang=nn] {
+display: none;
+}
+.lang-nn div[lang=nb],
+.lang-nn section[lang=nb] {
+display: none;
+}
+figcaption {
+display: none;
+}
+body {
+max-width: 72em;
+}
+@media print {
+h2[data-poeng]::after {
+content: " [" attr(data-poeng) " poeng]";
+font-weight: normal;
+font-style: italic;
+}
+pre>code.sourceCode {
+white-space: pre-wrap;
+text-indent: 0;
+}
+pre>code.sourceCode>span {
+text-indent: 0;
+padding-left: 1em;
+}
+section.vurdering {
+background-color: #fdf;
+}
+section.svar {
+background-color: #dfd;
+}
+div[lang=nn],
+section[lang=nn] {
+display: none !important;
+}
+}
+h1,
+.vedlegg,
+.break {
+page-break-before: always;
+}
+.allow-break * {
+page-break-inside: auto;
+}
+img,
+pre {
+page-break-before: auto;
+page-break-after: auto;
+page-break-inside: avoid;
+}
+span.points {
+font-weight: normal;
+font-style: italic;
+}
+p {
+margin: 1em 0;
+}
+  </style>
+  <script>
+      addEventListener("DOMContentLoaded", () => {
+          const update = b => document.body.classList.toggle(b.id, b.checked);
+          const onChange = ev => {
+              console.log(ev.currentTarget);
+              ev.currentTarget.parentElement.querySelectorAll('input').forEach(elt => update(elt));
+          };
+          document.querySelectorAll('input').forEach(elt => {
+              console.log(elt);
+              update(elt);
+              elt.addEventListener('change', onChange);
+          });
+          const addPointsToHeader = (elt, pts) => {
+              if (!elt.querySelector(':scope > span.points')) {
+                  const pointsElt = document.createElement('span');
+                  pointsElt.innerText = ` [${pts} poeng]`;
+                  pointsElt.classList.add("points");
+                  elt.appendChild(pointsElt);
+              }
+          };
+          const computePoints = elt => {
+              let points = 0;
+              if (elt.tagName.match(/h[1-6]/i) && elt.dataset.poeng > 0) {
+                  points = parseInt(elt.dataset.poeng) || 0;
+                  addPointsToHeader(elt, points);
+              } else if (elt.childElementCount > 0) {
+                  for (let child of elt.children) {
+                      points = points + computePoints(child);
+                  }
+                  const header = elt.querySelector(':scope > header:first-child h1, :scope > h1:first-child, :scope > h2:first-child, :scope > h3:first-child, :scope > h4:first-child, :scope > h5:first-child, :scope > h6:first-child');
+                  if (header && points) {
+                      header.dataset.cumulativePoints = points;
+                      elt.dataset.cumulativePoints = points;
+                      addPointsToHeader(header, 'totalt ' + points);
+                  }
+              }
+              return points;
+          };
+          console.log(computePoints(document.body));
+      });
+  </script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Prøveeksamen INF112</h1>
+</header>
+<p><strong>Universitetet i Bergen, Institutt for informatikk</strong></p>
+<p><strong>Prøveeksamen – Våren 2026</strong></p>
+<fieldset>
+<legend>Variant</legend>
+<input type="radio" name="variant" id="uten-svar"></input>
+<label for="uten-svar">Kun oppgave</label>
+<input type="radio" name="variant" id="med-svar" checked="true"></input>
+<label for="med-svar">Med løsningsforslag</label>
+</fieldset>
+<section id="generell-info-om-eksamen" class="level2 unnumbered">
+<h2 class="unnumbered">Generell info om eksamen</h2>
+<section id="section" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong><em>Oppgaver:</em></strong> Oppgavesettet består av 4 oppgaver med til sammen 60 poeng. Hver oppgave har flere deloppgaver.</p>
+<p><strong><em>Lese oppgaver:</em></strong> <strong>Uthevet skrift</strong> markerer konkrete ting du skal gjøre eller svare på. Les hver oppgave nøye!</p>
+<p><strong><em>Besvare oppgaver:</em></strong> Formatér svaret så det blir lett å lese. Bruk gjerne overskrifter, punktlister og tegninger der det passer. Pass på å markere hvert punkt tydelig (a, b, c osv.).</p>
+<p><strong><em>Hjelpemidler:</em></strong> Alle skrevne og trykte hjelpemidler er tillatt.</p>
+<p><strong><em>Tid:</em></strong> Bruk tid i begynnelsen på å få oversikt. Pass på ikke å bruke for mye tid på noen oppgaver.</p>
+<p><strong><em>Uklarheter:</em></strong> Oppfatter du oppgaven som uklar, oppgi dine antagelser i besvarelsen.</p>
+<p><strong><em>Lykke til!</em></strong></p>
+</section>
+<section id="section-1" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Løsningsforslag er markert på denne måten. Løsningsforslaget er bare ett forslag – ditt svar kan være like bra eller bedre!</p>
+</section>
+</section>
+
+<section id="oppgave-1-prosjektrefleksjon" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Prosjektrefleksjon</h1>
+
+<section id="oppgave-1-1-design-og-vedlikehold" class="level2" data-number="1.1" data-poeng="5">
+<h2 data-number="1.1" data-poeng="5"><span class="header-section-number">1.1</span> Design og vedlikehold</h2>
+<section id="section-2" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Tenk tilbake på arkitektur og design av prosjektet ditt.</p>
+<ul>
+<li><strong>Var det noen deler av koden som ble særlig vanskelige å endre eller vedlikeholde? Forklar kort hva som gjorde det vanskelig, og vilket design-prinsipp eller mønster kunne ha hjulpet.</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-2b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Eksempel på god refleksjon:</strong></p>
+<p>Et vanlig problem var at input-håndtering var tett koblet til modelllogikk. F.eks. hvis `GameController` kalte `model.movePlayer()` direkte, og senere ville man bytte input-kilde (fra tastetrykk til nettverk), måtte man endre både kontroller og modell. Dette bryter <strong>Dependency Inversion Principle</strong>. En bedre løsning hadde vært å bruke ett Command-pattern eller observer-pattern, slik at modellen ikke vet hvordan input kommer, bare at det har skjedd en handling.</p>
+<p>Alternativt: En klasse som både tegnet grafikkk og oppdaterte posisjoner var vanskelig å teste. Med <strong>Model-View-Controller</strong>-separasjon, der modellen ikke kjente til grafikk, kunne man testet `move()`-logikken uten å starte et vindu.</p>
+</section>
+<section id="section-2c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Kriterier: Identifiserer ett konkret design-problem (ikke bare "det var dårlig"), foreslår ett relevant prinsipp/mønster, og forklarer hvorfor det ville hjulpet.</p>
+</section>
+</section>
+
+<section id="oppgave-1-2-kommunikasjon" class="level2" data-number="1.2" data-poeng="5">
+<h2 data-number="1.2" data-poeng="5"><span class="header-section-number">1.2</span> Kommunikasjon i teamet</h2>
+<section id="section-3" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Hva var det viktigste dere gjorde for å holde teamet synkronisert når dere jobbet på parallelle branches?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-3b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Mulige svar:</strong></p>
+<ul>
+<li>Vi hadde ugentlige møter der vi gikk gjennom hvem som jobbet på hva, og synkroniserte om grensesnitt som andre deler av koden trengte.</li>
+<li>Vi brukte GitLab issues og merge requests – hver branch hadde en issue som beskrev hva den skulle gjøre, og vi diskuterte endringer i merge request før merging.</li>
+<li>Vi kommuniserte på Discord når vi gjorde større endringer som påvirket andre.</li>
+<li>Vi hadde "feature freeze"-perioder der vi synkroniserte og gjorde testing sammen.</li>
+</ul>
+</section>
+<section id="section-3c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker refleksjon over prosess, ikke bare tekniske verktøy. Gode svar kobbler kommunikasjon til møter, planlegging eller hvordan man unngikk merge-konflikter.</p>
+</section>
+</section>
+
+<section id="oppgave-1-3-testing-og-quality" class="level2" data-number="1.3" data-poeng="5">
+<h2 data-number="1.3" data-poeng="5"><span class="header-section-number">1.3</span> Testing og kvalitet</h2>
+<section id="section-4" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Hvordan testet teamet koden? Hvilke utfordringer støtte dere på, og hvordan løste dere dem?</strong></p>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-4b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Typisk svar:</strong></p>
+<p>Vi skrev JUnit-tester for modelllogikk, og brukte mocking for å unngå grafikk-avhengigheter. En stor utfordring var at noe av koden trengte libGDX-komponenter (f.eks. `Texture`), som ikke fungerte i headless-modus. Vi løste det ved å mock-e `Texture` og `SpriteBatch`, eller ved å skille ut ren Java-logikk fra grafikk-koden.</p>
+<p>Videre kjørte CI automatisk testene hver gang vi pushet, noe som avslørt at noen tester var avhengige av lokale filer eller bare virket på Windows/Mac.</p>
+</section>
+<section id="section-4c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. God refleksjon på konkrete utfordringer (grafikk, plattformer, CI) og løsninger (mocking, separasjon, headless).</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-2-verktoy-og-prosess" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Verktøy og prosess</h1>
+
+<section id="oppgave-2-1-api-design" class="level2" data-number="2.1" data-poeng="4">
+<h2 data-number="2.1" data-poeng="4"><span class="header-section-number">2.1</span> API-design</h2>
+<section id="section-5" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Tenk på et API eller grensesnitt i prosjektet ditt (f.eks. en `GameMap`, `AudioManager`, `PathFinder` eller en custom interface du laget).</p>
+<ul>
+<li><strong>Beskriv grensesnittet kort og forklar hvilke designvalg du gjorde. Hvorfor var de gode valg?</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-5b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Eksempel:</strong></p>
+<p>Vår `GameMap` grensesnitt eksponerte kun tre metoder: `getTileAt(x, y)`, `isWalkable(x, y)` og `getWidth()`. Dette var et bevisst valg for å gjøre det enkelt for andre moduler å bruke kartet uten å kjenne implementasjon. Vi valgte ikke å eksponere intern representasjon (f.eks. en 2D array), fordi det gjorde det lett å senere bytte fra array til en hash-map eller en komprimert format.</p>
+<p>Vi valgte også å la kartet være <strong>uforanderlig</strong> fra brukerens perspektiv – kun `GameLogic` kunne endre det. Dette unngikk utilsiktede endringer fra flere deler av koden samtidig.</p>
+</section>
+<section id="section-5c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 4 poeng. Søker konkret API-eksempel med begrunnelse for designvalgene. Gode svar nevner smale grensesnitt, abstraksjon eller uforanderlighet.</p>
+</section>
+</section>
+
+<section id="oppgave-2-2-git-og-samarbeid" class="level2" data-number="2.2" data-poeng="5">
+<h2 data-number="2.2" data-poeng="5"><span class="header-section-number">2.2</span> Git og samarbeid</h2>
+<section id="section-6" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<ol type="a">
+<li><strong>Beskriv kort hvordan ditt team organiserte arbeid på Git. Brukte dere feature branches, personlige branches, eller noe annet?</strong></li>
+<li><strong>En ny utvikler skal starte i et team som bruker GitLab med merge requests. Forklar kort hvorfor merge requests er nyttige for teamsamarbeid.</strong></li>
+</ol>
+<p><em>(1–2 avsnitt til sammen)</em></p>
+</section>
+<section id="section-6b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Eksempel:</strong></p>
+<p>Vi brukte feature branches – en ny branch for hver større oppgave eller bug-fix, f.eks. `feature/pathfinding-ai` eller `fix/collision-detection`. Vi holder brancher kortlivede (1–3 dager) for å unngå store merge-konflikter. Hver branch jobbet én person, eller to personer jobbet sammen på samme branch.</p>
+<p><strong>b) Merge requests:</strong></p>
+<p>Merge requests gjør det enkelt å gjennomgå kode før den blir en del av main. En annen person i teamet godkjenner endringene, og kan kommentere eller spørre om avklaringer. Dette sikrer at flere har sett koden, og det er enklere å fange bugs og designfeil før de forplanter seg. CI kjører også tester automatisk på merge-request-koden, så du vet at den minst bygger før du merger.</p>
+</section>
+<section id="section-6c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. <strong>a)</strong> 2 poeng – beskriv branching-strategi. <strong>b)</strong> 3 poeng – merge requests skal knyttes til kodegjennomgang, CI og kvalitet, ikke bare "det holder oversikt".</p>
+</section>
+</section>
+
+<section id="oppgave-2-3-refaktorering-og-tester" class="level2" data-number="2.3" data-poeng="4">
+<h2 data-number="2.3" data-poeng="4"><span class="header-section-number">2.3</span> Refaktorering og tester</h2>
+<section id="section-7" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Forklar kort: Når og hvorfor kan det være nyttig å refaktorere kode som allerede fungerer?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-7b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Refaktorering endrer struktur uten å endre atferd. Det er nyttig når koden blir vanskelig å forstå eller vedlikeholde – hvis du senere skal legge til ny funksjonalitet, blir det mye lettere hvis koden er tydelig og godt organisert. Refaktorering "betaler ned technical debt" tidlig, så den ikke blir til et stort problem senere.</p>
+<p>Videre, hvis du har gode tester, er refaktorering trygt – testene sikrer at du ikke har ødelagt noe. Hvis du venter til slutten av prosjektet med refaktorering, er det både dyrere og mer risikabelt.</p>
+</section>
+<section id="section-7c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 4 poeng. Søker forståelse for at refaktorering er investering i fremtidig vedlikehold, og at tester gjør det trygt.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-3-arkitektur-og-design" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Arkitektur og design</h1>
+
+<section id="oppgave-3-1-mvc-og-separasjon" class="level2" data-number="3.1" data-poeng="7">
+<h2 data-number="3.1" data-poeng="7"><span class="header-section-number">3.1</span> Model-View-Controller</h2>
+<section id="section-8" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Se for deg følgende kode:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> GameMap {
+    <span class="kw">private</span> <span class="dt">int</span>[][] tiles;
+    <span class="kw">private</span> Texture mapTexture;
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">render</span>(SpriteBatch batch) {
+        <span class="co">// tegn kartet</span>
+        batch.<span class="fu">draw</span>(mapTexture, <span class="dv">0</span>, <span class="dv">0</span>);
+    }
+    
+    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">canWalkOnTile</span>(<span class="dt">int</span> x, <span class="dt">int</span> y) {
+        <span class="kw">return</span> tiles[x][y] != WALL;
+    }
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">update</span>(<span class="dt">float</span> delta) {
+        <span class="co">// oppdater karttilstand, håndter animasjoner osv</span>
+    }
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Identifiser designproblemet</strong>: Hva er galt med denne klassen fra et MVC-perspektiv? Forklar kort.</li>
+<li><strong>b)</strong> <strong>Foreslå en bedre løsning</strong>: Skissér hvordan du ville omstrukturert koden.</li>
+</ul>
+<p><em>(2 avsnitt)</em></p>
+</section>
+<section id="section-8b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Designproblem:</strong></p>
+<p>Klassen blander <strong>modell</strong> (karrdata og logikk som `canWalkOnTile`) med <strong>visning</strong> (tegning med `SpriteBatch` og `Texture`). Dette gjør at:</p>
+<ul>
+<li>Du kan ikke teste `canWalkOnTile` uten et grafikk-bibliotek.</li>
+<li>Hvis du senere vil tegne kartet annerledes, eller støtte flere visningsformat, må du endre modelklassen.</li>
+<li>Koden er tett koblet til libGDX, som gjør den vanskelig å gjenbruke i f.eks. en CLI-versjon eller et nettspill.</li>
+</ul>
+<p><strong>b) Bedre løsning:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">// Modell – ren Java, ingen grafikk</span>
+<span class="kw">public</span> <span class="kw">interface</span> GameMap {
+    <span class="dt">boolean</span> <span class="fu">canWalkOnTile</span>(<span class="dt">int</span> x, <span class="dt">int</span> y);
+    <span class="dt">int</span> <span class="fu">getWidth</span>();
+    <span class="dt">int</span> <span class="fu">getHeight</span>();
+    <span class="dt">int</span> <span class="fu">getTileType</span>(<span class="dt">int</span> x, <span class="dt">int</span> y);
+}
+
+<span class="co">// Visning – tegner kartet</span>
+<span class="kw">public</span> <span class="kw">class</span> MapRenderer {
+    <span class="kw">private</span> GameMap map;
+    <span class="kw">private</span> Texture mapTexture;
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">render</span>(SpriteBatch batch) {
+        batch.<span class="fu">draw</span>(mapTexture, <span class="dv">0</span>, <span class="dv">0</span>);
+    }
+}</code></pre>
+<p>Nå er modellen separat fra tegningen, så du kan teste og endre den uavhengig.</p>
+</section>
+<section id="section-8c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 7 poeng. <strong>a)</strong> 3 poeng – må identifisere at modell og visning er blandet, og forklare hvorfor det er dårlig. <strong>b)</strong> 4 poeng – må foreslå en separasjon (grensesnitt for modell, egen klasse for rendering).</p>
+</section>
+</section>
+
+<section id="oppgave-3-2-solid-og-design-mønstre" class="level2" data-number="3.2" data-poeng="6">
+<h2 data-number="3.2" data-poeng="6"><span class="header-section-number">3.2</span> SOLID og design-mønstre</h2>
+<section id="section-9" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Se for deg at du skal implementere forskjellige typer av fiender i et spill: `Zombie`, `Orc`, `Dragon`. Hver fiendtype har sin egen `attack()`-metode.</p>
+<p>En dårlig løsning ville vært:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Combat {
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">executeAttack</span>(Object enemy) {
+        <span class="kw">if</span> (enemy <span class="kw">instanceof</span> Zombie) {
+            Zombie z = (Zombie) enemy;
+            z.<span class="fu">attack</span>();
+        } <span class="kw">else</span> <span class="kw">if</span> (enemy <span class="kw">instanceof</span> Orc) {
+            Orc o = (Orc) enemy;
+            o.<span class="fu">attack</span>();
+        } <span class="kw">else</span> <span class="kw">if</span> (enemy <span class="kw">instanceof</span> Dragon) {
+            Dragon d = (Dragon) enemy;
+            d.<span class="fu">attack</span>();
+        }
+    }
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Hvilket SOLID-prinsipp brytes?</strong> (navngi det)</li>
+<li><strong>b)</strong> <strong>Forklar kort hvorfor det er et problem</strong>, og hva som skjer hvis du legger til en ny fiendtype.</li>
+<li><strong>c)</strong> <strong>Foreslå en bedre løsning</strong> – hva ville du gjort i stedet?</li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-9b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) SOLID-prinsipp:</strong> <strong>Open-Closed Principle</strong> (OCP) – klassen er lukket for utvidelse (du må redigere den hver gang du legger til en ny fiendtype).</p>
+<p><strong>b) Problemet:</strong> Når du legger til en ny fiendtype (f.eks. `Goblin`), må du åpne `Combat`-klassen og legge til en ny `else if`-branch. Dette øker risiko for bugs og gjør koden skjør.</p>
+<p><strong>c) Bedre løsning – bruk polymorfi eller et grensesnitt:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> Enemy {
+    <span class="dt">void</span> <span class="fu">attack</span>();
+}
+
+<span class="kw">public</span> <span class="kw">class</span> Combat {
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">executeAttack</span>(Enemy enemy) {
+        enemy.<span class="fu">attack</span>();  <span class="co">// Polymorfi – vet ikke type, men det spiller ingen rolle</span>
+    }
+}</code></pre>
+<p>Nå er koden åpen for utvidelse – du kan legge til nye fiendtyper uten å endre `Combat`.</p>
+</section>
+<section id="section-9c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. <strong>a)</strong> 1 poeng – må identifisere OCP. <strong>b)</strong> 2 poeng – må forklare problemet og hva som skjer ved utvidelse. <strong>c)</strong> 3 poeng – må foreslå grensesnitt/polymorfi som løsning.</p>
+</section>
+</section>
+
+<section id="oppgave-3-3-abstraksjon-og-avhengigheter" class="level2" data-number="3.3" data-poeng="5">
+<h2 data-number="3.3" data-poeng="5"><span class="header-section-number">3.3</span> Abstraksjon og avhengigheter</h2>
+<section id="section-10" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Forklar kort: Hva er fordelen med å bruke et grensesnitt (interface) fremfor en konkret klasse når du deklarerer variabler eller parametere?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-10b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Når du deklarerer med et grensesnitt (`List&lt;String&gt; list` i stedet for `ArrayList&lt;String&gt; list`) eller tar inn et grensesnitt som parameter (`void process(AudioPlayer player)` i stedet for `void process(SpeakerAudioPlayer player)`), gjør du koden <strong>fleksibel</strong> – du kan senere bytte implementasjon uten å endre koden som bruker det.</p>
+<p>F.eks. hvis du senere lager `HeadlessAudioPlayer` for testing, kan `GameLogic` fortsatt ta inn `AudioPlayer`-grensesnittet, og jobben er enkel.</p>
+<p>Videre gjør det testing enklere – du kan lage en mock-implementasjon av grensesnittet for testformål.</p>
+</section>
+<section id="section-10c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker forståelse for fleksibilitet, substituering av implementasjoner og testbarhet.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-4-analyse-og-kritikk" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Analyse og kritikk</h1>
+
+<section id="oppgave-4-1-tilgjengelighet" class="level2" data-number="4.1" data-poeng="5">
+<h2 data-number="4.1" data-poeng="5"><span class="header-section-number">4.1</span> Tilgjengelighet og brukergrensesnitt</h2>
+<section id="section-11" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Tenk på brukergrensesnittet i prosjektet ditt (meny, HUD, dialogbokser osv.).</p>
+<ul>
+<li><strong>Identifiser ett problem eller én forbedring som kunne gjort grensesnittet lettere å bruke eller mer tilgjengelig, og forklart hvorfor det er viktig.</strong></li>
+</ul>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-11b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Eksempler:</strong></p>
+<ul>
+<li><strong>Tastaturnavigering:</strong> Hvis menyen bare responderer på mus, kan ikke brukere med motoriske vanskeligheter navigere. Løsning: Legg til Tab/Enter/Pil-knapper for å navigere og velge.</li>
+<li><strong>Kontrast:</strong> Hvis tekst har dårlig kontrast mot bakgrunn, er det vanskelig å lese for folk med svak syn. Løsning: Sikre at kontrasten oppfyller WCAG-standarder.</li>
+<li><strong>Feilmeldinger:</strong> Hvis meldinger er vage ("Feil!"), hjelper de ikke brukeren. Løsning: Forklar hva som gikk galt og hva brukeren kan gjøre.</li>
+</ul>
+</section>
+<section id="section-11c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker konkret problem fra prosjektet ditt og begrunnelse for hvorfor det er viktig.</p>
+</section>
+</section>
+
+<section id="oppgave-4-2-kodelukt-og-vedlikehold" class="level2" data-number="4.2" data-poeng="5">
+<h2 data-number="4.2" data-poeng="5"><span class="header-section-number">4.2</span> Kodelukt og vedlikehold</h2>
+<section id="section-12" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Se på denne (utenktes) koden fra et AI-system:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">decideAction</span>() {
+    <span class="kw">if</span> (health &lt; <span class="dv">30</span>) {
+        flee();
+    } <span class="kw">else</span> <span class="kw">if</span> (health &lt; <span class="dv">50</span> &amp;&amp; ammo &lt; <span class="dv">10</span>) {
+        retreat();
+    } <span class="kw">else</span> <span class="kw">if</span> (health &gt; <span class="dv">70</span> &amp;&amp; seeEnemy()) {
+        attack();
+    } <span class="kw">else</span> <span class="kw">if</span> (ammo &gt; <span class="dv">50</span>) {
+        hunt();
+    } <span class="kw">else</span> {
+        patrol();
+    }
+}
+</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Identifiser ett eller to kodelukt-tegn</strong> i denne metoden.</li>
+<li><strong>b)</strong> <strong>Forklar kort hvorfor det er et problem</strong>, og hvordan du ville forbedret det.</li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-12b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Kodelukter:</strong></p>
+<ul>
+<li><strong>Magic numbers:</strong> Tallene (30, 50, 70, 10, 50) er hardkodet. Hvis du senere vil justere AI-vanskelighetsgrad, må du redigere koden.</li>
+<li><strong>For lang metode med kompleks logikk:</strong> Metoden gjør mange ting (bestemmer strategi basert på mange betingelser). Det er vanskelig å teste og å forstå.</li>
+</ul>
+<p><strong>b) Forbedringer:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> AIThresholds {
+    <span class="kw">static</span> <span class="dt">final</span> <span class="dt">int</span> FLEE_HEALTH = <span class="dv">30</span>;
+    <span class="kw">static</span> <span class="dt">final</span> <span class="dt">int</span> RETREAT_HEALTH = <span class="dv">50</span>;
+    <span class="kw">static</span> <span class="dt">final</span> <span class="dt">int</span> HUNT_AMMO = <span class="dv">50</span>;
+}
+
+<span class="kw">public</span> <span class="dt">void</span> <span class="fu">decideAction</span>() {
+    <span class="kw">if</span> (shouldFlee()) attack();
+    <span class="kw">else</span> <span class="kw">if</span> (shouldRetreat()) retreat();
+    <span class="kw">else</span> <span class="kw">if</span> (shouldAttack()) attack();
+    <span class="kw">else</span> <span class="kw">if</span> (shouldHunt()) hunt();
+    <span class="kw">else</span> patrol();
+}
+
+<span class="kw">private</span> <span class="dt">boolean</span> <span class="fu">shouldFlee</span>() {
+    <span class="kw">return</span> health &lt; AIThresholds.<span class="dv">FLEE_HEALTH</span>;
+}</code></pre>
+<p>Nå er magiske tall navngitt, og hver betingelse er en metode som er lett å forstå og teste.</p>
+</section>
+<section id="section-12c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. <strong>a)</strong> 2 poeng – må identifisere minst ett kodelu tegn. <strong>b)</strong> 3 poeng – må foreslå konkret forbedring (navngitte konstanter, små metoder osv).</p>
+</section>
+</section>
+
+<section id="oppgave-4-3-lisenser-og-etikk" class="level2" data-number="4.3" data-poeng="5">
+<h2 data-number="4.3" data-poeng="5"><span class="header-section-number">4.3</span> Lisenser og ansvar</h2>
+<section id="section-13" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Se for deg at du skal publisere koden fra semesterprosjektet på GitHub eller GitLab.</p>
+<ul>
+<li><strong>a)</strong> <strong>Hvilke ressurser eller biblioteker bør du dokumentere, og hvorfor?</strong></li>
+<li><strong>b)</strong> <strong>Hva er forskjellen mellom opphavsrett og lisens, og hvorfor er det viktig å vite?</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-13b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Ressurser som bør dokumenteres:</strong></p>
+<ul>
+<li><strong>Biblioteker og dependencies</strong> (LibGDX, JUnit, Mockito osv.) – hvilke lisenserhar de? Hvis noen bruker GPL, må ditt prosjekt kanskje være åpen kildekode.</li>
+<li><strong>Grafikk og lyd</strong> – hvis du bruker kunstnerisk arbeid fra nett, hvem laget det, og hvilken lisens? Du må kreditere forfatteren.</li>
+<li><strong>Ikoner, fonter, datasets</strong> – samme regel.</li>
+</ul>
+<p><strong>b) Opphavsrett vs. lisens:</strong></p>
+<p>Opphavsrett er automatisk – når du lager noe, eier du automatisk opphavsretten. Du bestemmer hvem som får lov til å kopiere eller endre det. Lisens er den eksplisitte tillatelses du gir. F.eks. en MIT-lisens sier "du får lov til å bruke, endre og distribuere denne koden." Hvis du ikke legger ved en lisens, har andre ikke formelt tillatelses til å bruke koden din, selv om den er på GitHub.</p>
+</section>
+<section id="section-13c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. <strong>a)</strong> 2 poeng – må nevne minst to typer ressurser. <strong>b)</strong> 3 poeng – må forklare at opphavsrett er automatisk, og at lisens gir eksplisitt tillatelse.</p>
+</section>
+</section>
+
+</section>
+
+<hr />
+<p><strong>Totalt: 60 poeng</strong></p>
+
+</body>
+</html>

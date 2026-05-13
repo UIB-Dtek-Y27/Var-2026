@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Prøveeksamen INF112 – Versjon 2</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+  </style>
+  <style>
+body.lang-nbnn section.oppgave {
+grid: auto-flow / 1fr 1fr;
+display: grid;
+}
+h1.oppgave,
+h2.oppgave,
+h3.oppgave,
+section[lang=no] {
+grid-column: span 2;
+}
+section p {
+padding: 0 .25em;
+}
+section pre.sourceCode {
+border: 1px dashed #8888;
+padding: .5em;
+margin: 1em;
+background: #fff8;
+}
+@media screen {
+section:not(.unnumbered) {
+background-color: #ccf1;
+border: 1px solid #88f1;
+margin: 1em -1px;
+}
+section.level2.unused {
+padding: .25em;
+}
+.svar, label[for=med-svar] {
+background-color: #dfd;
+}
+.vurdering {
+background-color: #fdf;
+}
+.vurdering {
+color: #000a;
+}
+}
+section {
+position: relative;
+}
+section.svar, section.vurdering, section[lang] {
+padding: .25em;
+padding-top: 1.5rem;
+margin-top: .5em;
+}
+section.svar::before, section.vurdering::before, section[lang]::before {
+position: absolute;
+top: .5rem;
+left: 0%; font-variant: small-caps;
+color: #1118;
+width: 100%;
+border-bottom: 1px solid #1118;
+font-size: .9rem;
+}
+section.svar::before {
+content: "Løsningsforslag";
+}
+section.vurdering::before {
+content: "Vurdering";
+}
+section[lang=nb]::before {
+content: "Bokmål";
+} section[lang=nn]::before {
+content: "Nynorsk";
+}
+.uten-svar .svar, .uten-svar .vurdering {
+display: none;
+}
+@media screen {
+.lang-nbnn section[lang=nn],
+label[for=lang-nn] {
+background-color: #dff8;
+}
+.lang-nbnn section[lang=nb],
+label[for=lang-nb] {
+background-color: #ffc8;
+}
+.lang-nb div[lang=nb],
+.lang-nb section[lang=nb] {
+background-color: #ffe1;
+}
+.lang-nnonly div[lang=nn],
+.lang-nnonly section[lang=nn] {
+background-color: #ffe8;
+}
+.vedlegg {
+background-color: #fff;
+}
+}
+.lang-nb div[lang=nn],
+.lang-nb section[lang=nn] {
+display: none;
+}
+.lang-nn div[lang=nb],
+.lang-nn section[lang=nb] {
+display: none;
+}
+figcaption {
+display: none;
+}
+body {
+max-width: 72em;
+}
+@media print {
+h2[data-poeng]::after {
+content: " [" attr(data-poeng) " poeng]";
+font-weight: normal;
+font-style: italic;
+}
+pre>code.sourceCode {
+white-space: pre-wrap;
+text-indent: 0;
+}
+pre>code.sourceCode>span {
+text-indent: 0;
+padding-left: 1em;
+}
+section.vurdering {
+background-color: #fdf;
+}
+section.svar {
+background-color: #dfd;
+}
+div[lang=nn],
+section[lang=nn] {
+display: none !important;
+}
+}
+h1,
+.vedlegg,
+.break {
+page-break-before: always;
+}
+.allow-break * {
+page-break-inside: auto;
+}
+img,
+pre {
+page-break-before: auto;
+page-break-after: auto;
+page-break-inside: avoid;
+}
+span.points {
+font-weight: normal;
+font-style: italic;
+}
+p {
+margin: 1em 0;
+}
+  </style>
+  <script>
+      addEventListener("DOMContentLoaded", () => {
+          const update = b => document.body.classList.toggle(b.id, b.checked);
+          const onChange = ev => {
+              console.log(ev.currentTarget);
+              ev.currentTarget.parentElement.querySelectorAll('input').forEach(elt => update(elt));
+          };
+          document.querySelectorAll('input').forEach(elt => {
+              console.log(elt);
+              update(elt);
+              elt.addEventListener('change', onChange);
+          });
+          const addPointsToHeader = (elt, pts) => {
+              if (!elt.querySelector(':scope > span.points')) {
+                  const pointsElt = document.createElement('span');
+                  pointsElt.innerText = ` [${pts} poeng]`;
+                  pointsElt.classList.add("points");
+                  elt.appendChild(pointsElt);
+              }
+          };
+          const computePoints = elt => {
+              let points = 0;
+              if (elt.tagName.match(/h[1-6]/i) && elt.dataset.poeng > 0) {
+                  points = parseInt(elt.dataset.poeng) || 0;
+                  addPointsToHeader(elt, points);
+              } else if (elt.childElementCount > 0) {
+                  for (let child of elt.children) {
+                      points = points + computePoints(child);
+                  }
+                  const header = elt.querySelector(':scope > header:first-child h1, :scope > h1:first-child, :scope > h2:first-child, :scope > h3:first-child, :scope > h4:first-child, :scope > h5:first-child, :scope > h6:first-child');
+                  if (header && points) {
+                      header.dataset.cumulativePoints = points;
+                      elt.dataset.cumulativePoints = points;
+                      addPointsToHeader(header, 'totalt ' + points);
+                  }
+              }
+              return points;
+          };
+          console.log(computePoints(document.body));
+      });
+  </script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Prøveeksamen INF112 – Versjon 2</h1>
+</header>
+<p><strong>Universitetet i Bergen, Institutt for informatikk</strong></p>
+<p><strong>Prøveeksamen – Våren 2026</strong></p>
+<fieldset>
+<legend>Variant</legend>
+<input type="radio" name="variant" id="uten-svar"></input>
+<label for="uten-svar">Kun oppgave</label>
+<input type="radio" name="variant" id="med-svar" checked="true"></input>
+<label for="med-svar">Med løsningsforslag</label>
+</fieldset>
+<section id="generell-info-om-eksamen" class="level2 unnumbered">
+<h2 class="unnumbered">Generell info om eksamen</h2>
+<section id="section" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong><em>Oppgaver:</em></strong> Oppgavesettet består av 4 oppgaver med til sammen 60 poeng. Hver oppgave har flere deloppgaver.</p>
+<p><strong><em>Lese oppgaver:</em></strong> <strong>Uthevet skrift</strong> markerer konkrete ting du skal gjøre eller svare på. Les hver oppgave nøye!</p>
+<p><strong><em>Besvare oppgaver:</em></strong> Formatér svaret så det blir lett å lese. Bruk gjerne overskrifter, punktlister og tegninger der det passer. Pass på å markere hvert punkt tydelig (a, b, c osv.).</p>
+<p><strong><em>Hjelpemidler:</em></strong> Alle skrevne og trykte hjelpemidler er tillatt.</p>
+<p><strong><em>Tid:</em></strong> Bruk tid i begynnelsen på å få oversikt. Pass på ikke å bruke for mye tid på noen oppgaver.</p>
+<p><strong><em>Uklarheter:</em></strong> Oppfatter du oppgaven som uklar, oppgi dine antagelser i besvarelsen.</p>
+<p><strong><em>Lykke til!</em></strong></p>
+</section>
+<section id="section-1" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Løsningsforslag er markert på denne måten. Løsningsforslaget er bare ett forslag – ditt svar kan være like bra eller bedre!</p>
+</section>
+</section>
+
+<section id="oppgave-1-brukerhistorier-og-krav" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Brukerhistorier og krav</h1>
+
+<section id="oppgave-1-1-mvp-og-prioritering" class="level2" data-number="1.1" data-poeng="6">
+<h2 data-number="1.1" data-poeng="6"><span class="header-section-number">1.1</span> MVP og prioritering</h2>
+<section id="section-2" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Se for deg at du skal utvikle en brukerapp der personer kan søke på og finne ledige leiligheter i sin by.</p>
+<ul>
+<li><strong>Formuler en brukerhistorie fra en potensiell leietaker, og definer tre konkrete akseptansekriterier.</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-2b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Brukerhistorie:</strong></p>
+<p>Som ung jobbsøker ønsker jeg å kunne søke på leiligheter etter pris og lokasjon, slik at jeg raskt kan finne ting som passer mitt budsjett og hvor jeg skal jobbe.</p>
+<p><strong>Akseptansekriterier:</strong></p>
+<ol>
+<li>Gitt at jeg skriver inn en by og et maksimalt priskrav, så skal appen vise alle tilgjengelige leiligheter som oppfyller begge betingelsene.</li>
+<li>Gitt at jeg klikker på en leilighet, så skal jeg kunne se detaljer som adresse, størrelse, pris, og kontakt til utleier.</li>
+<li>Gitt at jeg søker på en by der det ikke finnes leiligheter, så skal appen vise en tydelig melding om at det ikke finnes resultater, i stedet for å vise en tom liste.</li>
+</ol>
+</section>
+<section id="section-2c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. Brukerhistorien skal følge "Som en..., ønsker jeg..., slik at..."-format. Akseptansekriteriene skal være konkrete og testbare, ikke bare beskrivelser.</p>
+</section>
+</section>
+
+<section id="oppgave-1-2-akseptansekriterier-og-testing" class="level2" data-number="1.2" data-poeng="5">
+<h2 data-number="1.2" data-poeng="5"><span class="header-section-number">1.2</span> Akseptansekriterier og testing</h2>
+<section id="section-3" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Tenk på akseptansekriteriene du skrev over. Hvordan ville du konkret testet at de er oppfylt?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-3b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>For kriterium 1: Jeg ville lagt inn testdata (f.eks. 5 leiligheter i Bergen, noen innenfor og noen utenfor budsjett), kjørt søket med "Bergen" og maks pris 150.000, og sjekket at søkeresultatet bare inneholder de som oppfyller begge betingelsene. Dette kan gjøres som enhetstester ved å kalle søkefunksjonen direkte.</p>
+<p>For kriterium 2: Jeg ville testet at et klikk på en leilighet navigerer til detalj-siden, og at alle feltene (adresse, størrelse, pris, kontakt) er synlige. Dette kan være en integrasjonstest eller en manuell GUI-test.</p>
+<p>For kriterium 3: Jeg ville testet med en by som ikke finnes i databasen, og sjekket at en spesifikk feilmelding vises (f.eks. "Ingen leiligheter funnet for 'Foo'"). Dette kan være en enhetstests eller en akseptansetest.</p>
+</section>
+<section id="section-3c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker konkret og praktisk tilnærming til testing av akseptansekriteriene, gjerne med påpekning av testtype (enhet, integrasjon, GUI).</p>
+</section>
+</section>
+
+<section id="oppgave-1-3-mvp-versus-nice-to-have" class="level2" data-number="1.3" data-poeng="4">
+<h2 data-number="1.3" data-poeng="4"><span class="header-section-number">1.3</span> MVP versus nice-to-have</h2>
+<section id="section-4" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>Tenk på leilighetssøk-appen. List opp to eller tre funksjoner som du ville inkludert i MVP, og to eller tre som du ville utsatt til senere versjon. Begrunne dine valg kort.</strong></p>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-4b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>MVP:</strong></p>
+<ul>
+<li>Søk etter leiligheter etter by og pris – dette er kjernefunksjonalitet</li>
+<li>Vise detaljer om en leilighet – nødvendig for at søking skal være nyttig</li>
+<li>Kontakt til utleier – brukeren må kunne følge opp interessante leiligheter</li>
+</ul>
+<p><strong>Senere iterasjoner:</strong></p>
+<ul>
+<li>Lagring av favoritter / ønskeliste – nice-to-have som øker engagement</li>
+<li>Anmeldelser fra tidligere leietakere – kan komme senere når vi har nok brukere</li>
+<li>Kart-visning – flott å ha, men ikke kritisk for MVP</li>
+</ul>
+<p>Begrunnelse: MVP skal være det minste som gir verdi til brukeren. Søk, detaljer og kontakt oppfyller det. Favorittsystemet krever lagring og innlogging, som kompliserer MVP.</p>
+</section>
+<section id="section-4c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 4 poeng. Søker balansert prioritering – MVP bør ha kjernefunksjonalitet, mens senere versjoner kan ha polish og nice-to-have.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-2-prosess-og-kommunikasjon" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Prosess og kommunikasjon</h1>
+
+<section id="oppgave-2-1-scrum-versus-kanban" class="level2" data-number="2.1" data-poeng="5">
+<h2 data-number="2.1" data-poeng="5"><span class="header-section-number">2.1</span> Scrum versus Kanban</h2>
+<section id="section-5" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Forklar kort hva som er forskjellen mellom Scrum og Kanban. Når ville du valgt Scrum, og når ville du valgt Kanban?</p>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-5b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Forskjell:</strong> Scrum er iterasjon- og sprint-basert – teamet planlegger arbeid for en fast periode (f.eks. 1–2 uker), jobber mot sprintmål, og gjør retrospektiv og demo etter hver sprint. Kanban er flytbasert – oppgaver flyttes kontinuerlig gjennom statuser (To Do → In Progress → Done), uten faste sykluser. Kanban fokuserer på å minimere gjennomstrømningstid og håndtere varierande oppgave-størrelse.</p>
+<p><strong>Når Scrum:</strong> Når du har klare, gjennomarbeidede krav og ønsker at teamet skal fokusere på et begrenset sett av features per sprint. Scrum er bra når du vil planlegge, og når du har regelmessige møter og demo-sesjoner.</p>
+<p><strong>Når Kanban:</strong> Når arbeid kommer uforutsett (f.eks. support-tickets, bug-fixes) eller når team-størrelse eller oppgaver varierer mye. Kanban er mer fleksibelt og krever færre ritualer.</p>
+</section>
+<section id="section-5c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Må forklare begge tilnærmingene og gi minst ett eksempel på når hver passer.</p>
+</section>
+</section>
+
+<section id="oppgave-2-2-retrospektiv-og-forbedring" class="level2" data-number="2.2" data-poeng="5">
+<h2 data-number="2.2" data-poeng="5"><span class="header-section-number">2.2</span> Retrospektiv og forbedring</h2>
+<section id="section-6" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>Tenk at ditt team har hatt dårlig kommunikasjon på Slack – beskjeder blir gått glipp av, og det blir misforståelser. Hva ville du foreslått på retrospektiv for å forbedre situasjonen?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-6b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Mulige forbedringer:</p>
+<ul>
+<li>Etabler klare kanaler – f.eks. en `#daily-standup` for status, `#bugs` for problemer, `#random` for sosial prat. Dette reduserer støy.</li>
+<li>Institer et daglig møte (15 min) isteden for eller i tillegg til Slack – ansikt-til-ansikt eller video gjør det enklere å misforståelser.</li>
+<li>Sett opp notifikasjonregler – f.eks. at folk skal reagere på eller acknowledge viktige beskjeder innen X timer.</li>
+<li>Lag en sjekkliste eller template for daglig standup – gjør det lettere å vite hva som skal formidles.</li>
+<li>Bruk GitLab issues istedenfor Slack for tekniske spørsmål – det skaper et søkbart arkiv.</li>
+</ul>
+</section>
+<section id="section-6c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker praktiske forslag som reflekterer forståelse av kommunikasjonsproblemer og team-prosess.</p>
+</section>
+</section>
+
+<section id="oppgave-2-3-merge-requests-og-kodegjennomgang" class="level2" data-number="2.3" data-poeng="5">
+<h2 data-number="2.3" data-poeng="5"><span class="header-section-number">2.3</span> Merge requests og kodegjennomgang</h2>
+<section id="section-7" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>Du er i gang med en kodegjennomgang av en merge request fra en kollegaa og ser at koden har en veldig lang metode (150+ linjer) som gjør mange ting. Hva ville du kommentert i merge request, og hvorfor?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-7b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Jeg ville kommentert noe som: "Denne metoden gjør veldig mye – setter opp data, validerer, gjør transformasjon og returnerer resultat. Det er vanskelig å teste isolert og å forstå. Kunne du dele den opp i mindre, navngitte private metoder? F.eks. `validateInput()`, `transformData()` osv. Det gjør koden lettere å teste og å endre senere."</p>
+<p>Begrunnelse: Lange metoder er generelt tegn på at koden bør refaktoreres. Mindre metoder med tydelig navn blir lettere å teste og å vedlikeholde. Jeg ville pekt på problemet som et læringspunkt, ikke som en anklage.</p>
+</section>
+<section id="section-7c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker konstruktiv feedback som peker på problemet og foreslår løsning, ikke bare kritikk.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-3-testing-og-kvalitet" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Testing og kvalitet</h1>
+
+<section id="oppgave-3-1-headless-testing-og-mocking" class="level2" data-number="3.1" data-poeng="6">
+<h2 data-number="3.1" data-poeng="6"><span class="header-section-number">3.1</span> Headless-testing og mocking</h2>
+<section id="section-8" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>Forklar kort: Hva betyr "headless-testing", og hvorfor kan det være nyttig når du tester et spill eller GUI-applikasjon?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-8b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Headless-testing betyr å kjøre tester uten et grafisk vindu. F.eks. hvis du har en libGDX-basert spill, kan du kjøre testene på en server eller CI-maskin som ikke har display-support, fordi du bare tester logikk – ikke tegning.</p>
+<p>Det er nyttig fordi:</p>
+<ul>
+<li>Du kan teste spillogikk raskt uten å måtte starte et vindu.</li>
+<li>CI-servere kan kjøre testene automatisk uten å trenge display.</li>
+<li>Det gjør kode enklere å teste hvis den ikke er tett koblet til grafikk.</li>
+</ul>
+<p>I praksis betyr det at du mock-er eller stub-er grafikk-avhengigheter (f.eks. `Texture`, `SpriteBatch`) slik at koden som tester modell-logikk ikke trenger dem.</p>
+</section>
+<section id="section-8c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. Må forklare hva headless betyr og minst to grunner til at det er nyttig.</p>
+</section>
+</section>
+
+<section id="oppgave-3-2-testdekning-og-testarkitektur" class="level2" data-number="3.2" data-poeng="7">
+<h2 data-number="3.2" data-poeng="7"><span class="header-section-number">3.2</span> Testdekning og testarkitektur</h2>
+<section id="section-9" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p>Se for deg et prosjekt der testdekningen er 95%, men hovedsakelig fordi det finnes mange tester som sjekker trivielle getter og setters.</p>
+<ul>
+<li><strong>a)</strong> <strong>Hva er problemet med høy testdekning hvis testene ikke tester meningsfullt atferd?</strong></li>
+<li><strong>b)</strong> <strong>Hva ville du fokusert på i stedet?</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-9b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Problemet:</strong> Høy testdekning gir en falsk følelse av sikkerhet. Hvis du tester trivielle ting som getters/setters som ikke kan feile, lurer du deg selv. Du har ikke egentlig sikkerhet for at koden fungerer riktig. En bug i forretningslogikk kan fortsatt snikte seg inn selv med 95% dekning.</p>
+<p><strong>b) Bedre fokus:</strong> Test meningsfulle ting – forretningsregler, algoritmer, grensekasser og error-håndtering. F.eks. hvis du har en funksjon som beregner rabatt basert på kjøpet beløp, test at den beregner riktig for små kjøp, store kjøp og grense-verdier. La være å teste trivielle getters.</p>
+<p>Altså: prioriter testdeckvering av viktig kode, ikke dekking som tall.</p>
+</section>
+<section id="section-9c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 7 poeng. <strong>a)</strong> 3 poeng – må forklare at høy dekning ikke sikrer at testene er gode. <strong>b)</strong> 4 poeng – må foreslå å fokusere på meningsfulle tester.</p>
+</section>
+</section>
+
+<section id="oppgave-3-3-ci-pipeline" class="level2" data-number="3.3" data-poeng="5">
+<h2 data-number="3.3" data-poeng="5"><span class="header-section-number">3.3</span> CI-pipeline</h2>
+<section id="section-10" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>Tenk på en CI-pipeline som bygger og kjører tester hver gang du pusher til main. Hva ville du lagt til for å gjøre pipelinen mer nyttig for kodevalitet?</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-10b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Mulige tillegg:</p>
+<ul>
+<li><strong>Statisk analyse</strong> (SonarQube, SpotBugs) – finner potensielle bugs og kodelu tegn uten å kjøre koden.</li>
+<li><strong>Linting</strong> (CheckStyle) – sikrer konsistent kodestil.</li>
+<li><strong>Testdekning-rapport</strong> – viser dekningsprosent og flagrer hvis den synker.</li>
+<li><strong>Dependency-sjekk</strong> – scanne for kjente sikkerhetshull i biblioteker.</li>
+<li><strong>Automatisk deploy</strong> – hvis alt passerer, deploy til staging eller produksjon.</li>
+</ul>
+<p>Hovedideen er at pipelinen skal oppdage mest mulig tidlig – både tekniske problemer (kode som ikke bygger) og kvalitetsproblemer (dårlig stil, potensielle bugs).</p>
+</section>
+<section id="section-10c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker minst to konkrete tillegg med begrunnelse.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-4-design-og-designmønstre" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Design og designmønstre</h1>
+
+<section id="oppgave-4-1-builder-pattern" class="level2" data-number="4.1" data-poeng="6">
+<h2 data-number="4.1" data-poeng="6"><span class="header-section-number">4.1</span> Builder-pattern</h2>
+<section id="section-11" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p>Tenk deg at du skal lage ett `Leilighet`-objekt som har mange valgfrie felt: adresse, størrelse, pris, nummer av rom, nummer av bad, vaskemaskiner, balkong, kjæledyr tillatt osv.</p>
+<ul>
+<li><strong>Forklar kort hvorfor ett Builder-pattern ville vært nyttig her, istedenfor en stor konstruktør med mange parametere.</strong></li>
+</ul>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-11b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Med mange valgfrie felt ville en stor konstruktør bli uhåndterlig – du ville måttet ha en kombinasjon av overloadinger eller lange parameterlister. Det ville gjøre det vanskelig for andre utviklere å bruke riktig.</p>
+<p>Med Builder-pattern kan du gjøre noe som:</p>
+<pre class="sourceCode java"><code class="sourceCode java">Leilighet apt = <span class="kw">new</span> LeilightetBuilder()
+    .<span class="fu">setAdresse</span>(<span class="st">"Nygårdsgaten 1"</span>)
+    .<span class="fu">setStørrelse</span>(<span class="dv">75</span>)
+    .<span class="fu">setPris</span>(<span class="dv">120000</span>)
+    .<span class="fu">setRom</span>(<span class="dv">3</span>)
+    .<span class="fu">setKjæledyrTillatt</span>(<span class="kw">true</span>)
+    .<span class="fu">build</span>();</code></pre>
+<p>Dette er mye mer lesbart, fordi hver setting er eksplisitt. Det blir også lett å sette bare de feltene du bryr deg om.</p>
+</section>
+<section id="section-11c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. Må forklare problemet med store konstruktører og vise eller forklare hvordan Builder løser det.</p>
+</section>
+</section>
+
+<section id="oppgave-4-2-observer-pattern-og-events" class="level2" data-number="4.2" data-poeng="7">
+<h2 data-number="4.2" data-poeng="7"><span class="header-section-number">4.2</span> Observer-pattern og events</h2>
+<section id="section-12" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p>Se på denne (dårlige) koden:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Apartment {
+    <span class="kw">private</span> <span class="dt">boolean</span> isAvailable;
+    <span class="kw">private</span> ApartmentUI ui;
+    <span class="kw">private</span> EmailNotifier emailer;
+    <span class="kw">private</span> Analytics analytics;
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">markAsRented</span>() {
+        isAvailable = <span class="kw">false</span>;
+        ui.<span class="fu">updateStatus</span>(<span class="st">"Utleid"</span>);
+        emailer.<span class="fu">notifyLandlord</span>();
+        analytics.<span class="fu">logRental</span>();
+    }
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Hva er designproblemet her?</strong></li>
+<li><strong>b)</strong> <strong>Hvordan ville du refaktorert det?</strong></li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-12b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Designproblem:</strong> Klassen er tett koblet til UI, email-notifier og analytics. Hvis du senere vil legge til SMS-varsler eller en annen notifikasjon, må du endre `Apartment`-klassen. Den vet for mye om andre systemer.</p>
+<p><strong>b) Bedre løsning – Observer-pattern:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> RentalListener {
+    <span class="dt">void</span> <span class="fu">onApartmentRented</span>(Apartment apt);
+}
+
+<span class="kw">public</span> <span class="kw">class</span> Apartment {
+    <span class="kw">private</span> List&lt;RentalListener&gt; listeners = <span class="kw">new</span> ArrayList&lt;&gt;();
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">addListener</span>(RentalListener listener) {
+        listeners.<span class="fu">add</span>(listener);
+    }
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">markAsRented</span>() {
+        isAvailable = <span class="kw">false</span>;
+        <span class="kw">for</span> (RentalListener l : listeners) {
+            l.<span class="fu">onApartmentRented</span>(<span class="kw">this</span>);
+        }
+    }
+}</code></pre>
+<p>Nå er `Apartment` frakoblet – den vet ikke om UI, email osv. Andre komponenter kan registrere seg som lyttere og reagere etter behov.</p>
+</section>
+<section id="section-12c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 7 poeng. <strong>a)</strong> 2 poeng – må identifisere tight coupling. <strong>b)</strong> 5 poeng – må foreslå Observer-pattern med grensesnitt og liste av lyttere.</p>
+</section>
+</section>
+
+<section id="oppgave-4-3-etikk-og-sikkerhet" class="level2" data-number="4.3" data-poeng="5">
+<h2 data-number="4.3" data-poeng="5"><span class="header-section-number">4.3</span> Etikk og sikkerhet</h2>
+<section id="section-13" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="fb"></h5>
+<p><strong>I en leilighetssøk-app må du lagre personopplysninger som navn, adresse og søkehistorikk. Hva er viktig å tenke på fra et personvern- og sikkerhetsperspektiv?</strong></p>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-13b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Viktige tiltak:</p>
+<ul>
+<li><strong>Innsamlet kun nødvendig data</strong> – lagre bare navn, adresse og søkehistorikk hvis det faktisk trengs for tjenesten. Ikke samle inn "bare i tilfelle".</li>
+<li><strong>Transparent samtykke</strong> – brukeren må vite hva som samles inn og hvorfor. De skal kunne si nei.</li>
+<li><strong>Sikker lagring</strong> – hvis du lagrer personopplysninger, må de beskyttes (kryptering, sikre servere, tilgangskontroll).</li>
+<li><strong>Begrenset levetid</strong> – lag en policy for hvor lenge data lagres. Slett det når det ikke lenger trengs.</li>
+<li><strong>Ingen deling uten tillatelse</strong> – ikke del brukerdata med tredjeparter (f.eks. annonsører) uten eksplisitt samtykke.</li>
+<li><strong>Input-validering</strong> – sikre at formene ikke kan misbrukes til å lagre ondsinnet data.</li>
+</ul>
+<p>Bakgrunn: GDPR og norsk personopplysningsloven stiller strenge krav til behandling av persondata. Brudd kan gi store bøter og skade omdømme.</p>
+</section>
+<section id="section-13c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. Søker minst 3–4 konkrete tiltak og en kort begrunnelse for hvorfor det er viktig.</p>
+</section>
+</section>
+
+</section>
+
+<hr />
+<p><strong>Totalt: 60 poeng</strong></p>
+
+</body>
+</html>
