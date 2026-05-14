@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INF222 V26 — Practice Exam E</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.65;color:#1a1a1a;background:#f0ede6;padding-bottom:4rem}
+header{background:#1e3a5f;color:#fff;padding:1.8rem 2.5rem 1.4rem}
+header h1{font-size:1.7rem;margin-bottom:.35rem}
+header .meta{font-size:.88rem;opacity:.82;display:flex;flex-wrap:wrap;gap:.4rem 2rem;margin-top:.4rem}
+.body-wrap{max-width:920px;margin:0 auto;padding:0 1.2rem}
+.instructions{background:#fff8e0;border-left:4px solid #c9911a;padding:.9rem 1.3rem;margin:1.4rem 0;font-size:.88rem;line-height:1.55}
+.instructions strong{color:#7a5400}
+.toc{background:#fff;border:1px solid #ccc;border-radius:5px;padding:1.1rem 1.4rem;margin-bottom:1.8rem}
+.toc h3{font-size:.95rem;color:#1e3a5f;margin-bottom:.7rem;text-transform:uppercase;letter-spacing:.06em}
+.toc table{width:100%;border-collapse:collapse;font-size:.83rem}
+.toc td,.toc th{padding:.25rem .5rem;border-bottom:1px solid #eee}
+.toc th{text-align:left;color:#555;font-weight:600}
+.toc .num{font-weight:700;color:#1e3a5f;white-space:nowrap}
+.toc .pts{text-align:right;font-weight:600}
+.toc .mins{text-align:right;color:#777}
+.toc tfoot td{font-weight:700;border-top:2px solid #aaa;padding-top:.4rem}
+.section{margin-bottom:2.5rem}
+.sec-head{background:#1e3a5f;color:#fff;padding:.6rem 1.1rem;border-radius:4px 4px 0 0;display:flex;justify-content:space-between;align-items:center;margin-bottom:0}
+.sec-head h2{font-size:1rem;font-weight:700}
+.sec-head .sec-pts{font-size:.82rem;opacity:.8}
+.task{background:#fff;border:1px solid #ccc;border-top:none;padding:1.3rem 1.5rem;margin-bottom:1.4rem}
+.task+.task{border-top:1px solid #e0ddd8}
+.task-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.9rem;padding-bottom:.7rem;border-bottom:1px solid #eee}
+.task-head h3{font-size:1rem;color:#1e3a5f;font-weight:700}
+.task-meta{text-align:right;font-size:.8rem;color:#555}
+.task-meta .pts{font-weight:700;color:#1a1a1a;font-size:.9rem}
+p{margin-bottom:.7rem}
+ul,ol{margin:.4rem 0 .7rem 1.6rem}
+li{margin-bottom:.2rem}
+pre{background:#1e1e2e;color:#cdd6f4;padding:.95rem 1.1rem;border-radius:4px;overflow-x:auto;font-family:'Consolas','Courier New',monospace;font-size:.82rem;line-height:1.55;margin:.7rem 0;tab-size:4}
+code{font-family:'Consolas','Courier New',monospace;font-size:.88em;background:#eef0f5;padding:.1em .3em;border-radius:2px}
+pre code{background:none;padding:0;font-size:1em}
+table.qa{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:.88rem}
+table.qa th{background:#f0f4f9;padding:.45rem .7rem;text-align:left;border:1px solid #ccd;color:#333;font-weight:600}
+table.qa td{padding:.45rem .7rem;border:1px solid #ccd;vertical-align:middle}
+table.qa tr:nth-child(even) td{background:#fafbfc}
+select{font-family:'Consolas','Courier New',monospace;font-size:.82rem;padding:.22rem .35rem;border:1px solid #999;border-radius:3px;background:#fff;cursor:pointer;color:#1a1a1a}
+select:focus{outline:2px solid #1e3a5f}
+select.correct{background:#d4edda;border-color:#28a745;color:#155724}
+select.wrong{background:#f8d7da;border-color:#dc3545;color:#721c24}
+.hint{font-size:.8rem;color:#666;font-style:italic;margin-top:.4rem}
+.sub-q{margin:.45rem 0;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.sub-q .lbl{min-width:260px;font-size:.88rem}
+#score-area{background:#1e3a5f;color:#fff;padding:1.2rem 1.5rem;border-radius:6px;margin-top:1.5rem;text-align:center;display:none}
+#score-area h2{margin-bottom:.4rem}
+.check-btn{display:block;margin:1.5rem auto;padding:.75rem 2.5rem;background:#1e3a5f;color:#fff;border:none;border-radius:4px;font-size:1rem;cursor:pointer;font-family:Georgia,serif}
+.check-btn:hover{background:#2a4f80}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>INF222 — Programmeringsspråk &nbsp;·&nbsp; V26</h1>
+  <div class="meta">
+    <span>Practice Exam E</span>
+    <span>Duration: 3 hours (180 minutes)</span>
+    <span>Total: 100 points</span>
+    <span>Click "Check Answers" at the bottom to grade yourself</span>
+  </div>
+</header>
+
+<div class="body-wrap">
+
+<div class="instructions">
+  <strong>Instructions:</strong> For every question, select the correct answer from the dropdown menu.
+  All answers are graded automatically — no partial credit within a single dropdown.
+  Read each question carefully. The exam is <strong>closed-book</strong>.
+  Click <em>Check Answers</em> at the bottom to see your score and which answers were wrong.
+</div>
+
+<div class="toc">
+  <h3>Tasks — Point &amp; Time Overview</h3>
+  <table>
+    <thead><tr><th>Task</th><th>Topic</th><th class="pts">Pts</th><th class="mins">Min</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1.1</td><td>Parameter passing modes</td><td class="pts">11</td><td class="mins">20</td></tr>
+      <tr><td class="num">1.2</td><td>Scoping &amp; hoisting (JavaScript)</td><td class="pts">6</td><td class="mins">10</td></tr>
+      <tr><td class="num">1.3</td><td>Pointers (Pascal)</td><td class="pts">4.5</td><td class="mins">10</td></tr>
+      <tr><td class="num">1.4</td><td>Ownership &amp; borrowing (Rust)</td><td class="pts">10</td><td class="mins">10</td></tr>
+      <tr><td class="num">1.5</td><td>Typing disciplines</td><td class="pts">7.5</td><td class="mins">10</td></tr>
+      <tr><td class="num">2.1</td><td>Set First &amp; recursive descent parsing</td><td class="pts">8</td><td class="mins">20</td></tr>
+      <tr><td class="num">2.2</td><td>Interpreter / evaluator (Haskell)</td><td class="pts">11</td><td class="mins">25</td></tr>
+      <tr><td class="num">2.3</td><td>Interpreter / evaluator: conceptual questions</td><td class="pts">4</td><td class="mins">5</td></tr>
+      <tr><td class="num">3.1</td><td>WebAssembly</td><td class="pts">9</td><td class="mins">15</td></tr>
+      <tr><td class="num">4.1</td><td>PL standardization</td><td class="pts">2</td><td class="mins">5</td></tr>
+      <tr><td class="num">4.2</td><td>Formal semantics</td><td class="pts">3</td><td class="mins">10</td></tr>
+      <tr><td class="num">5.1</td><td>Subtyping (Java, Kotlin)</td><td class="pts">5</td><td class="mins">10</td></tr>
+      <tr><td class="num">5.2</td><td>Type erasure (Java)</td><td class="pts">6</td><td class="mins">5</td></tr>
+      <tr><td class="num">5.3</td><td>Generics — Kotlin</td><td class="pts">3</td><td class="mins">5</td></tr>
+      <tr><td class="num">5.4</td><td>Variance (Kotlin)</td><td class="pts">10</td><td class="mins">20</td></tr>
+    </tbody>
+    <tfoot><tr><td>TOTAL</td><td></td><td class="pts">100</td><td class="mins">180</td></tr></tfoot>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  SECTION 1                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="sec-head">
+    <h2>Section 1 — Variables, Parameters, Values, Types</h2>
+    <span class="sec-pts">39 points · 60 minutes</span>
+  </div>
+
+  <!-- 1.1 -->
+  <div class="task" id="t1-1">
+    <div class="task-head">
+      <h3>Task 1.1 — Parameter Passing Modes</h3>
+      <div class="task-meta"><span class="pts">11 points</span><br>~20 min</div>
+    </div>
+    <p>Consider an imaginary programming language with three parameter passing modes:</p>
+    <ul>
+      <li><strong>obs</strong> — <em>observe</em>: the parameter is read-only; the called procedure cannot modify it.</li>
+      <li><strong>upd</strong> — <em>update</em>: the parameter is both read and written; the called procedure can observe and modify it.</li>
+      <li><strong>out</strong> — <em>output</em>: the parameter is write-only; the called procedure produces a result value in it (the input value is meaningless).</li>
+    </ul>
+    <p>Below is an interface for a <code>ShoppingCart</code>. Select the correct passing mode for each parameter.</p>
+<pre>interface ShoppingCart {
+
+  method addItem(??? Item item, ??? Cart cart);
+    // Adds item to cart; cart is modified to include the new item.
+    // item itself is not changed.
+
+  method removeItem(??? Item item, ??? Cart cart);
+    // Removes item from cart; cart is modified.
+    // item itself is not changed.
+
+  method getTotal(??? Money total, ??? Cart cart);
+    // Writes the sum of all item prices in cart into total.
+    // cart is not modified.
+
+  method applyDiscount(??? Discount discount, ??? Cart cart);
+    // Applies the discount; item prices in cart are updated.
+    // discount itself is not changed.
+
+  method checkout(??? Cart cart,
+                  ??? PaymentInfo payment,
+                  ??? Receipt receipt);
+    // Processes payment for cart; empties cart; writes the receipt.
+}</pre>
+    <table class="qa">
+      <thead><tr><th>Method</th><th>Parameter</th><th>Passing mode</th></tr></thead>
+      <tbody>
+        <tr><td><code>addItem</code></td><td><code>item</code></td>
+          <td><select data-correct="obs" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>addItem</code></td><td><code>cart</code></td>
+          <td><select data-correct="upd" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>removeItem</code></td><td><code>item</code></td>
+          <td><select data-correct="obs" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>removeItem</code></td><td><code>cart</code></td>
+          <td><select data-correct="upd" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>getTotal</code></td><td><code>total</code></td>
+          <td><select data-correct="out" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>getTotal</code></td><td><code>cart</code></td>
+          <td><select data-correct="obs" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>applyDiscount</code></td><td><code>discount</code></td>
+          <td><select data-correct="obs" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>applyDiscount</code></td><td><code>cart</code></td>
+          <td><select data-correct="upd" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>checkout</code></td><td><code>cart</code></td>
+          <td><select data-correct="upd" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>checkout</code></td><td><code>payment</code></td>
+          <td><select data-correct="obs" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+        <tr><td><code>checkout</code></td><td><code>receipt</code></td>
+          <td><select data-correct="out" data-pts="1"><option value="">— select —</option><option>obs</option><option>upd</option><option>out</option></select></td></tr>
+      </tbody>
+    </table>
+    <p class="hint">Max points: 11 (1 point per row)</p>
+  </div>
+
+  <!-- 1.2 -->
+  <div class="task" id="t1-2">
+    <div class="task-head">
+      <h3>Task 1.2 — Scoping and Hoisting (JavaScript)</h3>
+      <div class="task-meta"><span class="pts">6 points</span><br>~10 min</div>
+    </div>
+    <p>Consider the following JavaScript code. For each labeled <code>console.log</code>, determine what value is printed.</p>
+    <p class="hint">Recall: <code>var</code> is function-scoped and hoisted (declaration moves to top, value stays); <code>let</code> is block-scoped and not hoisted.</p>
+<pre>function process() {
+    console.log(typeof count); // Line A
+    var count = 5;
+    let flag = true;
+
+    if (count > 0) {
+        var count = 10;        // re-declares the same function-scoped count
+        let flag = false;      // new block-scoped flag, shadows outer flag
+        var status = "ok";     // new function-scoped var
+        console.log(count);    // Line B
+        console.log(flag);     // Line C
+    }
+
+    console.log(count);        // Line D
+    console.log(flag);         // Line E
+    console.log(status);       // Line F
+}
+process();</pre>
+    <table class="qa">
+      <thead><tr><th>Line</th><th>Output</th></tr></thead>
+      <tbody>
+        <tr><td>Line A</td>
+          <td><select data-correct="undefined" data-pts="1"><option value="">— select —</option><option>undefined</option><option>5</option><option>ReferenceError</option><option>10</option></select></td></tr>
+        <tr><td>Line B</td>
+          <td><select data-correct="10" data-pts="1"><option value="">— select —</option><option>5</option><option>10</option><option>undefined</option><option>true</option></select></td></tr>
+        <tr><td>Line C</td>
+          <td><select data-correct="false" data-pts="1"><option value="">— select —</option><option>true</option><option>false</option><option>undefined</option><option>10</option></select></td></tr>
+        <tr><td>Line D</td>
+          <td><select data-correct="10" data-pts="1"><option value="">— select —</option><option>5</option><option>10</option><option>undefined</option><option>1</option></select></td></tr>
+        <tr><td>Line E</td>
+          <td><select data-correct="true" data-pts="1"><option value="">— select —</option><option>true</option><option>false</option><option>undefined</option><option>10</option></select></td></tr>
+        <tr><td>Line F</td>
+          <td><select data-correct="ok" data-pts="1"><option value="">— select —</option><option>ok</option><option>undefined</option><option>ReferenceError</option><option>true</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 1.3 -->
+  <div class="task" id="t1-3">
+    <div class="task-head">
+      <h3>Task 1.3 — Pointers (Pascal)</h3>
+      <div class="task-meta"><span class="pts">4.5 points</span><br>~10 min</div>
+    </div>
+    <p>Consider the following Pascal program. What does each <code>writeln</code> statement print?</p>
+<pre>program PointerDemo;
+var
+  x, y, z: integer;
+  p, q: ^integer;
+begin
+  x := 4;
+  y := 6;
+  z := 2;
+  p := @x;           { p points to x }
+  q := @y;           { q points to y }
+  p^ := p^ * z;      { x := x * z }
+  q^ := q^ + p^;     { y := y + x  }
+  p := q;            { p now points to y }
+  p^ := p^ - z;      { modifies y via p }
+  writeln(x);        { Line A }
+  writeln(y);        { Line B }
+  writeln(p^);       { Line C }
+end.</pre>
+    <table class="qa">
+      <thead><tr><th>Line</th><th>Output</th></tr></thead>
+      <tbody>
+        <tr><td>Line A — <code>writeln(x)</code></td>
+          <td><select data-correct="8" data-pts="1.5"><option value="">— select —</option><option>4</option><option>6</option><option>8</option><option>14</option></select></td></tr>
+        <tr><td>Line B — <code>writeln(y)</code></td>
+          <td><select data-correct="12" data-pts="1.5"><option value="">— select —</option><option>6</option><option>12</option><option>14</option><option>16</option></select></td></tr>
+        <tr><td>Line C — <code>writeln(p^)</code></td>
+          <td><select data-correct="12" data-pts="1.5"><option value="">— select —</option><option>8</option><option>12</option><option>14</option><option>16</option></select></td></tr>
+      </tbody>
+    </table>
+    <p class="hint">Recall: <code>p^</code> dereferences pointer <code>p</code>; <code>@x</code> gives the address of variable <code>x</code>.</p>
+  </div>
+
+  <!-- 1.4 -->
+  <div class="task" id="t1-4">
+    <div class="task-head">
+      <h3>Task 1.4 — Ownership and Borrowing (Rust)</h3>
+      <div class="task-meta"><span class="pts">10 points</span><br>~10 min</div>
+    </div>
+    <p>Fill in the blanks in the Rust code below. Each blank <code>___</code> should be replaced by exactly one of the three options shown in parentheses next to it.</p>
+<pre>fn display(s: _1_) {              // (1): &amp;String  |  String  |  &amp;mut String
+    println!("{}", s);
+}
+
+fn append(s: _2_, extra: &amp;str) {  // (2): &amp;mut String  |  String  |  &amp;String
+    s.push_str(extra);
+}
+
+fn main() {
+    let s1 = String::from("hello");
+    display(_3_);                  // (3): &amp;s1  |  s1  |  &amp;mut s1
+    println!("{}", s1);            // s1 must still be valid here
+
+    let mut s2 = String::from("world");
+    append(_4_, " rust");          // (4): &amp;mut s2  |  s2  |  &amp;s2
+
+    let n: i32 = 5;
+    let m = _5_;                   // (5): n  |  &amp;n  |  &amp;mut n
+    println!("{} {}", n, m);       // both n and m must be usable
+
+    let a = String::from("foo");
+    let b = _6_;                   // (6): a  |  &amp;a  |  &amp;mut a
+    // `a` is no longer valid after this line
+    println!("{}", b);
+
+    let mut v = String::from("hi");
+    {
+        let r1 = _7_;              // (7): &amp;v  |  &amp;mut v  |  v
+        let r2 = _8_;              // (8): &amp;v  |  &amp;mut v  |  v
+        println!("{} {}", r1, r2);
+    } // r1 and r2 dropped here
+
+    let r3 = _9_;                  // (9): &amp;mut v  |  &amp;v  |  v
+    r3.push_str(" there");
+
+    let x: i32 = 10;
+    let y = _10_;                  // (10): x  |  &amp;x  |  &amp;mut x
+    println!("{} {}", x, y);       // both x and y must be usable
+}</pre>
+    <table class="qa">
+      <thead><tr><th>Blank</th><th>Fill in with</th></tr></thead>
+      <tbody>
+        <tr><td>Blank 1 — type of <code>display</code> parameter</td>
+          <td><select data-correct="&amp;String" data-pts="1"><option value="">— select —</option><option value="String">String</option><option value="&amp;String">&amp;String</option><option value="&amp;mut String">&amp;mut String</option></select></td></tr>
+        <tr><td>Blank 2 — type of <code>append</code> parameter</td>
+          <td><select data-correct="&amp;mut String" data-pts="1"><option value="">— select —</option><option value="String">String</option><option value="&amp;String">&amp;String</option><option value="&amp;mut String">&amp;mut String</option></select></td></tr>
+        <tr><td>Blank 3 — argument passed to <code>display()</code></td>
+          <td><select data-correct="&amp;s1" data-pts="1"><option value="">— select —</option><option value="&amp;s1">&amp;s1</option><option value="s1">s1</option><option value="&amp;mut s1">&amp;mut s1</option></select></td></tr>
+        <tr><td>Blank 4 — argument passed to <code>append()</code></td>
+          <td><select data-correct="&amp;mut s2" data-pts="1"><option value="">— select —</option><option value="&amp;mut s2">&amp;mut s2</option><option value="s2">s2</option><option value="&amp;s2">&amp;s2</option></select></td></tr>
+        <tr><td>Blank 5 — assigning <code>m</code> from <code>n</code> (i32 — a Copy type)</td>
+          <td><select data-correct="n" data-pts="1"><option value="">— select —</option><option value="n">n</option><option value="&amp;n">&amp;n</option><option value="&amp;mut n">&amp;mut n</option></select></td></tr>
+        <tr><td>Blank 6 — assigning <code>b</code> from <code>a</code> (String — invalidates <code>a</code>)</td>
+          <td><select data-correct="a" data-pts="1"><option value="">— select —</option><option value="a">a</option><option value="&amp;a">&amp;a</option><option value="&amp;mut a">&amp;mut a</option></select></td></tr>
+        <tr><td>Blank 7 — first borrow of <code>v</code> (alongside r2)</td>
+          <td><select data-correct="&amp;v" data-pts="1"><option value="">— select —</option><option value="&amp;v">&amp;v</option><option value="&amp;mut v">&amp;mut v</option><option value="v">v</option></select></td></tr>
+        <tr><td>Blank 8 — second borrow of <code>v</code> (alongside r1)</td>
+          <td><select data-correct="&amp;v" data-pts="1"><option value="">— select —</option><option value="&amp;v">&amp;v</option><option value="&amp;mut v">&amp;mut v</option><option value="v">v</option></select></td></tr>
+        <tr><td>Blank 9 — mutable borrow of <code>v</code> (after r1, r2 are dropped)</td>
+          <td><select data-correct="&amp;mut v" data-pts="1"><option value="">— select —</option><option value="&amp;mut v">&amp;mut v</option><option value="&amp;v">&amp;v</option><option value="v">v</option></select></td></tr>
+        <tr><td>Blank 10 — copy <code>x</code> into <code>y</code> (i32 is Copy)</td>
+          <td><select data-correct="x" data-pts="1"><option value="">— select —</option><option value="x">x</option><option value="&amp;x">&amp;x</option><option value="&amp;mut x">&amp;mut x</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 1.5 -->
+  <div class="task" id="t1-5">
+    <div class="task-head">
+      <h3>Task 1.5 — Typing Disciplines</h3>
+      <div class="task-meta"><span class="pts">7.5 points</span><br>~10 min</div>
+    </div>
+    <p>Match each description to the correct typing discipline from the dropdown.</p>
+    <table class="qa">
+      <thead><tr><th>Description</th><th>Typing discipline</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>The compiler knows the exact type of every expression before the program runs; type errors prevent compilation.</td>
+          <td><select data-correct="statically typed" data-pts="1.5">
+            <option value="">— select —</option>
+            <option>statically typed</option>
+            <option>dynamically typed</option>
+            <option>gradually typed</option>
+            <option>dependently typed</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td>A value can only be used in operations valid for its exact type; the language disallows implicit coercions between unrelated types.</td>
+          <td><select data-correct="strongly typed" data-pts="1.5">
+            <option value="">— select —</option>
+            <option>weakly typed</option>
+            <option>strongly typed</option>
+            <option>duck typed</option>
+            <option>nominally typed</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td>Two types are compatible if they have exactly the same fields and method signatures, regardless of the names given to those types.</td>
+          <td><select data-correct="structurally typed" data-pts="1.5">
+            <option value="">— select —</option>
+            <option>nominally typed</option>
+            <option>structurally typed</option>
+            <option>duck typed</option>
+            <option>dynamically typed</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td>Some parts of the same program are checked at compile time while other parts defer type checking to runtime, depending on type annotations.</td>
+          <td><select data-correct="gradually typed" data-pts="1.5">
+            <option value="">— select —</option>
+            <option>statically typed</option>
+            <option>dynamically typed</option>
+            <option>gradually typed</option>
+            <option>weakly typed</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td>The language allows integers to be used as booleans, strings to be concatenated with numbers, and similar implicit type conversions.</td>
+          <td><select data-correct="weakly typed" data-pts="1.5">
+            <option value="">— select —</option>
+            <option>strongly typed</option>
+            <option>weakly typed</option>
+            <option>structurally typed</option>
+            <option>dependently typed</option>
+          </select></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- end section 1 -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  SECTION 2                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="sec-head">
+    <h2>Section 2 — Parsers and Interpreters</h2>
+    <span class="sec-pts">23 points · 50 minutes</span>
+  </div>
+
+  <!-- 2.1 -->
+  <div class="task" id="t2-1">
+    <div class="task-head">
+      <h3>Task 2.1 — Set First and Recursive Descent Parsing</h3>
+      <div class="task-meta"><span class="pts">8 points</span><br>~20 min</div>
+    </div>
+    <p>Consider the following context-free grammar (ε denotes the empty string):</p>
+<pre>S  →  P Q
+P  →  a P  |  b
+Q  →  c Q  |  ε</pre>
+    <p>Recall: <strong>First(ξ)</strong> is the set of all terminal symbols that can start the string ξ, plus ε if ξ can derive the empty string.</p>
+    <p class="hint">If you need to include ε in an answer, it appears as an option labeled <em>epsilon</em>.</p>
+
+    <p><strong>Subtask 1</strong> — Calculate First sets. (1 point each)</p>
+    <table class="qa">
+      <thead><tr><th>Expression</th><th>First set</th></tr></thead>
+      <tbody>
+        <tr><td><code>First(P)</code></td>
+          <td><select data-correct="{a, b}" data-pts="1">
+            <option value="">— select —</option>
+            <option value="{a, b}">{a, b}</option>
+            <option value="{a, b, epsilon}">{a, b, epsilon}</option>
+            <option value="{a}">{a}</option>
+            <option value="{a, b, c}">{a, b, c}</option>
+          </select></td></tr>
+        <tr><td><code>First(Q)</code></td>
+          <td><select data-correct="{c, epsilon}" data-pts="1">
+            <option value="">— select —</option>
+            <option value="{c}">{c}</option>
+            <option value="{c, epsilon}">{c, epsilon}</option>
+            <option value="{c, b}">{c, b}</option>
+            <option value="{c, epsilon, a}">{c, epsilon, a}</option>
+          </select></td></tr>
+        <tr><td><code>First(P Q)</code> — the string P followed by Q</td>
+          <td><select data-correct="{a, b}" data-pts="1">
+            <option value="">— select —</option>
+            <option value="{a, b}">{a, b}</option>
+            <option value="{a, b, c}">{a, b, c}</option>
+            <option value="{a, b, epsilon}">{a, b, epsilon}</option>
+            <option value="{a, b, c, epsilon}">{a, b, c, epsilon}</option>
+          </select></td></tr>
+        <tr><td><code>First(c Q)</code> — the string c followed by Q</td>
+          <td><select data-correct="{c}" data-pts="1">
+            <option value="">— select —</option>
+            <option value="{c}">{c}</option>
+            <option value="{c, epsilon}">{c, epsilon}</option>
+            <option value="{c, a}">{c, a}</option>
+            <option value="{c, b}">{c, b}</option>
+          </select></td></tr>
+        <tr><td><code>First(S)</code></td>
+          <td><select data-correct="{a, b}" data-pts="1">
+            <option value="">— select —</option>
+            <option value="{a}">{a}</option>
+            <option value="{a, b}">{a, b}</option>
+            <option value="{a, b, c}">{a, b, c}</option>
+            <option value="{a, b, c, epsilon}">{a, b, c, epsilon}</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:1rem"><strong>Subtask 2</strong> — Is this grammar LL(1)? (1 point)</p>
+    <div class="sub-q">
+      <span class="lbl">Based on your First-set calculations:</span>
+      <select data-correct="Yes, this grammar is LL(1)" data-pts="1">
+        <option value="">— select —</option>
+        <option>Yes, this grammar is LL(1)</option>
+        <option>No, this grammar is NOT LL(1)</option>
+      </select>
+    </div>
+
+    <p style="margin-top:1rem"><strong>Subtask 3</strong> — Parsing decision for Q. (2 points)</p>
+    <p>When parsing Q and the next input token is <code>$</code> (end of input), which production should a recursive-descent parser choose?</p>
+    <div class="sub-q">
+      <select data-correct="Q → ε (because $ is in Follow(Q), signalling the empty alternative)" data-pts="2">
+        <option value="">— select —</option>
+        <option value="Q → ε (because $ is in Follow(Q), signalling the empty alternative)">Q → ε  ($ is in Follow(Q) — choose the empty alternative)</option>
+        <option value="Q → c Q (because c always starts Q)">Q → c Q  (c always starts Q — pick this by default)</option>
+        <option value="Parsing fails — $ is not in First(Q)">Parsing fails — $ is not in First(Q)</option>
+        <option value="Q → c Q (because Q can never be empty)">Q → c Q  (Q can never be empty)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 2.2 -->
+  <div class="task" id="t2-2">
+    <div class="task-head">
+      <h3>Task 2.2 — Interpreter / Evaluator (Haskell)</h3>
+      <div class="task-meta"><span class="pts">11 points</span><br>~25 min</div>
+    </div>
+    <p>Below is a Haskell interpreter for a small imperative language. Fill in the 11 blanks. Each blank has three options shown in parentheses.</p>
+<pre>module Main where
+
+data Stmt
+  = Skip
+  | Assign String Expr
+  | Seq Stmt Stmt
+  | If Expr Stmt Stmt
+  | While Expr Stmt
+  deriving (Show)
+
+data Expr
+  = Lit Int
+  | BoolLit Bool
+  | Var String
+  | Add _1_ _2_        -- (1,2): Expr  |  Stmt  |  Val
+  | Not _3_             -- (3):   Expr  |  Stmt  |  Val
+  | Lt  _4_ _5_        -- (4,5): Expr  |  Stmt  |  Val
+  deriving (Show)
+
+data Val = VInt Int | VBool Bool | VUnit   deriving (Show, Eq)
+
+type Env = [(String, Val)]
+
+eval :: Expr -> _6_ -> Val              -- (6): Env  |  Val  |  Stmt
+
+eval (Lit n)      _   = _7_            -- (7): VInt n  |  VBool n  |  VUnit
+eval (BoolLit b)  _   = VBool b
+eval (Var x)      env =
+  case lookup x env of
+    Just v  -> v
+    Nothing -> _8_                     -- (8): VUnit  |  []  |  VInt 0
+
+eval (Add e1 e2) env =
+  case (_9_ e1 env, eval e2 env) of   -- (9): eval  |  exec  |  lookup
+    (VInt a, VInt b) -> VInt (a + b)
+    _                -> VUnit
+
+eval (Lt e1 e2) env =
+  case (eval e1 env, eval e2 env) of
+    (VInt a, VInt b) -> _10_ (a &lt; b)  -- (10): VBool  |  VInt  |  VUnit
+
+exec :: Stmt -> Env -> Env
+
+exec Skip          env = env
+exec (Assign x e)  env = (x, eval e env) : env
+exec (Seq s1 s2)   env = (_11_ s2 . exec s1) env  -- (11): exec  |  eval  |  lookup</pre>
+    <table class="qa">
+      <thead><tr><th>Blank</th><th>Fill in with</th></tr></thead>
+      <tbody>
+        <tr><td>Blank 1 — left operand type in <code>Add</code></td>
+          <td><select data-correct="Expr" data-pts="1"><option value="">— select —</option><option>Expr</option><option>Stmt</option><option>Val</option></select></td></tr>
+        <tr><td>Blank 2 — right operand type in <code>Add</code></td>
+          <td><select data-correct="Expr" data-pts="1"><option value="">— select —</option><option>Expr</option><option>Stmt</option><option>Val</option></select></td></tr>
+        <tr><td>Blank 3 — operand type in <code>Not</code></td>
+          <td><select data-correct="Expr" data-pts="1"><option value="">— select —</option><option>Expr</option><option>Stmt</option><option>Val</option></select></td></tr>
+        <tr><td>Blank 4 — left operand type in <code>Lt</code></td>
+          <td><select data-correct="Expr" data-pts="1"><option value="">— select —</option><option>Expr</option><option>Stmt</option><option>Val</option></select></td></tr>
+        <tr><td>Blank 5 — right operand type in <code>Lt</code></td>
+          <td><select data-correct="Expr" data-pts="1"><option value="">— select —</option><option>Expr</option><option>Stmt</option><option>Val</option></select></td></tr>
+        <tr><td>Blank 6 — second argument type of <code>eval</code></td>
+          <td><select data-correct="Env" data-pts="1"><option value="">— select —</option><option>Env</option><option>Val</option><option>Stmt</option></select></td></tr>
+        <tr><td>Blank 7 — result of evaluating an integer literal <code>Lit n</code></td>
+          <td><select data-correct="VInt n" data-pts="1"><option value="">— select —</option><option>VInt n</option><option>VBool n</option><option>VUnit</option></select></td></tr>
+        <tr><td>Blank 8 — result when variable is not found in environment</td>
+          <td><select data-correct="VUnit" data-pts="1"><option value="">— select —</option><option>VUnit</option><option>[]</option><option>VInt 0</option></select></td></tr>
+        <tr><td>Blank 9 — function used to evaluate the first operand of <code>Add</code></td>
+          <td><select data-correct="eval" data-pts="1"><option value="">— select —</option><option>eval</option><option>exec</option><option>lookup</option></select></td></tr>
+        <tr><td>Blank 10 — constructor wrapping the boolean result of <code>Lt</code></td>
+          <td><select data-correct="VBool" data-pts="1"><option value="">— select —</option><option>VBool</option><option>VInt</option><option>VUnit</option></select></td></tr>
+        <tr><td>Blank 11 — function applied in the second stage of <code>Seq</code></td>
+          <td><select data-correct="exec" data-pts="1"><option value="">— select —</option><option>exec</option><option>eval</option><option>lookup</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2.3 -->
+  <div class="task" id="t2-3">
+    <div class="task-head">
+      <h3>Task 2.3 — Interpreter / Evaluator: Conceptual Questions</h3>
+      <div class="task-meta"><span class="pts">4 points</span><br>~5 min</div>
+    </div>
+    <p>Answer the following questions about the interpreter from Task 2.2.</p>
+    <table class="qa">
+      <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>1</td>
+          <td>What is the return type of <code>exec :: Stmt -&gt; Env -&gt; ___</code>?</td>
+          <td><select data-correct="Env" data-pts="1"><option value="">— select —</option><option>Env</option><option>Val</option><option>Stmt</option><option>Bool</option></select></td></tr>
+        <tr><td>2</td>
+          <td>If variable <code>x</code> is assigned twice, which binding does <code>lookup x env</code> return?</td>
+          <td><select data-correct="The most recent binding — new bindings are prepended to the front of the list" data-pts="1">
+            <option value="">— select —</option>
+            <option value="The most recent binding — new bindings are prepended to the front of the list">The most recent binding — new bindings are prepended</option>
+            <option value="The first binding — it was added earliest">The first (oldest) binding — added earliest</option>
+            <option value="Nothing — duplicate bindings cause an error">Nothing — duplicates cause an error</option>
+          </select></td></tr>
+        <tr><td>3</td>
+          <td>What does <code>eval (Var "z") []</code> return when the environment is empty?</td>
+          <td><select data-correct="VUnit" data-pts="1"><option value="">— select —</option><option>VUnit</option><option>VInt 0</option><option>VBool False</option><option>Runtime error</option></select></td></tr>
+        <tr><td>4</td>
+          <td>In <code>(exec s2 . exec s1) env</code>, which statement executes first?</td>
+          <td><select data-correct="s1 — in function composition (f . g) x, g is applied first" data-pts="1">
+            <option value="">— select —</option>
+            <option value="s1 — in function composition (f . g) x, g is applied first">s1 — in (f . g) x, g is applied first</option>
+            <option value="s2 — it appears first in the expression">s2 — it appears first in the expression</option>
+            <option value="Both simultaneously">Both simultaneously</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- end section 2 -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  SECTION 3                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="sec-head">
+    <h2>Section 3 — WebAssembly</h2>
+    <span class="sec-pts">9 points · 15 minutes</span>
+  </div>
+
+  <!-- 3.1 -->
+  <div class="task" id="t3-1">
+    <div class="task-head">
+      <h3>Task 3.1 — WebAssembly</h3>
+      <div class="task-meta"><span class="pts">9 points</span><br>~15 min</div>
+    </div>
+    <table class="qa">
+      <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>1</td>
+          <td>After the 4 magic bytes, what do bytes 5–8 of a valid WebAssembly binary contain?</td>
+          <td><select data-correct="0x01 0x00 0x00 0x00  (version 1)" data-pts="1">
+            <option value="">— select —</option>
+            <option value="0x01 0x00 0x00 0x00  (version 1)">0x01 0x00 0x00 0x00  (version 1)</option>
+            <option value="0x00 0x00 0x00 0x01  (big-endian version 1)">0x00 0x00 0x00 0x01  (big-endian 1)</option>
+            <option value="0x02 0x00 0x00 0x00  (version 2)">0x02 0x00 0x00 0x00  (version 2)</option>
+            <option value="0x00 0x61 0x73 0x6d  (the magic bytes again)">0x00 0x61 0x73 0x6d  (magic bytes)</option>
+          </select></td></tr>
+        <tr><td>2</td>
+          <td>Which section contains <em>function type signatures</em> (e.g., the descriptor for a function <code>(i32, i32) → i32</code>)?</td>
+          <td><select data-correct="Type section (0x01)" data-pts="1">
+            <option value="">— select —</option>
+            <option value="Type section (0x01)">Type section (0x01)</option>
+            <option value="Function section (0x03)">Function section (0x03)</option>
+            <option value="Code section (0x0a)">Code section (0x0a)</option>
+            <option value="Import section (0x02)">Import section (0x02)</option>
+          </select></td></tr>
+        <tr><td>3</td>
+          <td>What is the section ID (byte) for the <em>Memory section</em>?</td>
+          <td><select data-correct="0x05" data-pts="1">
+            <option value="">— select —</option>
+            <option value="0x05">0x05</option>
+            <option value="0x04">0x04</option>
+            <option value="0x06">0x06</option>
+            <option value="0x07">0x07</option>
+          </select></td></tr>
+        <tr><td>4</td>
+          <td>Which of the following is <strong>not</strong> a built-in WebAssembly numeric type?</td>
+          <td><select data-correct="char" data-pts="1">
+            <option value="">— select —</option>
+            <option value="char">char</option>
+            <option value="i32">i32</option>
+            <option value="i64">i64</option>
+            <option value="f32">f32</option>
+          </select></td></tr>
+        <tr><td>5</td>
+          <td>Evaluate the following WebAssembly stack instructions:<br><code>i32.const 5; i32.const 3; i32.sub; i32.const 4; i32.mul</code></td>
+          <td><select data-correct="8" data-pts="1">
+            <option value="">— select —</option>
+            <option value="8">8</option>
+            <option value="32">32</option>
+            <option value="20">20</option>
+            <option value="2">2</option>
+          </select></td></tr>
+        <tr><td>6</td>
+          <td>The binary opcode for the <code>i32.add</code> instruction is:</td>
+          <td><select data-correct="0x6a" data-pts="1">
+            <option value="">— select —</option>
+            <option value="0x6a">0x6a</option>
+            <option value="0x6b">0x6b</option>
+            <option value="0x6c">0x6c</option>
+            <option value="0x41">0x41</option>
+          </select></td></tr>
+        <tr><td>7</td>
+          <td>Which command-line tool converts WebAssembly text format (.wat) to binary (.wasm)?</td>
+          <td><select data-correct="wat2wasm" data-pts="1">
+            <option value="">— select —</option>
+            <option value="wat2wasm">wat2wasm</option>
+            <option value="wasm2wat">wasm2wat</option>
+            <option value="wasm-pack">wasm-pack</option>
+            <option value="emcc">emcc</option>
+          </select></td></tr>
+        <tr><td>8</td>
+          <td>In a Wasm function with exactly <strong>two</strong> parameters followed by one additional local variable, what index does that local variable have?</td>
+          <td><select data-correct="2" data-pts="1">
+            <option value="">— select —</option>
+            <option value="2">2</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+          </select></td></tr>
+        <tr><td>9</td>
+          <td>A WebAssembly module can only be executed inside a web browser.</td>
+          <td><select data-correct="False — Wasm runs in any host runtime (Wasmtime, Node.js, etc.)" data-pts="1">
+            <option value="">— select —</option>
+            <option value="False — Wasm runs in any host runtime (Wasmtime, Node.js, etc.)">False — Wasm runs in any host runtime (Wasmtime, Node.js, etc.)</option>
+            <option value="True — Wasm is exclusively a browser technology">True — it is exclusively a browser technology</option>
+            <option value="True — Wasm requires JavaScript to execute">True — it requires JavaScript to execute</option>
+            <option value="False — but only Rust-compiled Wasm can run outside browsers">False — but only Rust-compiled Wasm can run outside browsers</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- end section 3 -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  SECTION 4                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="sec-head">
+    <h2>Section 4 — Real-World Programming Languages</h2>
+    <span class="sec-pts">5 points · 15 minutes</span>
+  </div>
+
+  <!-- 4.1 -->
+  <div class="task" id="t4-1">
+    <div class="task-head">
+      <h3>Task 4.1 — PL Standardization</h3>
+      <div class="task-meta"><span class="pts">2 points</span><br>~5 min</div>
+    </div>
+    <table class="qa">
+      <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>1</td>
+          <td>The <strong>C</strong> programming language standard is maintained by which ISO working group?</td>
+          <td><select data-correct="ISO/IEC JTC1 SC22 WG14" data-pts="1">
+            <option value="">— select —</option>
+            <option>ISO/IEC JTC1 SC22 WG14</option>
+            <option>ISO/IEC JTC1 SC22 WG21</option>
+            <option>Ecma International TC39</option>
+            <option>IEEE 1003</option>
+          </select></td></tr>
+        <tr><td>2</td>
+          <td><strong>C#</strong> is standardized through which Ecma technical committee?</td>
+          <td><select data-correct="Ecma International TC49" data-pts="1">
+            <option value="">— select —</option>
+            <option>Ecma International TC49</option>
+            <option>Ecma International TC39</option>
+            <option>ISO/IEC JTC1 SC22 WG21</option>
+            <option>W3C</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4.2 -->
+  <div class="task" id="t4-2">
+    <div class="task-head">
+      <h3>Task 4.2 — Formal Semantics</h3>
+      <div class="task-meta"><span class="pts">3 points</span><br>~10 min</div>
+    </div>
+    <table class="qa">
+      <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>1</td>
+          <td>Which style of formal semantics assigns meaning to a language construct by mapping it to a mathematical object such as a function from states to states?</td>
+          <td><select data-correct="Denotational semantics" data-pts="1">
+            <option value="">— select —</option>
+            <option>Denotational semantics</option>
+            <option>Operational semantics</option>
+            <option>Axiomatic semantics</option>
+            <option>Structural semantics</option>
+          </select></td></tr>
+        <tr><td>2</td>
+          <td>In a Hoare triple <code>{P} C {Q}</code>, what does <code>Q</code> represent?</td>
+          <td><select data-correct="The postcondition — a logical assertion that holds after C executes" data-pts="1">
+            <option value="">— select —</option>
+            <option value="The postcondition — a logical assertion that holds after C executes">Postcondition — holds after C executes</option>
+            <option value="The precondition — a logical assertion that must hold before C executes">Precondition — must hold before C executes</option>
+            <option value="The program counter after C">The program counter after C</option>
+            <option value="The loop invariant">The loop invariant</option>
+          </select></td></tr>
+        <tr><td>3</td>
+          <td>In the Hoare sequential composition rule, deriving <code>{P} S1; S2 {Q}</code> requires finding an intermediate assertion <code>R</code> such that <code>{P} S1 {R}</code> and <code>{R} S2 {Q}</code> hold. What role does <code>R</code> play?</td>
+          <td><select data-correct="R is the postcondition of S1 and the precondition of S2" data-pts="1">
+            <option value="">— select —</option>
+            <option value="R is the postcondition of S1 and the precondition of S2">R is the postcondition of S1 and the precondition of S2</option>
+            <option value="R is the loop invariant">R is the loop invariant</option>
+            <option value="R is the precondition of S1">R is the precondition of S1</option>
+            <option value="R is the postcondition of S2">R is the postcondition of S2</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- end section 4 -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!--  SECTION 5                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="sec-head">
+    <h2>Section 5 — Generics in Java and Kotlin</h2>
+    <span class="sec-pts">24 points · 40 minutes</span>
+  </div>
+
+  <!-- 5.1 -->
+  <div class="task" id="t5-1">
+    <div class="task-head">
+      <h3>Task 5.1 — Subtyping (Java, Kotlin)</h3>
+      <div class="task-meta"><span class="pts">5 points</span><br>~10 min</div>
+    </div>
+    <p>Assume that <code>Dog</code> is a subtype of <code>Animal</code>, and <code>Animal</code> is a subtype of <code>Object</code>. For each pair of types, determine the subtype relationship.</p>
+    <table class="qa">
+      <thead><tr><th>Language</th><th>Types</th><th>Relationship</th></tr></thead>
+      <tbody>
+        <tr><td>Java</td>
+          <td><code>List&lt;Dog&gt;</code> and <code>List&lt;? extends Dog&gt;</code></td>
+          <td><select data-correct="is-SUBtype-of" data-pts="1">
+            <option value="">— select —</option>
+            <option value="is-SUBtype-of">List&lt;Dog&gt; is-SUBtype-of List&lt;? extends Dog&gt;</option>
+            <option value="is-SUPERtype-of">List&lt;Dog&gt; is-SUPERtype-of List&lt;? extends Dog&gt;</option>
+            <option value="is-NOT-related-to">is-NOT-related-to</option>
+            <option value="is-the-SAME-as">is-the-SAME-as</option>
+          </select></td></tr>
+        <tr><td>Java</td>
+          <td><code>List&lt;? extends Dog&gt;</code> and <code>List&lt;? extends Animal&gt;</code></td>
+          <td><select data-correct="is-SUBtype-of" data-pts="1">
+            <option value="">— select —</option>
+            <option value="is-SUBtype-of">List&lt;? extends Dog&gt; is-SUBtype-of List&lt;? extends Animal&gt;</option>
+            <option value="is-SUPERtype-of">List&lt;? extends Dog&gt; is-SUPERtype-of List&lt;? extends Animal&gt;</option>
+            <option value="is-NOT-related-to">is-NOT-related-to</option>
+            <option value="is-the-SAME-as">is-the-SAME-as</option>
+          </select></td></tr>
+        <tr><td>Java</td>
+          <td><code>List&lt;? super Animal&gt;</code> and <code>List&lt;? super Dog&gt;</code></td>
+          <td><select data-correct="is-SUBtype-of" data-pts="1">
+            <option value="">— select —</option>
+            <option value="is-SUBtype-of">List&lt;? super Animal&gt; is-SUBtype-of List&lt;? super Dog&gt;</option>
+            <option value="is-SUPERtype-of">List&lt;? super Animal&gt; is-SUPERtype-of List&lt;? super Dog&gt;</option>
+            <option value="is-NOT-related-to">is-NOT-related-to</option>
+            <option value="is-the-SAME-as">is-the-SAME-as</option>
+          </select></td></tr>
+        <tr><td>Kotlin</td>
+          <td><code>MutableList&lt;Dog&gt;</code> and <code>MutableList&lt;Animal&gt;</code><br><small>(Kotlin's <code>MutableList&lt;T&gt;</code> is invariant)</small></td>
+          <td><select data-correct="is-NOT-related-to" data-pts="1">
+            <option value="">— select —</option>
+            <option value="is-SUBtype-of">MutableList&lt;Dog&gt; is-SUBtype-of MutableList&lt;Animal&gt;</option>
+            <option value="is-SUPERtype-of">MutableList&lt;Dog&gt; is-SUPERtype-of MutableList&lt;Animal&gt;</option>
+            <option value="is-NOT-related-to">is-NOT-related-to (neither is a subtype of the other)</option>
+            <option value="is-the-SAME-as">is-the-SAME-as</option>
+          </select></td></tr>
+        <tr><td>Kotlin</td>
+          <td><code>Array&lt;Dog&gt;</code> and <code>Array&lt;Animal&gt;</code><br><small>(Kotlin's <code>Array&lt;T&gt;</code> is invariant — unlike Java arrays)</small></td>
+          <td><select data-correct="is-NOT-related-to" data-pts="1">
+            <option value="">— select —</option>
+            <option value="is-SUBtype-of">Array&lt;Dog&gt; is-SUBtype-of Array&lt;Animal&gt;</option>
+            <option value="is-SUPERtype-of">Array&lt;Dog&gt; is-SUPERtype-of Array&lt;Animal&gt;</option>
+            <option value="is-NOT-related-to">is-NOT-related-to (neither is a subtype of the other)</option>
+            <option value="is-the-SAME-as">is-the-SAME-as</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.2 -->
+  <div class="task" id="t5-2">
+    <div class="task-head">
+      <h3>Task 5.2 — Type Erasure (Java)</h3>
+      <div class="task-meta"><span class="pts">6 points</span><br>~5 min</div>
+    </div>
+    <p>Java's generics use <em>type erasure</em>: generic type parameters are removed at compile time. Fill in the table — what type does each generic type erase to?</p>
+    <p class="hint">Rules: unbounded type variables erase to <code>Object</code>; a variable <code>T extends B</code> erases to the erasure of <code>B</code>; parameterized types erase to their raw type; arrays erase element-wise.</p>
+    <table class="qa">
+      <thead><tr><th>Generic type</th><th>Erases to</th></tr></thead>
+      <tbody>
+        <tr><td><code>T</code> where <code>T extends Runnable</code></td>
+          <td><select data-correct="Runnable" data-pts="1"><option value="">— select —</option><option>Runnable</option><option>Object</option><option>Thread</option><option>Callable</option></select></td></tr>
+        <tr><td><code>List&lt;? extends Number&gt;</code></td>
+          <td><select data-correct="List" data-pts="1"><option value="">— select —</option><option>List</option><option>Object</option><option>Number</option><option>Collection</option></select></td></tr>
+        <tr><td><code>Map&lt;String, List&lt;Integer&gt;&gt;</code></td>
+          <td><select data-correct="Map" data-pts="1"><option value="">— select —</option><option>Map</option><option>Object</option><option>List</option><option>HashMap</option></select></td></tr>
+        <tr><td><code>T[]</code> where <code>T extends Number</code></td>
+          <td><select data-correct="Number[]" data-pts="1"><option value="">— select —</option><option>Number[]</option><option>Object[]</option><option>T[]</option><option>List[]</option></select></td></tr>
+        <tr><td><code>T</code> where <code>T extends Comparable&lt;T&gt; &amp; Cloneable</code></td>
+          <td><select data-correct="Comparable" data-pts="1"><option value="">— select —</option><option>Comparable</option><option>Object</option><option>Cloneable</option><option>Serializable</option></select></td></tr>
+        <tr><td><code>Optional&lt;T&gt;</code> where <code>T</code> is unbounded</td>
+          <td><select data-correct="Optional" data-pts="1"><option value="">— select —</option><option>Optional</option><option>Object</option><option>T</option><option>Collection</option></select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.3 -->
+  <div class="task" id="t5-3">
+    <div class="task-head">
+      <h3>Task 5.3 — Generics (Kotlin)</h3>
+      <div class="task-meta"><span class="pts">3 points</span><br>~5 min</div>
+    </div>
+    <table class="qa">
+      <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>1</td>
+          <td>In Kotlin, which keyword before a type parameter <code>T</code> declares it as <em>covariant</em> — i.e., used only in out-positions (return types)?</td>
+          <td><select data-correct="out" data-pts="1">
+            <option value="">— select —</option>
+            <option>out</option>
+            <option>in</option>
+            <option>reified</option>
+            <option>open</option>
+          </select></td></tr>
+        <tr><td>2</td>
+          <td>What is the Kotlin use-site variance equivalent of Java's <code>List&lt;? super T&gt;</code>?</td>
+          <td><select data-correct="List&lt;in T&gt;" data-pts="1">
+            <option value="">— select —</option>
+            <option value="List&lt;in T&gt;">List&lt;in T&gt;</option>
+            <option value="List&lt;out T&gt;">List&lt;out T&gt;</option>
+            <option value="List&lt;T&gt;">List&lt;T&gt;</option>
+            <option value="List&lt;*&gt;">List&lt;*&gt;</option>
+          </select></td></tr>
+        <tr><td>3</td>
+          <td>A Kotlin class declared as <code>class Box&lt;T&gt;</code> (no variance modifier on <code>T</code>) treats <code>T</code> as:</td>
+          <td><select data-correct="invariant" data-pts="1">
+            <option value="">— select —</option>
+            <option>invariant</option>
+            <option>covariant</option>
+            <option>contravariant</option>
+            <option>reified</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.4 -->
+  <div class="task" id="t5-4">
+    <div class="task-head">
+      <h3>Task 5.4 — Variance (Kotlin)</h3>
+      <div class="task-meta"><span class="pts">10 points</span><br>~20 min</div>
+    </div>
+    <p>Consider the following Kotlin interface:</p>
+<pre>interface EventBus&lt;P, H, T&gt; {
+    fun publish(payload: P)   // P appears only as a parameter type
+    fun handle(): H           // H appears only as a return type
+    fun relay(t: T): T        // T appears as both parameter and return type
+}</pre>
+    <p>Assume that <code>Cat</code> is a subtype of <code>Animal</code>, and <code>Animal</code> is a subtype of <code>Any</code>.</p>
+
+    <p><strong>Part 1</strong> — Determine the variance of each type parameter. (1 pt each)</p>
+    <table class="qa">
+      <thead><tr><th>Type parameter</th><th>Variance</th></tr></thead>
+      <tbody>
+        <tr><td><code>P</code> (only in parameter-type / in-position)</td>
+          <td><select data-correct="contravariant" data-pts="1"><option value="">— select —</option><option>covariant</option><option>contravariant</option><option>invariant</option></select></td></tr>
+        <tr><td><code>H</code> (only in return-type / out-position)</td>
+          <td><select data-correct="covariant" data-pts="1"><option value="">— select —</option><option>covariant</option><option>contravariant</option><option>invariant</option></select></td></tr>
+        <tr><td><code>T</code> (in both in- and out-positions)</td>
+          <td><select data-correct="invariant" data-pts="1"><option value="">— select —</option><option>covariant</option><option>contravariant</option><option>invariant</option></select></td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:1rem"><strong>Part 2</strong> — Declaration-site variance keywords. (1 pt each)</p>
+    <table class="qa">
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>Which Kotlin keyword should be used for type parameter <code>P</code>?</td>
+          <td><select data-correct="in" data-pts="1"><option value="">— select —</option><option>out</option><option>in</option><option>no keyword needed</option></select></td></tr>
+        <tr><td>Which Kotlin keyword should be used for type parameter <code>H</code>?</td>
+          <td><select data-correct="out" data-pts="1"><option value="">— select —</option><option>out</option><option>in</option><option>no keyword needed</option></select></td></tr>
+        <tr><td>Can a variance modifier be applied to <code>T</code>?</td>
+          <td><select data-correct="No — T appears in both in- and out-positions, so no variance modifier is possible" data-pts="1">
+            <option value="">— select —</option>
+            <option value="No — T appears in both in- and out-positions, so no variance modifier is possible">No — T is in both positions</option>
+            <option value="Yes — use out T">Yes — use out T</option>
+            <option value="Yes — use in T">Yes — use in T</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:1rem"><strong>Part 3</strong> — Subtype relationships. (1 pt each)</p>
+    <table class="qa">
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>Is <code>EventBus&lt;Animal, Cat, String&gt;</code> a subtype of <code>EventBus&lt;Cat, Animal, String&gt;</code>?<br>
+          <small>Hint: check P (contravariant), H (covariant), T (invariant) separately.</small></td>
+          <td><select data-correct="Yes" data-pts="1">
+            <option value="">— select —</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select></td></tr>
+        <tr><td>Is <code>EventBus&lt;Cat, Animal, String&gt;</code> a subtype of <code>EventBus&lt;Animal, Cat, String&gt;</code>?</td>
+          <td><select data-correct="No" data-pts="1">
+            <option value="">— select —</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select></td></tr>
+        <tr><td>Is <code>EventBus&lt;Any, Cat, String&gt;</code> a subtype of <code>EventBus&lt;Animal, Cat, String&gt;</code>?<br>
+          <small>Recall: <code>Animal</code> is a subtype of <code>Any</code>.</small></td>
+          <td><select data-correct="Yes" data-pts="1">
+            <option value="">— select —</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select></td></tr>
+        <tr><td>Java generics are invariant by default. Which Java feature provides use-site variance (analogous to Kotlin's <code>out T</code> / <code>in T</code>) at individual call sites?</td>
+          <td><select data-correct="Wildcards (e.g., ? extends T and ? super T)" data-pts="1">
+            <option value="">— select —</option>
+            <option value="Wildcards (e.g., ? extends T and ? super T)">Wildcards (? extends T / ? super T)</option>
+            <option value="Generic bounds (e.g., T extends Comparable)">Generic bounds (T extends B)</option>
+            <option value="Raw types (e.g., List instead of List&lt;T&gt;)">Raw types</option>
+            <option value="Type erasure">Type erasure</option>
+          </select></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- end section 5 -->
+
+<button class="check-btn" onclick="checkAnswers()">Check Answers &amp; Calculate Score</button>
+
+<div id="score-area">
+  <h2 id="score-text"></h2>
+  <p id="score-detail" style="font-size:.9rem;opacity:.85;margin-top:.4rem"></p>
+</div>
+
+</div><!-- end body-wrap -->
+
+<script>
+function checkAnswers() {
+  var selects = document.querySelectorAll('select[data-correct]');
+  var totalPts = 0, earnedPts = 0, answered = 0, wrong = [];
+
+  selects.forEach(function(sel) {
+    var correct = sel.getAttribute('data-correct');
+    var pts = parseFloat(sel.getAttribute('data-pts')) || 1;
+    totalPts += pts;
+    if (sel.value === '') return;
+    answered++;
+    if (sel.value === correct) {
+      sel.className = 'correct';
+      earnedPts += pts;
+    } else {
+      sel.className = 'wrong';
+      wrong.push(sel);
+    }
+  });
+
+  var scoreArea = document.getElementById('score-area');
+  scoreArea.style.display = 'block';
+  document.getElementById('score-text').textContent =
+    'Score: ' + earnedPts.toFixed(1) + ' / ' + totalPts.toFixed(1) + ' points';
+  var unanswered = selects.length - answered;
+  document.getElementById('score-detail').textContent =
+    wrong.length + ' wrong answer(s), ' + unanswered + ' unanswered question(s). ' +
+    'Correct answers are highlighted green; wrong answers are red.';
+  scoreArea.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
