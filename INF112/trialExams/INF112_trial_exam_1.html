@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Prøveeksamen INF112 – Versjon 4</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; }
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.at { color: #7d9029; }
+code span.bn { color: #40a070; }
+code span.bu { color: #008000; }
+code span.cf { color: #007020; font-weight: bold; }
+code span.ch { color: #4070a0; }
+code span.cn { color: #880000; }
+code span.co { color: #60a0b0; font-style: italic; }
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.do { color: #ba2121; font-style: italic; }
+code span.dt { color: #902000; }
+code span.dv { color: #40a070; }
+code span.er { color: #ff0000; font-weight: bold; }
+code span.ex { }
+code span.fl { color: #40a070; }
+code span.fu { color: #06287e; }
+code span.im { color: #008000; font-weight: bold; }
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; }
+code span.kw { color: #007020; font-weight: bold; }
+code span.op { color: #666666; }
+code span.ot { color: #007020; }
+code span.pp { color: #bc7a00; }
+code span.sc { color: #4070a0; }
+code span.ss { color: #bb6688; }
+code span.st { color: #4070a0; }
+code span.va { color: #19177c; }
+code span.vs { color: #4070a0; }
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
+  </style>
+  <style>
+body.lang-nbnn section.oppgave {
+grid: auto-flow / 1fr 1fr;
+display: grid;
+}
+h1.oppgave,
+h2.oppgave,
+h3.oppgave,
+section[lang=no] {
+grid-column: span 2;
+}
+section p {
+padding: 0 .25em;
+}
+section pre.sourceCode {
+border: 1px dashed #8888;
+padding: .5em;
+margin: 1em;
+background: #fff8;
+}
+@media screen {
+section:not(.unnumbered) {
+background-color: #ccf1;
+border: 1px solid #88f1;
+margin: 1em -1px;
+}
+section.level2.unused {
+padding: .25em;
+}
+.svar, label[for=med-svar] {
+background-color: #dfd;
+}
+.vurdering {
+background-color: #fdf;
+}
+.vurdering {
+color: #000a;
+}
+}
+section {
+position: relative;
+}
+section.svar, section.vurdering, section[lang] {
+padding: .25em;
+padding-top: 1.5rem;
+margin-top: .5em;
+}
+section.svar::before, section.vurdering::before, section[lang]::before {
+position: absolute;
+top: .5rem;
+left: 0%; font-variant: small-caps;
+color: #1118;
+width: 100%;
+border-bottom: 1px solid #1118;
+font-size: .9rem;
+}
+section.svar::before {
+content: "Løsningsforslag";
+}
+section.vurdering::before {
+content: "Vurdering";
+}
+section[lang=nb]::before {
+content: "Bokmål";
+} section[lang=nn]::before {
+content: "Nynorsk";
+}
+.uten-svar .svar, .uten-svar .vurdering {
+display: none;
+}
+@media screen {
+.lang-nbnn section[lang=nn],
+label[for=lang-nn] {
+background-color: #dff8;
+}
+.lang-nbnn section[lang=nb],
+label[for=lang-nb] {
+background-color: #ffc8;
+}
+.lang-nb div[lang=nb],
+.lang-nb section[lang=nb] {
+background-color: #ffe1;
+}
+.lang-nnonly div[lang=nn],
+.lang-nnonly section[lang=nn] {
+background-color: #ffe8;
+}
+.vedlegg {
+background-color: #fff;
+}
+}
+.lang-nb div[lang=nn],
+.lang-nb section[lang=nn] {
+display: none;
+}
+.lang-nn div[lang=nb],
+.lang-nn section[lang=nb] {
+display: none;
+}
+figcaption {
+display: none;
+}
+body {
+max-width: 72em;
+}
+@media print {
+h2[data-poeng]::after {
+content: " [" attr(data-poeng) " poeng]";
+font-weight: normal;
+font-style: italic;
+}
+pre>code.sourceCode {
+white-space: pre-wrap;
+text-indent: 0;
+}
+pre>code.sourceCode>span {
+text-indent: 0;
+padding-left: 1em;
+}
+section.vurdering {
+background-color: #fdf;
+}
+section.svar {
+background-color: #dfd;
+}
+div[lang=nn],
+section[lang=nn] {
+display: none !important;
+}
+}
+h1,
+.vedlegg,
+.break {
+page-break-before: always;
+}
+.allow-break * {
+page-break-inside: auto;
+}
+img,
+pre {
+page-break-before: auto;
+page-break-after: auto;
+page-break-inside: avoid;
+}
+span.points {
+font-weight: normal;
+font-style: italic;
+}
+p {
+margin: 1em 0;
+}
+  </style>
+  <script>
+      addEventListener("DOMContentLoaded", () => {
+          const update = b => document.body.classList.toggle(b.id, b.checked);
+          const onChange = ev => {
+              console.log(ev.currentTarget);
+              ev.currentTarget.parentElement.querySelectorAll('input').forEach(elt => update(elt));
+          };
+          document.querySelectorAll('input').forEach(elt => {
+              console.log(elt);
+              update(elt);
+              elt.addEventListener('change', onChange);
+          });
+          const addPointsToHeader = (elt, pts) => {
+              if (!elt.querySelector(':scope > span.points')) {
+                  const pointsElt = document.createElement('span');
+                  pointsElt.innerText = ` [${pts} poeng]`;
+                  pointsElt.classList.add("points");
+                  elt.appendChild(pointsElt);
+              }
+          };
+          const computePoints = elt => {
+              let points = 0;
+              if (elt.tagName.match(/h[1-6]/i) && elt.dataset.poeng > 0) {
+                  points = parseInt(elt.dataset.poeng) || 0;
+                  addPointsToHeader(elt, points);
+              } else if (elt.childElementCount > 0) {
+                  for (let child of elt.children) {
+                      points = points + computePoints(child);
+                  }
+                  const header = elt.querySelector(':scope > header:first-child h1, :scope > h1:first-child, :scope > h2:first-child, :scope > h3:first-child, :scope > h4:first-child, :scope > h5:first-child, :scope > h6:first-child');
+                  if (header && points) {
+                      header.dataset.cumulativePoints = points;
+                      elt.dataset.cumulativePoints = points;
+                      addPointsToHeader(header, 'totalt ' + points);
+                  }
+              }
+              return points;
+          };
+          console.log(computePoints(document.body));
+      });
+  </script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Prøveeksamen INF112 – Versjon 4</h1>
+</header>
+<p><strong>Universitetet i Bergen, Institutt for informatikk</strong></p>
+<p><strong>Prøveeksamen – Våren 2026</strong></p>
+<fieldset>
+<legend>Variant</legend>
+<input type="radio" name="variant" id="uten-svar"></input>
+<label for="uten-svar">Kun oppgave</label>
+<input type="radio" name="variant" id="med-svar" checked="true"></input>
+<label for="med-svar">Med løsningsforslag</label>
+</fieldset>
+<section id="generell-info-om-eksamen" class="level2 unnumbered">
+<h2 class="unnumbered">Generell info om eksamen</h2>
+<section id="section" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong><em>Oppgaver:</em></strong> Oppgavesettet består av 4 oppgaver med til sammen 60 poeng. Hver oppgave har flere deloppgaver.</p>
+<p><strong><em>Gjennomgående eksempel:</em></strong> Oppgavene handler om utviklingen av et bibliotek-system, <strong>«Bokelva bibliotek»</strong>. Du trenger ikke kjenne et bestemt kodebase – all koden du trenger er gitt i oppgaven.</p>
+<p><strong><em>Lese oppgaver:</em></strong> <strong>Uthevet skrift</strong> markerer konkrete ting du skal gjøre eller svare på. Les hver oppgave nøye!</p>
+<p><strong><em>Besvare oppgaver:</em></strong> Formatér svaret så det blir lett å lese. Bruk gjerne overskrifter, punktlister, kode og tegninger der det passer. Pass på å markere hvert punkt tydelig (a, b, c osv.).</p>
+<p><strong><em>Hjelpemidler:</em></strong> Alle skrevne og trykte hjelpemidler er tillatt.</p>
+<p><strong><em>Tid:</em></strong> Bruk tid i begynnelsen på å få oversikt. Pass på ikke å bruke for mye tid på noen oppgaver.</p>
+<p><strong><em>Uklarheter:</em></strong> Oppfatter du oppgaven som uklar, oppgi dine antagelser i besvarelsen.</p>
+<p><strong><em>Lykke til!</em></strong></p>
+</section>
+<section id="section-1" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>Løsningsforslag er markert på denne måten. Løsningsforslaget er bare ett forslag – ditt svar kan være like bra eller bedre!</p>
+</section>
+</section>
+
+<section id="oppgave-1-designprinsipper-og-solid" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Designprinsipper og SOLID</h1>
+
+<section id="oppgave-1-1-liskov-substitusjonsprinsippet" class="level2" data-number="1.1" data-poeng="6">
+<h2 data-number="1.1" data-poeng="6"><span class="header-section-number">1.1</span> Liskov-substitusjonsprinsippet</h2>
+<section id="section-2" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>I bibliotek-systemet finnes klassen <code>Laan</code> som representerer et utlån. Et utlån kan fornyes. En utvikler har lagt til <code>Referanselaan</code> for bøker som bare kan brukes på lesesalen:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Laan {
+    <span class="kw">protected</span> LocalDate forfallsdato;
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">forny</span>() {
+        forfallsdato = forfallsdato.<span class="fu">plusWeeks</span>(<span class="dv">2</span>);
+    }
+}
+
+<span class="kw">public</span> <span class="kw">class</span> Referanselaan <span class="kw">extends</span> Laan {
+    <span class="at">@Override</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">forny</span>() {
+        <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">UnsupportedOperationException</span>(<span class="st">"Referanseverk kan ikke fornyes"</span>);
+    }
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Forklar hvorfor denne koden bryter Liskov-substitusjonsprinsippet (LSP).</strong></li>
+<li><strong>b)</strong> <strong>Foreslå en bedre design</strong> som unngår problemet. Skissér koden.</li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-2b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Bruddet:</strong></p>
+<p>LSP sier at en subtype skal kunne brukes overalt der supertypen forventes, uten at programmet oppfører seg feil. Her arver <code>Referanselaan</code> fra <code>Laan</code>, men kan ikke oppfylle kontrakten til <code>forny()</code> – den kaster en exception i stedet. Kode som tar inn en <code>Laan</code> og kaller <code>forny()</code> (f.eks. en «forny alle lån»-funksjon) vil krasje hvis den får et <code>Referanselaan</code>. Subtypen er altså ikke en ekte erstatning for supertypen.</p>
+<p><strong>b) Bedre design:</strong></p>
+<p>Skill ut det som faktisk kan fornyes i et eget grensesnitt, slik at bare lån som støtter fornying implementerer det:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> Fornybar {
+    <span class="dt">void</span> <span class="fu">forny</span>();
+}
+
+<span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Laan {
+    <span class="kw">protected</span> LocalDate forfallsdato;
+    <span class="co">// felles oppførsel for alle lån</span>
+}
+
+<span class="kw">public</span> <span class="kw">class</span> StandardLaan <span class="kw">extends</span> Laan <span class="kw">implements</span> Fornybar {
+    <span class="at">@Override</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">forny</span>() {
+        forfallsdato = forfallsdato.<span class="fu">plusWeeks</span>(<span class="dv">2</span>);
+    }
+}
+
+<span class="kw">public</span> <span class="kw">class</span> Referanselaan <span class="kw">extends</span> Laan {
+    <span class="co">// implementerer ikke Fornybar – kan ikke fornyes</span>
+}</code></pre>
+<p>Nå kan kode som fornyer lån ta inn <code>Fornybar</code> i stedet for <code>Laan</code>, og <code>Referanselaan</code> kan rett og slett ikke sendes inn der. Feilen fanges av kompilatoren i stedet for å bli en kjøretidsfeil.</p>
+</section>
+<section id="section-2c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. <strong>a)</strong> 3 poeng – må forklare at subtypen ikke kan erstatte supertypen, og peke på konkrete konsekvenser (kode som kaller <code>forny()</code> krasjer). <strong>b)</strong> 3 poeng – må foreslå en løsning som skiller ut fornybar oppførsel (grensesnitt), eller på annen måte unngår at <code>Referanselaan</code> arver en kontrakt den ikke kan oppfylle.</p>
+</section>
+</section>
+
+<section id="oppgave-1-2-grensesnittseparasjon" class="level2" data-number="1.2" data-poeng="5">
+<h2 data-number="1.2" data-poeng="5"><span class="header-section-number">1.2</span> Grensesnittseparasjon (ISP)</h2>
+<section id="section-3" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Alle ting man kan låne i biblioteket implementerer dette grensesnittet:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> Biblioteksobjekt {
+    <span class="dt">void</span> <span class="fu">laanUt</span>(Medlem medlem);
+    <span class="dt">void</span> <span class="fu">leverInn</span>();
+    <span class="dt">int</span> <span class="fu">antallSider</span>();
+    <span class="dt">void</span> <span class="fu">spillAv</span>();
+    <span class="dt">int</span> <span class="fu">spilletidMinutter</span>();
+}</code></pre>
+<p>Grensesnittet implementeres av <code>Bok</code>, <code>Lydbok</code> og <code>Film</code>. En <code>Bok</code> har ingen <code>spillAv()</code>, og en <code>Film</code> har ingen <code>antallSider()</code>.</p>
+<ul>
+<li><strong>a)</strong> <strong>Hvilket SOLID-prinsipp brytes, og hva blir konsekvensen</strong> for klassene som implementerer grensesnittet?</li>
+<li><strong>b)</strong> <strong>Del opp grensesnittet</strong> slik at problemet løses. Vis hvilke grensesnitt <code>Bok</code> og <code>Lydbok</code> da ville implementert.</li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-3b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Prinsipp:</strong> <strong>Interface Segregation Principle (ISP)</strong> – ingen klasse skal tvinges til å være avhengig av metoder den ikke bruker. Her må <code>Bok</code> implementere <code>spillAv()</code> og <code>spilletidMinutter()</code> selv om de er meningsløse, og <code>Film</code> må implementere <code>antallSider()</code>. Resultatet blir tomme metoder eller metoder som kaster exceptions – som igjen lett fører til LSP-brudd.</p>
+<p><strong>b) Oppdelt løsning:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> Laanbar {
+    <span class="dt">void</span> <span class="fu">laanUt</span>(Medlem medlem);
+    <span class="dt">void</span> <span class="fu">leverInn</span>();
+}
+
+<span class="kw">public</span> <span class="kw">interface</span> Trykt {
+    <span class="dt">int</span> <span class="fu">antallSider</span>();
+}
+
+<span class="kw">public</span> <span class="kw">interface</span> Avspillbar {
+    <span class="dt">void</span> <span class="fu">spillAv</span>();
+    <span class="dt">int</span> <span class="fu">spilletidMinutter</span>();
+}
+
+<span class="kw">public</span> <span class="kw">class</span> Bok <span class="kw">implements</span> Laanbar, Trykt { <span class="co">/* ... */</span> }
+
+<span class="kw">public</span> <span class="kw">class</span> Lydbok <span class="kw">implements</span> Laanbar, Avspillbar { <span class="co">/* ... */</span> }</code></pre>
+<p>Hver klasse implementerer nå bare det den faktisk støtter. <code>Film</code> ville implementert <code>Laanbar</code> og <code>Avspillbar</code>.</p>
+</section>
+<section id="section-3c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. <strong>a)</strong> 2 poeng – må navngi ISP og forklare konsekvensen (tomme metoder / metoder som ikke gir mening). <strong>b)</strong> 3 poeng – må dele grensesnittet i mindre, sammenhengende grensesnitt og vise riktig bruk i minst to klasser.</p>
+</section>
+</section>
+
+<section id="oppgave-1-3-enkeltansvarsprinsippet" class="level2" data-number="1.3" data-poeng="4">
+<h2 data-number="1.3" data-poeng="4"><span class="header-section-number">1.3</span> Enkeltansvarsprinsippet</h2>
+<section id="section-4" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Forklar kort hva Single Responsibility Principle (SRP) betyr. Beskriv så en <code>Medlem</code>-klasse i bibliotek-systemet som ville brutt prinsippet, og hvordan du ville delt den opp.</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-4b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p>SRP sier at en klasse skal ha <strong>én grunn til å endres</strong> – altså ett ansvar. Hvis en klasse gjør flere uavhengige ting, vil endringer i én del kunne påvirke de andre.</p>
+<p>En <code>Medlem</code>-klasse som bryter SRP kunne f.eks. både holde på medlemsdata (navn, lånekortnummer), lagre seg selv til databasen (<code>lagreTilDatabase()</code>), og sende e-postvarsler (<code>sendPurring()</code>). Det er tre grunner til å endre klassen: endret datamodell, endret database, og endret varslingsmåte.</p>
+<p>Bedre: <code>Medlem</code> holder kun data, <code>MedlemRegister</code> tar seg av lagring, og <code>VarslingsTjeneste</code> tar seg av e-post.</p>
+</section>
+<section id="section-4c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 4 poeng. 2 poeng for korrekt forklaring av SRP («én grunn til å endres»), 2 poeng for et konkret eksempel på en klasse med flere ansvar og en fornuftig oppdeling.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-2-testing-og-mocking" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Testing og mocking</h1>
+
+<section id="oppgave-2-1-junit-og-testoppsett" class="level2" data-number="2.1" data-poeng="5">
+<h2 data-number="2.1" data-poeng="5"><span class="header-section-number">2.1</span> JUnit og testoppsett</h2>
+<section id="section-5" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Biblioteket beregner gebyr for forsinkede bøker med denne klassen:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Gebyrkalkulator {
+    <span class="kw">private</span> <span class="kw">static</span> <span class="kw">final</span> <span class="dt">double</span> SATS_PER_DAG = <span class="dv">5.0</span>;
+
+    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">beregnGebyr</span>(<span class="dt">int</span> dagerForsinket) {
+        <span class="kw">if</span> (dagerForsinket &lt;= <span class="dv">0</span>) {
+            <span class="kw">return</span> <span class="dv">0.0</span>;
+        }
+        <span class="kw">return</span> dagerForsinket * SATS_PER_DAG;
+    }
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Skriv JUnit 5-tester</strong> for <code>beregnGebyr</code>. Dekk minst: ingen forsinkelse, en vanlig forsinkelse, og grensetilfellet 0 dager.</li>
+<li><strong>b)</strong> <strong>Forklar kort hva <code>@BeforeEach</code> gjør</strong>, og hvorfor det er nyttig.</li>
+</ul>
+<p><em>(kode + 1 avsnitt)</em></p>
+</section>
+<section id="section-5b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Tester:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> GebyrkalkulatorTest {
+    <span class="kw">private</span> Gebyrkalkulator kalkulator;
+
+    <span class="at">@BeforeEach</span>
+    <span class="dt">void</span> <span class="fu">oppsett</span>() {
+        kalkulator = <span class="kw">new</span> <span class="fu">Gebyrkalkulator</span>();
+    }
+
+    <span class="at">@Test</span>
+    <span class="dt">void</span> <span class="fu">ingenGebyrNaarIkkeForsinket</span>() {
+        assertEquals(<span class="dv">0.0</span>, kalkulator.<span class="fu">beregnGebyr</span>(-<span class="dv">3</span>));
+    }
+
+    <span class="at">@Test</span>
+    <span class="dt">void</span> <span class="fu">gebyrForVanligForsinkelse</span>() {
+        assertEquals(<span class="dv">15.0</span>, kalkulator.<span class="fu">beregnGebyr</span>(<span class="dv">3</span>));
+    }
+
+    <span class="at">@Test</span>
+    <span class="dt">void</span> <span class="fu">ingenGebyrPaaGrensen</span>() {
+        assertEquals(<span class="dv">0.0</span>, kalkulator.<span class="fu">beregnGebyr</span>(<span class="dv">0</span>));
+    }
+}</code></pre>
+<p><strong>b) <code>@BeforeEach</code>:</strong> Metoden merket med <code>@BeforeEach</code> kjøres på nytt før <em>hver enkelt</em> testmetode. Det brukes til å sette opp en fersk tilstand (her: en ny <code>Gebyrkalkulator</code>) slik at testene er uavhengige av hverandre – ingen test arver tilstand fra en tidligere test.</p>
+</section>
+<section id="section-5c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. <strong>a)</strong> 3 poeng – tre tester med riktige <code>assertEquals</code> som dekker de tre tilfellene. <strong>b)</strong> 2 poeng – må forklare at <code>@BeforeEach</code> kjører før hver test og bidrar til uavhengige tester.</p>
+</section>
+</section>
+
+<section id="oppgave-2-2-mocking-med-mockito" class="level2" data-number="2.2" data-poeng="6">
+<h2 data-number="2.2" data-poeng="6"><span class="header-section-number">2.2</span> Mocking med Mockito</h2>
+<section id="section-6" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Klassen <code>Laanetjeneste</code> håndterer utlån. Den er avhengig av et <code>BokRegister</code> (mot databasen) og en <code>VarslingsTjeneste</code> (sender e-post):</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Laanetjeneste {
+    <span class="kw">private</span> <span class="kw">final</span> BokRegister register;
+    <span class="kw">private</span> <span class="kw">final</span> VarslingsTjeneste varsling;
+
+    <span class="kw">public</span> <span class="fu">Laanetjeneste</span>(BokRegister register, VarslingsTjeneste varsling) {
+        <span class="kw">this</span>.register = register;
+        <span class="kw">this</span>.varsling = varsling;
+    }
+
+    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">laanUt</span>(String isbn, Medlem medlem) {
+        Bok bok = register.<span class="fu">finnViaIsbn</span>(isbn);
+        <span class="kw">if</span> (bok == <span class="kw">null</span> || !bok.<span class="fu">erTilgjengelig</span>()) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        bok.<span class="fu">settTilgjengelig</span>(<span class="kw">false</span>);
+        varsling.<span class="fu">sendBekreftelse</span>(medlem, bok);
+        <span class="kw">return</span> <span class="kw">true</span>;
+    }
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Skriv en test med Mockito</strong> som sjekker at når boka finnes og er tilgjengelig, så returnerer <code>laanUt</code> <code>true</code>, <em>og</em> at <code>sendBekreftelse</code> faktisk blir kalt. Bruk <code>mock()</code>, <code>when().thenReturn()</code> og <code>verify()</code>.</li>
+<li><strong>b)</strong> <strong>Forklar kort hvorfor</strong> det er en fordel å mocke <code>BokRegister</code> i denne testen i stedet for å bruke en ekte database.</li>
+</ul>
+<p><em>(kode + 1 avsnitt)</em></p>
+</section>
+<section id="section-6b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Test:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="at">@Test</span>
+<span class="dt">void</span> <span class="fu">laanerUtTilgjengeligBok</span>() {
+    BokRegister register = mock(BokRegister.<span class="kw">class</span>);
+    VarslingsTjeneste varsling = mock(VarslingsTjeneste.<span class="kw">class</span>);
+    Bok bok = <span class="kw">new</span> <span class="fu">Bok</span>(<span class="st">"978-82-05-12345-6"</span>, <span class="kw">true</span>);
+    Medlem medlem = <span class="kw">new</span> <span class="fu">Medlem</span>(<span class="st">"Ada"</span>);
+
+    when(register.<span class="fu">finnViaIsbn</span>(<span class="st">"978-82-05-12345-6"</span>)).<span class="fu">thenReturn</span>(bok);
+
+    Laanetjeneste tjeneste = <span class="kw">new</span> <span class="fu">Laanetjeneste</span>(register, varsling);
+    <span class="dt">boolean</span> resultat = tjeneste.<span class="fu">laanUt</span>(<span class="st">"978-82-05-12345-6"</span>, medlem);
+
+    assertTrue(resultat);
+    verify(varsling).<span class="fu">sendBekreftelse</span>(medlem, bok);
+}</code></pre>
+<p><strong>b) Hvorfor mocke:</strong> En ekte database gjør testen treg, vanskelig å sette opp, og avhengig av ytre tilstand (hva som ligger i databasen akkurat nå). Med en mock bestemmer testen selv nøyaktig hva <code>finnViaIsbn</code> skal returnere, slik at vi kan teste <em>logikken i <code>Laanetjeneste</code></em> isolert, raskt og forutsigbart.</p>
+</section>
+<section id="section-6c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. <strong>a)</strong> 4 poeng – riktig bruk av <code>mock()</code>, <code>when().thenReturn()</code> for å stubbe registeret, en <code>assert</code> på returverdien, og <code>verify()</code> på varslingen. <strong>b)</strong> 2 poeng – må peke på isolasjon, hastighet eller forutsigbarhet.</p>
+</section>
+</section>
+
+<section id="oppgave-2-3-prioritering-av-tester" class="level2" data-number="2.3" data-poeng="4">
+<h2 data-number="2.3" data-poeng="4"><span class="header-section-number">2.3</span> Prioritering av tester</h2>
+<section id="section-7" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Du har begrenset tid før innlevering. Hvilke deler av bibliotek-systemet ville du prioritert å skrive enhetstester for, og hva ville du nedprioritert? Begrunn valgene.</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-7b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Prioriter:</strong> Forretningslogikk der feil får konsekvenser – gebyrberegning, regler for hvem som kan låne hva, hvor lenge et lån varer, og om en bok er tilgjengelig. Disse har mange grensetilfeller (0 dager forsinket, maks antall lån osv.) og er vanskelige å verifisere manuelt.</p>
+<p><strong>Nedprioriter:</strong> Trivielle gettere og settere uten logikk, ren GUI-tegning, og kode fra rammeverk/biblioteker (den er allerede testet). Slike tester gir høy dekningsprosent, men lite reell trygghet.</p>
+<p>Begrunnelse: Tester skal gi trygghet for at <em>det som kan gå galt</em> fungerer – ikke bare øke et dekningstall.</p>
+</section>
+<section id="section-7c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 4 poeng. Søker at studenten prioriterer ikke-triviell logikk / grensetilfeller og nedprioriterer trivielle gettere, GUI og rammeverkskode – med en fornuftig begrunnelse.</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-3-git-samarbeid-og-ci-cd" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Git, samarbeid og CI/CD</h1>
+
+<section id="oppgave-3-1-merge-konflikt" class="level2" data-number="3.1" data-poeng="6">
+<h2 data-number="3.1" data-poeng="6"><span class="header-section-number">3.1</span> Merge-konflikt</h2>
+<section id="section-8" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Du skal slå sammen grenen <code>feature/gebyrregler</code> inn i <code>main</code>, men får en konflikt. Git viser dette i fila:</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">beregnGebyr</span>(<span class="dt">int</span> dager) {
+        <span class="kw">return</span> dager * <span class="dv">5.0</span>;
+    }
+=======
+    <span class="kw">public</span> <span class="dt">double</span> <span class="fu">beregnGebyr</span>(<span class="dt">int</span> dager) {
+        <span class="kw">return</span> dager * <span class="dv">4.0</span> + <span class="dv">10.0</span>;
+    }
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/gebyrregler</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Forklar hva konfliktmarkørene betyr</strong> – hva er <code>HEAD</code>, og hva er koden under <code>=======</code>?</li>
+<li><strong>b)</strong> <strong>Beskriv hvordan du ville gått fram</strong> for å løse konflikten på en god måte.</li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-8b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Markørene:</strong> Koden mellom <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> og <code>=======</code> er versjonen i grenen du står på (<code>main</code>). Koden mellom <code>=======</code> og <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/gebyrregler</code> er versjonen fra grenen du slår inn. Begge grenene har endret <em>de samme linjene</em>, så Git kan ikke avgjøre selv hvilken som er riktig.</p>
+<p><strong>b) Framgangsmåte:</strong></p>
+<ul>
+<li>Ikke bare velg én tilfeldig – finn ut <em>hvorfor</em> hver endring ble gjort. Her har de to grenene helt ulik gebyrlogikk.</li>
+<li>Snakk med den som lagde den andre endringen. Kanskje er den nye regelen (<code>4.0 + 10.0</code>) den vedtatte – eller kanskje ingen av dem er helt rett.</li>
+<li>Rediger fila slik at den inneholder den <em>riktige</em> koden, og fjern alle konfliktmarkørene (<code>&lt;&lt;&lt;</code>, <code>===</code>, <code>&gt;&gt;&gt;</code>).</li>
+<li>Bygg og kjør testene for å bekrefte at resultatet fungerer.</li>
+<li><code>git add</code> på fila og fullfør sammenslåingen med en commit.</li>
+</ul>
+</section>
+<section id="section-8c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. <strong>a)</strong> 3 poeng – må forklare at <code>HEAD</code> er gjeldende gren og den andre delen er innkommende gren, og at konflikten skyldes endringer på de samme linjene. <strong>b)</strong> 3 poeng – må vise en fornuftig prosess: forstå begge endringene, kommunisere, fjerne markører, teste, fullføre commit.</p>
+</section>
+</section>
+
+<section id="oppgave-3-2-git-arbeidsflyt" class="level2" data-number="3.2" data-poeng="4">
+<h2 data-number="3.2" data-poeng="4"><span class="header-section-number">3.2</span> Git-arbeidsflyt</h2>
+<section id="section-9" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Du jobber på en feature-branch med endringer som ikke er ferdige (koden kompilerer ikke engang). Plutselig får du beskjed om en kritisk feil i <code>main</code> som du må fikse umiddelbart. Beskriv steg for steg hva du ville gjort med Git</strong>, og forklar kort hvorfor.</p>
+<p><em>(1 avsnitt eller punktliste)</em></p>
+</section>
+<section id="section-9b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<ol>
+<li><code>git stash</code> – legger de uferdige endringene til side uten å committe halvferdig kode. (Alternativt: committe på feature-branchen som en «WIP»-commit.)</li>
+<li><code>git switch main</code> og <code>git pull</code> – får siste versjon av <code>main</code>.</li>
+<li><code>git switch -c fix/kritisk-feil</code> – lager en egen branch for feilrettingen.</li>
+<li>Fiks feilen, kjør testene, commit, push og lag en merge request.</li>
+<li><code>git switch feature/...</code> for å gå tilbake til feature-branchen.</li>
+<li><code>git stash pop</code> – henter tilbake de uferdige endringene og fortsetter der du slapp.</li>
+</ol>
+<p>Poenget er å holde feilrettingen <em>adskilt</em> fra det uferdige arbeidet, slik at fiksen kan slås inn i <code>main</code> alene, uten halvferdig kode.</p>
+</section>
+<section id="section-9c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 4 poeng. Søker en fornuftig sekvens som tar vare på det uferdige arbeidet (<code>stash</code> eller WIP-commit), bytter til en oppdatert <code>main</code>, fikser feilen på en egen branch, og henter tilbake arbeidet etterpå.</p>
+</section>
+</section>
+
+<section id="oppgave-3-3-ci-cd-pipeline" class="level2" data-number="3.3" data-poeng="5">
+<h2 data-number="3.3" data-poeng="5"><span class="header-section-number">3.3</span> CI/CD-pipeline</h2>
+<section id="section-10" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Teamet ditt setter opp en CI/CD-pipeline i GitLab for bibliotek-systemet. Beskriv minst tre stadier (stages) du ville hatt i pipelinen, hva hvert stadium gjør, og forklar hvorfor rekkefølgen på stadiene er viktig.</strong></p>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-10b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Eksempel på stadier:</strong></p>
+<ul>
+<li><strong>build</strong> – kompilerer prosjektet. Feiler dette, er det ingen vits i å gå videre.</li>
+<li><strong>test</strong> – kjører enhets- og integrasjonstester. Fanger regresjoner før de når <code>main</code>.</li>
+<li><strong>analyse</strong> – statisk analyse (f.eks. SonarQube) og linting. Finner potensielle feil, kodelukt og stilbrudd uten å kjøre koden.</li>
+<li><strong>deploy</strong> – ruller ut til et test- eller produksjonsmiljø, men <em>bare</em> hvis alt over har gått grønt.</li>
+</ul>
+<p><strong>Hvorfor rekkefølgen er viktig:</strong> Stadiene går fra raskt/billig til tregt/dyrt, og fra grunnleggende til avansert. Det er meningsløst å kjøre tester hvis koden ikke kompilerer, og farlig å deploye hvis testene feiler. Prinsippet er «fail fast» – oppdag problemer så tidlig og billig som mulig.</p>
+</section>
+<section id="section-10c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. 3 poeng for tre fornuftige stadier med beskrivelse, 2 poeng for en god begrunnelse av rekkefølgen (fail fast – billig før dyrt, ikke deploye på feilende tester).</p>
+</section>
+</section>
+
+</section>
+
+<section id="oppgave-4-refaktorering-og-kodekvalitet" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Refaktorering og kodekvalitet</h1>
+
+<section id="oppgave-4-1-kodelukt" class="level2" data-number="4.1" data-poeng="6">
+<h2 data-number="4.1" data-poeng="6"><span class="header-section-number">4.1</span> Kodelukt</h2>
+<section id="section-11" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Se på denne metoden fra <code>BibliotekManager</code>:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">behandleInnlevering</span>(String isbn, String medlemsId, LocalDate levert) {
+    Bok bok = database.<span class="fu">query</span>(<span class="st">"SELECT * FROM bok WHERE isbn = "</span> + isbn);
+    Medlem medlem = database.<span class="fu">query</span>(<span class="st">"SELECT * FROM medlem WHERE id = "</span> + medlemsId);
+    <span class="dt">long</span> dagerForsinket = ChronoUnit.DAYS.<span class="fu">between</span>(bok.<span class="fu">getForfallsdato</span>(), levert);
+    <span class="kw">if</span> (dagerForsinket &gt; <span class="dv">0</span>) {
+        <span class="dt">double</span> gebyr = dagerForsinket * <span class="dv">5.0</span>;
+        medlem.<span class="fu">setSaldo</span>(medlem.<span class="fu">getSaldo</span>() + gebyr);
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Gebyr lagt til: "</span> + gebyr);
+        epostServer.<span class="fu">connect</span>();
+        epostServer.<span class="fu">send</span>(medlem.<span class="fu">getEpost</span>(), <span class="st">"Du har et gebyr på "</span> + gebyr);
+        epostServer.<span class="fu">disconnect</span>();
+    }
+    bok.<span class="fu">setTilgjengelig</span>(<span class="kw">true</span>);
+    database.<span class="fu">update</span>(bok);
+    database.<span class="fu">update</span>(medlem);
+    System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">"Innlevering behandlet"</span>);
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Identifiser minst tre kodelukter eller problemer</strong> i denne metoden.</li>
+<li><strong>b)</strong> <strong>Beskriv kort hvordan du ville refaktorert metoden</strong> for å rette opp problemene.</li>
+</ul>
+<p><em>(1–2 avsnitt)</em></p>
+</section>
+<section id="section-11b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Problemer:</strong></p>
+<ul>
+<li><strong>Lang metode / for mange ansvar:</strong> Metoden gjør databasetilgang, gebyrberegning, varsling og logging om hverandre – flere abstraksjonsnivåer i samme metode.</li>
+<li><strong>SQL-injeksjon:</strong> Spørringen bygges ved å lime inn <code>isbn</code> og <code>medlemsId</code> direkte i strengen. Det er et sikkerhetshull – bruk parameteriserte spørringer.</li>
+<li><strong>Magisk tall:</strong> <code>5.0</code> er hardkodet. Bør være en navngitt konstant (eller hentes fra <code>Gebyrkalkulator</code>).</li>
+<li><strong>Logging med <code>System.out.println</code>:</strong> Bør bruke et logge-rammeverk, ikke utskrift til konsoll.</li>
+<li><strong>Ingen feilhåndtering:</strong> Hva skjer hvis boka eller medlemmet ikke finnes (<code>null</code>)?</li>
+</ul>
+<p><strong>b) Refaktorering:</strong></p>
+<p>Trekk ut ansvar i egne klasser/metoder: et <code>BokRegister</code> og <code>MedlemRegister</code> for databasetilgang (med parameteriserte spørringer), <code>Gebyrkalkulator</code> for selve beregningen, og en <code>VarslingsTjeneste</code> for e-post. Selve <code>behandleInnlevering</code> bør da bli kort og bare koordinere disse – ett abstraksjonsnivå, lett å lese og å teste.</p>
+</section>
+<section id="section-11c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 6 poeng. <strong>a)</strong> 3 poeng – minst tre reelle problemer (lang metode / blandede ansvar, SQL-injeksjon, magisk tall, <code>System.out</code>, manglende feilhåndtering). <strong>b)</strong> 3 poeng – en konkret refaktorering som trekker ut ansvar i egne enheter.</p>
+</section>
+</section>
+
+<section id="oppgave-4-2-aapen-lukket-og-strategy" class="level2" data-number="4.2" data-poeng="5">
+<h2 data-number="4.2" data-poeng="5"><span class="header-section-number">4.2</span> Åpen–lukket-prinsippet og Strategy</h2>
+<section id="section-12" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p>Lånetiden avhenger av medlemstype:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Laanepolicy {
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">laanetidDager</span>(String medlemstype) {
+        <span class="kw">if</span> (medlemstype.<span class="fu">equals</span>(<span class="st">"STUDENT"</span>)) {
+            <span class="kw">return</span> <span class="dv">28</span>;
+        } <span class="kw">else</span> <span class="kw">if</span> (medlemstype.<span class="fu">equals</span>(<span class="st">"ANSATT"</span>)) {
+            <span class="kw">return</span> <span class="dv">90</span>;
+        } <span class="kw">else</span> <span class="kw">if</span> (medlemstype.<span class="fu">equals</span>(<span class="st">"GJEST"</span>)) {
+            <span class="kw">return</span> <span class="dv">7</span>;
+        } <span class="kw">else</span> {
+            <span class="kw">return</span> <span class="dv">14</span>;
+        }
+    }
+}</code></pre>
+<ul>
+<li><strong>a)</strong> <strong>Hvilket prinsipp gjør denne koden vanskelig å vedlikeholde</strong>, og hva må du gjøre hver gang det kommer en ny medlemstype?</li>
+<li><strong>b)</strong> <strong>Refaktorer koden</strong> med polymorfi / Strategy-mønsteret slik at nye medlemstyper kan legges til uten å endre eksisterende kode. Skissér løsningen.</li>
+</ul>
+<p><em>(1–2 avsnitt + kode)</em></p>
+</section>
+<section id="section-12b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>a) Prinsipp:</strong> Koden bryter <strong>Open–Closed Principle</strong> – den er ikke «lukket for endring». For hver ny medlemstype må du åpne <code>Laanepolicy</code> og legge til en ny <code>else if</code>-gren. Det øker risikoen for feil i kode som allerede virker.</p>
+<p><strong>b) Refaktorering med Strategy:</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">interface</span> Medlemstype {
+    <span class="dt">int</span> <span class="fu">laanetidDager</span>();
+}
+
+<span class="kw">public</span> <span class="kw">class</span> Student <span class="kw">implements</span> Medlemstype {
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">laanetidDager</span>() { <span class="kw">return</span> <span class="dv">28</span>; }
+}
+
+<span class="kw">public</span> <span class="kw">class</span> Ansatt <span class="kw">implements</span> Medlemstype {
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">laanetidDager</span>() { <span class="kw">return</span> <span class="dv">90</span>; }
+}
+
+<span class="co">// Laanepolicy trenger ikke lenger kjenne hver enkelt type:</span>
+<span class="kw">public</span> <span class="kw">class</span> Laanepolicy {
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">laanetidDager</span>(Medlemstype type) {
+        <span class="kw">return</span> type.<span class="fu">laanetidDager</span>();
+    }
+}</code></pre>
+<p>Nå legger man til en ny medlemstype ved å lage en ny klasse som implementerer <code>Medlemstype</code> – uten å røre <code>Laanepolicy</code>. Koden er åpen for utvidelse, men lukket for endring. (En <code>enum</code> med en metode er et godt alternativ.)</p>
+</section>
+<section id="section-12c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 5 poeng. <strong>a)</strong> 2 poeng – må identifisere Open–Closed Principle og forklare at man må endre klassen for hver ny type. <strong>b)</strong> 3 poeng – en løsning med grensesnitt/polymorfi (eller enum med metode) der nye typer ikke krever endring i <code>Laanepolicy</code>.</p>
+</section>
+</section>
+
+<section id="oppgave-4-3-kobling" class="level2" data-number="4.3" data-poeng="4">
+<h2 data-number="4.3" data-poeng="4"><span class="header-section-number">4.3</span> Kobling mellom klasser</h2>
+<section id="section-13" class="level5 unnumbered" lang="nb">
+<h5 class="unnumbered" lang="nb"></h5>
+<p><strong>Forklar kort hva kobling (coupling) mellom klasser betyr. Hvorfor er løs kobling ønskelig, og nevn én konkret teknikk for å redusere koblingen mellom to klasser.</strong></p>
+<p><em>(1 avsnitt)</em></p>
+</section>
+<section id="section-13b" class="level5 unnumbered svar">
+<h5 class="unnumbered svar"></h5>
+<p><strong>Kobling</strong> beskriver hvor mye en klasse er avhengig av en annen – hvor mye den vet om den andres indre detaljer. Ved <strong>tett kobling</strong> sprer en endring i én klasse seg lett til mange andre.</p>
+<p><strong>Løs kobling er ønskelig</strong> fordi det gjør koden lettere å endre, gjenbruke og teste isolert: klassene kan utvikles og testes hver for seg.</p>
+<p><strong>Teknikk:</strong> Programmér mot grensesnitt i stedet for konkrete klasser, og bruk <em>dependency injection</em> – send inn avhengigheter via konstruktøren i stedet for å opprette dem inne i klassen. (Andre gyldige svar: Observer-mønsteret, eller å innføre et abstraksjonslag mellom klassene.)</p>
+</section>
+<section id="section-13c" class="level5 unnumbered vurdering">
+<h5 class="unnumbered vurdering"></h5>
+<p>Inntil 4 poeng. 2 poeng for en korrekt forklaring av kobling og hvorfor løs kobling er ønskelig, 2 poeng for én konkret og relevant teknikk (dependency injection, programmere mot grensesnitt, Observer e.l.).</p>
+</section>
+</section>
+
+</section>
+
+<hr />
+<p><strong>Totalt: 60 poeng</strong></p>
+
+</body>
+</html>
