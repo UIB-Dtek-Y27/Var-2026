@@ -1,0 +1,29 @@
+Transcript for: INF112-20250228.pdf
+
+Source PDF: INF112-20250228.pdf
+
+--- Page 1 ---
+
+Velge mellom store komponenter
+
+Modul system
+
+module-info.java
+
+- sterk innkapsling
+
+Objekter skjuler
+- data rep
+- kode
+
+Moduler skjuler
+- klasser
+- datafiler
+- refleksjon
+
+Diagram:
+- Collection
+  - List<> list
+  - Map<> map()
+- HashMap -> List -> Object[]
+- TreeMap

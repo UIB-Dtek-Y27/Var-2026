@@ -1,0 +1,35 @@
+Transcript for: INF112-20250307.pdf
+
+Source PDF: INF112-20250307.pdf
+
+--- Page 1 ---
+
+S - Single Responsibility Principle
+
+O - Open-Closed Principle
+
+L - Liskov Substitution Principle
+
+Notater:
+- obj. må oppfylle alt supertypen krever
+- ikke strengere forkunnskaper
+- ikke løsere garantier
+
+I - Interface Segregation Principle
+
+Notater:
+- brukere bør ikke måtte forholde seg til et bredere oversnitt enn nødvendig
+- både abstrakte og konkrete ting har avhengige av abstraksjoner
+- ikke konkrete ting
+
+D - Dependency Inversion Principle
+
+Eneste praktiske løsning er å bygge lag på lag med abstraksjoner.
+
+Diagrammer:
+- applikasjon -> [abstraksjon/grensesnitt] -> implementasjoner
+- API / språk
+- interface med implementasjoner
+
+Uklart:
+- Enkelte ord i håndskriften er vanskelige å lese, særlig i notatene ved I og D.

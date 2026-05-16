@@ -1,0 +1,436 @@
+Transcript for: SOLID - Dive Into Design Patterns.pdf
+
+Source PDF: SOLID - Dive Into Design Patterns.pdf
+
+
+
+--- Page 1 ---
+
+SOLID Principles
+Now that you know the basic design principles, let’ s takea
+look at Yve that are commonly known as the SOLID princi-
+ples. Robert Martin introduced them in the book Agile Software
+Development, Principles, Patterns, and Practices1.
+SOLIDis a mnemonic f or Yve design principles int ended to
+make software designs more understandable, Ze xible and
+maintainable.
+As with everything in life, using these principles mindlessly
+can cause more harm than good. The c ost of applying these
+principles into a program’s architecture might be making it
+more complicated than it should be. I doubt that there ’s a suc-
+cessful software product in which all o f these principles are
+applied at the same time. Striving f or these principles is good,
+but always try to be pragmatic and don’t tak eeverything writ-
+ten here asdogma.
+1.Agile Software Development, Principles, Patterns, and Practices:
+https://refactoring.guru/principles-book
+51 SOLID Principles #192534
+elle4139@gmail.com (#192534)
+
+--- Page 2 ---
+
+Single Responsibility Principle
+A class should have just one reason tochange.
+Try to makeevery class responsible f or a single par tof the
+functionality provided by the software, and make that respon-
+sibility entirely encapsulat ed by (you can also sayhidden with-
+in) theclass.
+The main goal o f this principle is reducing c omplexity.You
+don’t need to invent a sophisticated design for a program that
+only has about 200 lines o fcode. Make a dozen methods pret-
+ty, and you’llbeYne.
+The real problems emerge when y our program c onstantly
+grows and changes. At some point classes be come so big that
+you can no longer remember their details. C ode navigation
+slows down to a crawl, and you haveto scan through whole
+classes or even an entire program t o Ynd speciYc things. The
+number of entities in program o verZows your brain stack, and
+you feel that you’re losing control over thecode.
+There’s more: if a class does t oo many things, y ou haveto
+change it every time one of these things changes. While doing
+that,you’re risking breaking other par ts of the class which you
+didn’t even intend tochange.
+52 SOLID Principles / Single Responsibility Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 3 ---
+
+If you feel that it’s becoming hard tofocus on speciYc aspects
+of the program one at a time, remember the single responsibil-
+ity principle and check whether it’s time to divide some classes
+intoparts.
+Example
+TheEmployeeclass has several reasons to change. The Yrst
+reason might be related to the main job of the class: managing
+employee data. However, there’s another reason: the f ormat of
+the timesheet report may change over time, requiring you to
+change the code within theclass.
+BEFORE: the class contains several differentbehaviors.
+Solve the problem by moving the behavior relat ed to printing
+timesheet reports into a separate class. This change lets y ou
+move other report-related stuff to the newclass.
+AFTER: the extra behavior is in its o wnclass.
+53 SOLID Principles / Single Responsibility Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 4 ---
+
+Open/Closed Principle
+Classes should be open f or extension but closed f or
+modiYcation.
+The main idea of this principle is t okeep existing code from
+breaking when you implement newfeatures.
+A class isopenif you can extend it, produce a subclass and
+do whatever you want with it —add new methods or Yelds,
+override base behavior,etc. Some programming languages let
+you restrict further extension of a class with special keywords,
+such asfinal.After this, the class is no longer open. A t the
+same time, the class is closed(you can also saycomplete) if it’s
+100% ready to be used by other classes—its interface is clearly
+deYned and won’t be changed in the future.
+When I Yrst learned about this principle, I was c onfused
+because the wordsopen&closedsound mutually exclusive.
+But in terms of this principle, a class can be both open (f or
+extension) and closed (for modiYcation) at the same time.
+If a class is already de veloped, tested, reviewed, and includ-
+ed in some framework or otherwise used in an app , trying to
+mess with its code is risky. Instead of changing the code of the
+class directly,you can create a subclass and o verride parts of
+the original class that y ou want to behave differently.You’ll
+54 SOLID Principles / Open/Closed P rinciple #192534
+elle4139@gmail.com (#192534)
+
+--- Page 5 ---
+
+achieveyour goal but also w on’t break any existing clients of
+the originalclass.
+This principle isn’t meant t o be applied for all changes toa
+class. If you know that there’s a bug in the class, just go on and
+Yx it; don’t create a subclass for it. A child class shouldn’t be
+responsible for the parent’sissues.
+Example
+You have an e-commerce application with an Orderclass that
+calculates shipping costs and all shipping methods are hard-
+coded inside the class. If y ou need to add a new shipping
+method, you haveto change the code of theOrderclass and
+risk breakingit.
+BEFORE: you have to change the Orderclass whenever you add a new
+shipping method totheapp.
+55 SOLID Principles / Open/Closed P rinciple #192534
+elle4139@gmail.com (#192534)
+
+--- Page 6 ---
+
+You can solve the problem by applying theStrategypattern. Start
+byextracting shipping methods int o separate classes with a com-
+moninterface.
+AFTER: adding a new shipping me thod doesn’t require changing
+existingclasses.
+Now when you need to implement a ne w shipping method, y ou
+can derive a new class from the Shippinginterface without
+touching any of theOrderclass’ code. The client c ode of the
+Orderclass will link orders with a shipping obje ct of the new
+class whenever the user selects this shipping methods in theUI.
+As a bonus, this solution let y ou move the delivery time calcula-
+tion to more relevant classes, according to thesingle responsibility
+principle.
+56 SOLID Principles / Open/Closed P rinciple #192534
+elle4139@gmail.com (#192534)
+
+--- Page 7 ---
+
+Liskov Substitution Principle1
+When extending a class, remember that y ou should be
+able to pass objects of the subclass in placeof objects of
+the parent class without breaking the client code.
+This means that the subclass should remain c ompatible with
+the behavior of the superclass. When o verriding a method,
+extend the base behavior rather than replacing it with some-
+thing elseentirely.
+The substitution principle is a set o f checks that help pre-
+dict whether a subclass remains c ompatible with the code that
+was able towork with objects of the superclass. This c oncept
+is critical when developing libraries and frame works because
+your classes are going t o be used by other people whose code
+you can’t directly access andchange.
+Unlike other design principles which are wide open f or inter-
+pretation, the substitution principle has a set o fformal
+requirements for subclasses, and speciYcally for their methods.
+Let’s go over this checklist indetail.
+1.This principle is named b y Barbara Liskov, who deYned it in 1987 in her
+workData abstraction and hierarchy :https://refactoring.guru/liskov/dah
+57 SOLID Principles / Liskov Substitution Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 8 ---
+
+• Parameter types in a method o f a subclass should matchor
+bemore abstract than parameter types in the method o f the
+superclass.Sounds confusing? Let’s have anexample.
+◦Say there’s a class with a method that’ s supposed tofeed
+cats:feed(Cat c).Client code always passes cat obje cts
+into thismethod.
+◦Good:Say you created a subclass that overrode the method
+so that it can f eed any animal (a superclass o f cats):
+feed(Animal c).Now if you pass an object of this subclass
+instead of an object of the superclass t o the client code,
+everything would still work Yne. The method can f eed all
+animals, so it can still f eed any cat passed by theclient.
+◦Bad:You created another subclass and restrict ed the feed-
+ing method to only accept Bengal cats (a subclass o f cats):
+feed(BengalCat c).What will happen t o the client code if
+you link it with an obje ct like this instead of with the orig-
+inal class? Since the method can only f eed a speciYc breed
+of cats, it won’t serve generic cats passed b y the client,
+breaking all related functionality.
+• The return type in a method o f a subclass should matchor be
+asubtypeof the return t ype in the method o f the superclass.
+As you can see, requirements for a return type are inv erse to
+requirements for parametertypes.
+58 SOLID Principles / Liskov Substitution Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 9 ---
+
+◦Say you have a class with a method buyCat(): Cat.The
+client code expects to receive any cat as a result o fexecut-
+ing thismethod.
+◦Good: A subclass o verrides the method as f ollows:
+buyCat(): BengalCat.The client gets a Bengal cat , which is
+still a cat, so everythingisokay.
+◦Bad: A subclass o verrides the method as f ollows:
+buyCat(): Animal.Now the client c ode breaks sinc e it
+receives an unknown generic animal (an alligat or? a bear?)
+that doesn’t Yt a structure designed f oracat.
+Another anti-example comes from the world of programming
+languages with dynamic typing: the base method returns a
+string, but the overridden method returns a number.
+• A method in a subclass shouldn’ t throwtypes ofexceptions
+which the base method isn’ texpected to throw.In other words,
+types ofexceptions should matchor besubtypesof the ones
+that the base method is already able t o throw. This rule comes
+from the fact that try-catchblocks in the client c ode target
+speciYc types ofexceptions which the base method is lik ely to
+throw. Therefore, an unexpected exception might slip through
+the defensive lines of the client code and crash the entire
+application.
+59 SOLID Principles / Liskov Substitution Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 10 ---
+
+In most modern programming languages, espe cially sta-
+tically typed ones (Java, C#, and others), these rules are
+built into the language. You won’t be able tocompile a
+program that violates theserules.
+• A subclass shouldn’ t strengthen pre-c onditions.For example,
+the base method has a paramet er with type int.If a sub-
+class overrides this method and re quires that the value o f an
+argument passed to the method should be positiv e (by throw-
+ing an exception if the value is ne gative), this strengthens the
+pre-conditions. The client c ode, which used towork Yne when
+passing negative numbers into the method, no w breaks if it
+starts working with an object of thissubclass.
+• A subclass shouldn’ tweaken post-conditions.Say you havea
+class with a method that w orks with a database. A method o f
+the class is supposed to always close all opened database c on-
+nections upon returning avalue.
+You created a subclass and changed it so that database c on-
+nections remain open so y ou can reuse them. But the client
+might not know anything about y our intentions. Because it
+expects the methods to close all the connections, it may sim-
+ply terminate the program right af ter calling the method, pol-
+luting a system with ghost database connections.
+• Invariants of a superclass must be preserv ed.This is probably
+the least formal rule of all.Invariantsare conditions in which
+60 SOLID Principles / Liskov Substitution Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 11 ---
+
+an object makes sense. For example, invariants o f a cat are
+having four legs, a tail, ability to meow,etc. The confusing part
+about invariants is that while the y can be deYned e xplicitly
+in the form of interfacecontracts or a set of assertions within
+methods, theycould also be implied b ycertain unit tests and
+expectations of the clientcode.
+The rule on invariants is the easiest t o violate because you
+might misunderstand or not realiz e all of the invariants o f
+acomplex class. Therefore, the safest way toextend a class
+is to introduce new Yelds and methods, and not mess with
+any existing members of the superclass. Of c ourse, that’s not
+always doable in real life.
+• A subclass shouldn’ t change values o f private >elds o f the
+superclass. What? How’s that even possible?It turns out some
+programming languages let y ou access private members of
+a class via reZe ction mechanisms. Other languages (Python,
+JavaScript) don’t have any protection for the private members
+atall.
+Example
+Let’s look at an example of a hierarchy of document classes
+that violates the substitution principle.
+61 SOLID Principles / Liskov Substitution Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 12 ---
+
+BEFORE: saving doesn’t mak e sense in a read-only document, so the
+subclass tries to solve it by resetting the base behavior in the
+overriddenmethod.
+Thesavemethod in the ReadOnlyDocumentssubclass throws
+an exception if someone tries to call it. The base method
+doesn’t have this restriction. This means that the client c ode
+will break if we don’t check the document type bef ore sav-
+ingit.
+The resulting c ode also violat es the open/closed principle,
+since the client code becomes dependent on c oncrete class-
+es of documents. If you introduce a new document subclass,
+you’ll need to change the client code to supportit.
+62 SOLID Principles / Liskov Substitution Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 13 ---
+
+AFTER: the problem is solv ed after making the read-only document class
+the base class of the hierarchy.
+You can solve the problem b y redesigning the class hierar-
+chy: a subclass should e xtend the behavior o f a superclass,
+therefore the read-only document be comes the base class o f
+the hierarchy. The writable document is no w a subclass which
+extends the base class and adds the saving behavior.
+63 SOLID Principles / Liskov Substitution Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 14 ---
+
+Interface Segregation Principle
+Clients shouldn’t be f orced to depend on methods the y
+donotuse.
+Try to makeyour interfaces narrow enough that client classes
+don’t have to implement behaviors the y don’tneed.
+According to the interface segregation principle, y ou should
+break down “fat” interfaces into more granular and spe ciYc
+ones. Clients should implement only those methods that the y
+really need. Otherwise, a change t o a “fat” interfacewould
+break even clients that don’t use the changed methods.
+Class inheritance lets a class hav e just one superclass, but it
+doesn’t limit the number o f interfaces that the class can imple-
+ment at the same time. Henc e, there’s no need to cram tons
+of unrelated methods to a single interface. Break it down into
+several more reYned int erfaces—you can implement them all
+in a single class if needed. However, some classes may be Yne
+with implementing just one ofthem.
+Example
+Imagine that you created a library that mak es it easy to inte-
+grate apps with various cloud c omputing providers. While in
+64 SOLID Principles / Interface Segregation Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 15 ---
+
+the initial version it only suppor ted Amazon Cloud, it covered
+the full set of cloud services andfeatures.
+At the time you assumed that all cloud pro viders have the
+same broad spe ctrum offeatures as Amaz on. But when it
+came to implementing suppor tfor another provider, it turned
+out that most o f the interfaces of the library are t oo wide.
+Some methods describe f eatures that other cloud pro viders
+just don’thave.
+BEFORE: not all clients c an satisfy the requirements of the
+bloatedinterface.
+While you can still implement these methods and put some
+stubs there, it w ouldn’t be a pretty solution. The bett er
+65 SOLID Principles / Interface Segregation Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 16 ---
+
+approach is to break down the interface into parts. Classes
+that are able to implement the original int erface can now just
+implement several reYned interfaces. Other classes can imple-
+ment only those int erfaces which have methods that mak e
+sense forthem.
+AFTER: one bloated interf ace is broken down into a set of more
+granularinterfaces.
+As with the other principles, y ou can go too far with this one.
+Don’t further divide an int erface which is already quit e spe-
+ciYc. Remember that the more int erfaces you create, the more
+complex your code becomes. Keep thebalance.
+66 SOLID Principles / Interface Segregation Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 17 ---
+
+Dependency Inversion Principle
+High-level classes shouldn’t depend on lo w-level class-
+es. Both should depend on abstractions. Abstractions
+shouldn’t depend on details. Details should depend on
+abstractions.
+Usually when designing so ftware, you can make a distinction
+between two levels ofclasses.
+• Low-level classesimplement basic operations such as w orking
+with a disk, transferring data over a network, connecting toa
+database,etc.
+• High-level classescontain complex business logic that dire cts
+low-level classes to dosomething.
+Sometimes people design low-level classes Yrst and only then
+startworking on high-level ones. This is v ery common when
+you start developing a prototype on a new system, and you’re
+not even sure what’s possible at the higher le vel because
+low-level stuff isn’t yet implemented or clear. With such an
+approach business logic classes t end to become dependent on
+primitive low-levelclasses.
+The dependency inversion principle suggests changing the
+direction of thisdependency.
+67 SOLID Principles / Dependency Inversion Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 18 ---
+
+1.For starters, you need to describe interfaces for low-level oper-
+ations that high-le vel classes rely on, pref erably in business
+terms. For instanc e, business logic should call a method
+openReport(file) rather than a series o f methods
+openFile(x),readBytes(n),closeFile(x).These interfaces
+count as high-levelones.
+2.Nowyou can make high-level classes dependent on those
+interfaces, instead of on concrete low-level classes. This
+dependency will be much softer than the original one.
+3.Once low-level classes implement these int erfaces, they
+become dependent on the business logic le vel, reversing the
+direction of the originaldependency.
+The dependency inversion principle often goes along with the
+open/closed principle:you can extend low-level classes to use
+with different business logic classes without breaking e xisting
+classes.
+Example
+In this example, the high-le vel budget reporting class uses a
+low-level database class f or reading and persisting its data.
+This means that any change in the lo w-level class, such as
+when a newversion of the database server gets released, may
+affect the high-level class, which isn’t supposed t o care about
+the data storagedetails.
+68 SOLID Principles / Dependency Inversion Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 19 ---
+
+BEFORE: a high-level class depends on a lo w-levelclass.
+You can Yx this problem b y creating a high-le vel interface
+that describes read/writ e operations and making the repor t-
+ing class use that int erface instead of the low-level class.
+Then you can change or extend the original low-level class to
+implement the new read/write interface declared by the busi-
+nesslogic.
+AFTER: low-level classes depend on a high-lev elabstraction.
+69 SOLID Principles / Dependency Inversion Principle #192534
+elle4139@gmail.com (#192534)
+
+--- Page 20 ---
+
+As a result, the direction of the original dependenc y has been
+inverted: low-level classes are no w dependent on high-le vel
+abstractions.
+70 SOLID Principles / Dependency Inversion Principle #192534
+elle4139@gmail.com (#192534)
+

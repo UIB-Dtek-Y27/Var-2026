@@ -1,0 +1,243 @@
+Transcript for: eksamen-inf112-23h_inspera.pdf
+
+Source PDF: eksamen-inf112-23h_inspera.pdf
+
+
+
+--- Page 1 ---
+
+Introduksjon
+Oppgave Tittel Poeng Oppgavetype
+Generell info om eksamen i INF112 Informasjon eller
+ressurser
+Oppgåver
+Oppgave Tittel Poeng Oppgavetype
+1 1 – Metodikk (a/b – totalt 15% + bonus) 18 Langsvar
+2 2 – Solide prinsipper (15%) 15 Langsvar
+3 3 – Design og designmønstre (a/b – total
+15% + bonus) 17 Langsvar
+4 4 – Meta-eksamen (a/b/c – totalt 15%) 15 Langsvar
+Ikke-oppgaver
+Oppgave Tittel Poeng Oppgavetype
+5 – Poengsum prosjekt (40%) 40 Muntlig
+6 6 – Kodevedlegg (0%) 0 Programmering
+
+5
+
+--- Page 2 ---
+
+ Generell info om eksamen i INF112
+Oppgaver: Oppgavesettet består av 4 oppgaver («Oppgave» 5 og 6 skal ikke besvares).
+
+Besvare deloppgaver:  Noen av oppgavene har deloppgaver. Pass på at du svarer på alle, og  at det er lett å
+skille de ulike delene av besvarelsen fra hverandre (du står fritt til å bruke feks overskrifter og punktlister om
+du ønsker det). I oppgave 3b skal du svare på kun ett av tre alternativer.
+
+Bonusoppgaver: Noen oppgaver har en ekstra deloppgave (merket z). Du kan gjøre disse hvis du har god
+tid, eller (i praksis) i stedet for andre deloppgaver.
+
+Vekting: Alle fire oppgavene teller 15% hver, og utgjør til sammen 60%, og prosjektet teller de siste 40% av
+karaktergrunnlaget. Bonusdeloppgavene gir 2 eller 3%, men du kan likevel ikke få mer enn totalt 60% på
+eksamen.
+
+Hjelpemidler: Alle skrevne og trykte hjelpemidler er tillatt.
+
+Jukselapp: Blant vedleggene nederst på skjermen finner du følgende fra pensum: pensumoversikten, referat
+fra gruppepresentasjonene, og Kanban/Scrum boken. Merk: At disse ressursene er vedlagt betyr ikke
+nødvendigvis at de vil være nyttige for å løse oppgavene. De følger med så du skal slippe å skrive de ut og ta
+dem med selv.
+
+OBS! Selv om du har tilgang på hjelpemidler/vedlegg, så betyr ikke det at du kan kopiere svarene derfra –
+vanlige regler for sitering, plagiat og fusk gjelder fortsatt, og du må skrive hele besvarelsen selv.
+
+Tid: Bruk gjerne tid i begynnelsen på å få oversikt over alle oppgavene. Selv om oppgavene er vektet likt,
+vil noen ta lengre tid enn andre. Pass på å ikke svare for mye på noen oppgaver slik at du slipper opp for tid
+før du er ferdig! Du har kun tre timer til rådighet.
+
+Spørsmål: Jeg (Anya) stikker innom etter 1–2 timer for å svare på spørsmål om noe er uklart. Les alle
+oppgavene på forhånd så du vet om du trenger å spørre om noe. Om det er krise kan også eksamensvaktene
+ta kontakt per telefon.
+Uklarheter: Oppfatter du oppgaven som uklar, oppgi hvilke antagelser du gjør i besvarelsen.
+
+Programkode: Hvis du føler behov for å legge ved kode, så finner du en Java-editor i «Oppgave» 6. Du kan
+klippe/lime derfra til den vanlige tekstboksen, eller evt. tydelig henvise til kodevedlegg i «Oppgave» 6.
+
+Lykke til!
+
+Anya Bagge
+
+--- Page 3 ---
+
+1 1 – Metodikk (a/b – totalt 15% + bonus)
+
+For semesterprosjektet kunne dere selv velge utviklingsmetodikk (Scrum, Kanban, Lean, XP, osv) og
+teknikker/praksis (f.eks. parprogrammering, continuous integration, TDD/BDD e.l.) dere ville bruke i
+prosjektarbeidet.
+
+a) [5%]
+
+Forklar kort hva gruppen din ble enige om å gjøre, og hva dere gjorde i praksis.
+
+(F.eks. «Vi planla å bruke Kanban, men det var vanskelig å følge opp tavlen, så utover i semesteret endte vi
+opp med å gjøre …». Ca 1 avsnitt.)
+
+b) [10%]
+
+Velg enten Scrum eller Kanban og sammenlikn metodikken med hva gruppen gjorde. Hvilke av metodikkens
+retningslinjer fulgte dere / hva gjorde dere annerledes? Hva endte dere opp med å tilpasse eller evt.
+sløyfe?
+
+(Ca. 1–3 avsnitt.)
+
+z) [bonus, +3%]
+
+Du blir ansatt som INF112 gruppeleder våren 2024. Basert på erfaringene dine og det du har lært, hva slags
+råd vil du gi 2024-studentene om valg og tilpasning av metodikk? Skriv 1–3 avsnitt der du forklarer og
+anbefaler en passende metodikk for en INF112-gruppe. (Svaret skal være skrevet slik at det vil være
+forståelig for en fersk INF112-student.)
+
+Skriv ditt svar her
+
+Maks poeng: 18
+
+--- Page 4 ---
+
+2 2 – Solide prinsipper (15%)
+SOLID-designprinsippene er populære innen objekt-orientert utvikling og smidig utviklingsmetodikk – og var
+også noe vi nevnte at dere burde benytte i arbeidet med semesteroppgaven. («Koden bør følge vanlige,
+moderne objektorienterte designprinsipper (SOLID, etc.)»)
+
+Med utgangspunkt i semesteroppgaven, gi et motiverende eksempel på bruk av SOLID. Tenk gjennom
+designavgjørelsene du og teamet ditt tok mens dere jobbet med semesteroppgaven, og finn en situasjon der
+dere enten benyttet SOLID-prinsippene, eller hvor du i ettertid tenker at dere burde ha gjort det. Forklar
+designvalget dere tok, hvilke(t) SOLID-prinsipp du mener er relevant, og hvorfor/hvordan det fører til
+bedre kodekvalitet (e.g., mer forståelig, fleksibel eller vedlikeholdbar kode).
+
+Skriv ditt svar her
+
+Maks poeng: 15
+
+--- Page 5 ---
+
+3 3 – Design og designmønstre (a/b – total 15% + bonus)
+Semesteroppgaven i år hadde noen konkrete krav til funksjonalitet og design, blant annet:
+
+Krav 1) «Det skal være mulig å opprette enheter i spillet ved hjelp av objektfabrikker – f.eks. å tegne
+kart basert på en streng (# er vegg, | er en søyle, o er et hull i bakken, e.l.).», og «Fabrikkene skal ikke
+være hardkodet (f.eks. med et stort switch-statement) – dvs. man kan legge til flere ting uten å endre
+koden til selve fabrikken (→ ha mulighet til å registrere nye type objekter)»
+Krav 2) «Det skal være mulig å ha ting i spillet som endrer oppførselen til spiller (eller andre) – f.eks.
+power-ups (spis en sopp, bli kjempestor / plukk en blomst, skyt flammer) eller klær (putt på støvler, gå
+lange skritt / ta på kappe, bli usynlig). Det bør være mulig å legge til nye power-ups uten å endre koden
+til spilleren (eller andre som blir påvirket).»
+
+a) [5%]  I begge tilfeller er det snakk om å kunne «legge til [ting] uten å endre [visse deler av] koden …». Hva
+tror du er vitsen med å kreve det? Kan det føre til bedre eller dårligere design og kodekvalitet? Forklar.
+
+b) [10%]
+
+Velg Krav 1) eller 2). Tenk gjennom hva du og teamet ditt gjorde i prosjektet deres, og svar på ett av
+alternativene:
+
+Hvis du mener dere fant en god løsning: Forklar designet dere kom frem til. Hvis dere prøvde flere
+løsninger først, forklar tankegangen og hvorfor dere endte opp med løsningen dere valgte.
+eller
+
+Hvis du mener løsningen dere fant kan forbedres: Forklar designet dere kom frem til, og forklar
+løsningen som du mener vil være bedre. Forklar tankegangen din og hvorfor du mener din alternative
+løsning er bedre.
+eller
+
+Hvis dere ikke klarte eller ikke rakk å oppfylle kravet, eller du ikke husker hva dere gjorde: Tenk ut en
+løsning på problemet, og forklar designet og tankegangen din. (Hvis du ikke er helt fornøyd med
+løsningen du kommer på, forklar gjerne hva du mener er galt med den, selv om du ikke kommer på noe
+bedre akkurat nå.)
+
+(Med «forklar designet» mener vi: gi en beskrivelse som en annen programmør (f.eks. en medstudent) kan
+bruke for å implentere en løsning. F.eks., ved hjelp av (klasse)diagrammer og/eller litt kode.)
+
+z) [bonus, +2%]
+
+Både Krav 1) eller 2) kan løses ved hjelp av standard designmønstre (design patterns). Hvilke designmønstre
+er relevante? (Oppgi navn eller gi en kort beskrivelse.)
+
+Skriv ditt svar her
+
+Maks poeng: 17
+
+--- Page 6 ---
+
+4 4 – Meta-eksamen (a/b/c – totalt 15%)
+I vår ble det innført nytt system for digital eksamen for elever i videregående skole (se vedlegg 1, under). Det
+gikk ikke helt etter planen (se vedlegg 2, under). Du har derfor fått i oppdrag å designe et helt nytt digitalt
+eksamenssystem, slik at Utdanningsdirektoratet kan være trygg på at neste vårs eksamen går etter planen.
+
+a) [5%]
+
+Hva er de mest aktuelle rollene for et slikt eksamenssystem? For de tre viktigste (eller tre av de viktigste)
+rollene, gi en kort beskrivelse av en typisk person i den rollen (en «persona»).
+
+b) [5%]
+
+Lag en brukerhistorie for hver av de tre viktigste rollene. Gi et eksempel på et akseptansekriterium for hver av
+brukerhistoriene.
+
+c) [5%]
+
+Nevn fem ting som du mener bør inngå i minimum viable product (MVP) for eksamenssystemet.
+
+Skriv ditt svar her
+
+Vedlegg 1 (fra Digitaliseringsrådets nettside):
+
+Digitaliseringsrådets anbefalingsbrev
+Utdanningsdirektoratet: Prosjekt Ny digital løsning
+for gjennomføring eksamen og prøver
+
+En av de mest samfunnskritiske oppgavene til Utdanningsdirektoratet er å utarbeide og gjennomføre
+eksamener og prøver. Utdanningsdirektoratet utvikler en ny digital løsning for eksamens- og
+prøvegjennomføringen.
+
+Departement: Kunnskapsdepartementet
+
+Årstall: 2018
+
+Systemene som understøtter tjenestene for eksamen og prøver er avgjørende for at Utdanningsdirektoratet
+skal kunne utføre denne oppgaven. Årlig gjennomføres over 300 000 skriftlige eksamener i systemene og
+over 650 000 prøver.
+
+Systemene for administrasjon av eksamen og prøver er fornyet gjennom PAS2-prosjektet i perioden 2015-
+2017, mens systemene for prøve- og eksamensgjennomføring er ca. 10 år gamle og til dels utdaterte.
+
+--- Page 7 ---
+
+Sammen med kravet om universell utforming av alle IKT-løsninger i grunnskole og videregående skole som
+skal gjelde fra 1. januar 2021, er det behov for å utvikle en ny løsning for eksamens- og
+prøvegjennomføringen.
+
+Vedlegg 2 (fra NRKs nettavis):
+
+Vedlegg 3 (helt urelatert til annet enn oppgavetittelen, men kanskje nyttig å titte på i pausen... Fra UKEd
+Magazine):
+
+--- Page 8 ---
+
+Maks poeng: 15
+
+--- Page 9 ---
+
+5 5 – Poengsum prosjekt (40%)
+Dette punktet skal ikke besvares. Her vil poengsummen fra prosjektarbeidet dukke opp og telles med i
+totalkarakteren.
+Maks poeng: 40
+
+--- Page 10 ---
+
+6 6 – Kodevedlegg (0%)
+Her kan du skrive inn Java-kode om du har behov for det. Husk å klippe/lime inn i riktig oppgavesvar eller
+henvise tydelig til vedlegget her.
+
+Skriv ditt svar her
+
+Maks poeng: 0
+
